@@ -25,7 +25,7 @@ public class SpringConfig {
     @Autowired
     WordRepository wordRepository;
 
-    @Scheduled(fixedDelay = 2000)
+    @Scheduled(fixedDelay = 1000*60)
     public void scheduleFixedDelayTask() {
         List<Word> list = wordRepository.findAll();
         for (Word w : list) {
