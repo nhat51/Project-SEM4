@@ -1,7 +1,7 @@
-package com.example.englishappbackend.repo;
+package com.example.englishappbackend.entity.entity.entity.entity.repo;
 
 
-import com.example.englishappbackend.entity.Word;
+import com.example.englishappbackend.entity.entity.entity.entity.entity.Word;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

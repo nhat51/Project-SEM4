@@ -1,11 +1,10 @@
-package com.example.englishappbackend.entity;
+package com.example.englishappbackend.entity.entity.entity.entity.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -15,7 +14,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "words")
-public class Word extends BaseEntity{
+public class Word extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

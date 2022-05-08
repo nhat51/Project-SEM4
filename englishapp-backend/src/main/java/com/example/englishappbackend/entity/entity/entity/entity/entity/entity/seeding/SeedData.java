@@ -1,15 +1,14 @@
-package com.example.englishappbackend.seeding;
+package com.example.englishappbackend.entity.entity.entity.entity.entity.entity.seeding;
 
-import com.example.englishappbackend.entity.User;
-import com.example.englishappbackend.entity.Word;
-import com.example.englishappbackend.repo.UserRepository;
-import com.example.englishappbackend.repo.WordRepository;
+import com.example.englishappbackend.entity.entity.entity.entity.entity.entity.entity.User;
+import com.example.englishappbackend.entity.entity.entity.entity.entity.entity.entity.Word;
+import com.example.englishappbackend.entity.entity.entity.entity.entity.entity.repo.UserRepository;
+import com.example.englishappbackend.entity.entity.entity.entity.entity.entity.repo.WordRepository;
 import com.github.javafaker.Faker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
