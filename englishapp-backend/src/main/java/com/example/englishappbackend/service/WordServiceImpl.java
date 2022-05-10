@@ -1,16 +1,24 @@
 package com.example.englishappbackend.service;
 
+import com.example.englishappbackend.entity.User;
 import com.example.englishappbackend.entity.Word;
+import com.example.englishappbackend.repo.UserRepository;
 import com.example.englishappbackend.repo.WordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class WordServiceImpl implements WordService{
 
     @Autowired
     WordRepository wordRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
     @Override
     public List<Word> getAll() {
@@ -19,7 +27,12 @@ public class WordServiceImpl implements WordService{
 
     @Override
     public List<Word> getWordsByUser(int userId) {
-        return wordRepository.findWordsByUser_id(userId);
+       Optional<User> user = userRepository.findById(userId);
+       if (user.isPresent()){
+           List<Word> list = new ArrayList<>(user.get().getWords());
+           return list;
+       }
+        return null;
     }
 
     @Override
@@ -41,6 +54,8 @@ public class WordServiceImpl implements WordService{
             wordExist.setPart_of_speech(word.getPart_of_speech());
             wordExist.setPronounce(word.getPronounce());
             wordExist.setContent(word.getContent());
+            wordExist.setExample(word.getExample());
+            wordExist.setTranslated_example(word.getTranslated_example());
         }
         return wordRepository.save(wordExist);
     }

@@ -23,14 +23,14 @@ public class Word extends BaseEntity{
     private String content;
     private String pronounce;
     private String part_of_speech;
-    @JoinColumn(name = "user_id")
-    private int user_id;
+    private String example;
+    private String translated_example;
     private LocalDate last_remind;
     private int success_time;
     private int category_type;
 
     @ManyToOne
-    @JoinColumn(name = "user_id",updatable = false,insertable = false)
+    @JoinColumn(name = "user_id")
     @JsonIgnore
     User user;
 

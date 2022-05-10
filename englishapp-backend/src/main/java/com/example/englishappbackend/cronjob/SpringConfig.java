@@ -1,7 +1,11 @@
 package com.example.englishappbackend.cronjob;
 
 import com.example.englishappbackend.entity.Word;
+import com.example.englishappbackend.fcm.FcmService;
+import com.example.englishappbackend.fcm.NotifyBody;
+import com.example.englishappbackend.fcm.PnsRequest;
 import com.example.englishappbackend.repo.WordRepository;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -25,25 +29,30 @@ public class SpringConfig {
     @Autowired
     WordRepository wordRepository;
 
-    @Scheduled(fixedDelay = 1000*60)
+    @Autowired
+    FcmService fcmService;
+
+    @Scheduled(fixedDelay = 1000*10)
     public void scheduleFixedDelayTask() {
         List<Word> list = wordRepository.findAll();
         for (Word w : list) {
-            /*if (getDifferentDay(new Date(),w.getLast_remind()) == 1){
-                System.out.println(w.getName());
-            }*/
+            /*
+            * Lấy ra ngày hiện tại và ngày cuối cùng nhắc nhở để tính
+            * */
             System.out.println(w.getLast_remind());
             System.out.println(Calendar.getInstance().getTime());
             System.out.println(DAYS.between(w.getLast_remind(), LocalDate.now()));
-            if (DAYS.between(w.getLast_remind(), LocalDate.now()) == 7){
+
+
+            if (DAYS.between(w.getLast_remind(), LocalDate.now()) == 2){
                 System.out.println("Gửi nhắc nhở");
+                PnsRequest messageData = new PnsRequest();
+                messageData.setTitle("Từ mới cho hôm nay nè");
+                messageData.setFcmToken("dUnE2PHoR8CA3jl8jbPwWG:APA91bELVKOMHVu0A-J2HIh9SFL3T9gLqV9QvnX9IEIhPlFC-LrFWPLP0cQ0tjiASwc4VTfvzuB_IvGLhSLVz8L7HueHg6R38bNKYGFEOL-CDqqRKOzRkORtiFHFzCne3R20ImnuXih7");
+                messageData.setContent(convertWordToMessage(w));
+                fcmService.pushNotification(messageData);
             }
-//            System.out.println(Duration.between(w.getLast_remind(), LocalDate.now()).toDays());
-//            System.out.println(Duration.between(w.getLast_remind(), LocalDate.now()).toHours());
-            // System.out.println(Calendar.getInstance().getTime() - w.getLast_remind());
         }
-
-
     }
 
     public static void main(String[] args) throws ParseException {
@@ -64,5 +73,13 @@ public class SpringConfig {
         TimeUnit time = TimeUnit.DAYS;
         long diffrence = time.convert(diff, TimeUnit.MILLISECONDS);
         return diff;
+    }
+
+    public NotifyBody convertWordToMessage(Word word){
+        NotifyBody notifyBody = new NotifyBody();
+        notifyBody.setId(word.getId());
+        notifyBody.setName(word.getName());
+        notifyBody.setMeaning(word.getContent());
+        return notifyBody;
     }
 }

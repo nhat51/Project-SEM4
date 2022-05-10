@@ -23,7 +23,6 @@ public class SeedData implements CommandLineRunner {
     @Autowired
     UserRepository userRepository;
 
-    private final List<User> userList = new ArrayList<>();
 
     private final List<String> listPronounce = Arrays.asList(
             "Verb",
@@ -47,20 +46,20 @@ public class SeedData implements CommandLineRunner {
     public void seedUser() {
         if (userRepository.count() == 0) {
             Faker faker = new Faker();
-            for (int i = 1; i < 6; i++) {
-                userList.add(userRepository.save(
-                                new User(1
-                                        , faker.name().username()
-                                        , "123456"
-                                        , faker.name().fullName()
-                                        , faker.zelda().character() + "@gmail.com"
-                                        , faker.phoneNumber().phoneNumber()
-                                        , null
-                                        , 1
-                                        , 1
-                                        , null)
-                        )
+            for (int i = 1; i < 11; i++) {
+                userRepository.save(
+                        new User(i
+                                , faker.name().username()
+                                , "123456"
+                                , faker.name().fullName()
+                                , faker.zelda().character() + "@gmail.com"
+                                , faker.phoneNumber().phoneNumber()
+                                , null
+                                , 1
+                                , 1
+                                , null)
                 );
+
             }
         }
     }
@@ -69,21 +68,27 @@ public class SeedData implements CommandLineRunner {
         if (wordRepository.count() == 0) {
             Faker faker = new Faker();
             Random rand = new Random();
-            for (User user : userList) {
+            List<User> userList = userRepository.findAll();
+            for (int j = 0; j < userList.size(); j++){
+                User user = userList.get(j);
+                Set<Word> wordSet = new HashSet<>();
                 for (int i = 1; i < 6; i++) {
-                    wordRepository.save(new Word(i
-                            , faker.harryPotter().location()
-                            , faker.harryPotter().quote()
-                            , "prounce " + i
-                            , listPronounce.get(rand.nextInt(listPronounce.size()))
-                            , 1
-                            , yesterday()
-                            , 1
-                            , 1
-                            , user
-                    ));
+                    Word w = new Word();
+                    w.setName(faker.harryPotter().location());
+                    w.setContent(faker.harryPotter().quote());
+                    w.setPronounce("pronounce " + i);
+                    w.setPart_of_speech(listPronounce.get(rand.nextInt(listPronounce.size())));
+                    w.setExample(faker.shakespeare().asYouLikeItQuote());
+                    w.setTranslated_example(faker.shakespeare().asYouLikeItQuote());
+                    w.setLast_remind(yesterday());
+                    w.setCategory_type(1);
+                    w.setSuccess_time(1);
+                    w.setUser(user);
+                    wordSet.add(w);
+                    wordRepository.save(w);
                 }
-
+                user.setWords(wordSet);
+                userRepository.save(user);
             }
         }
     }

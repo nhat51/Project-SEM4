@@ -9,7 +9,8 @@ import lombok.ToString;
 @ToString
 public class PnsRequest {
     private String fcmToken;
-    private Object content;
+    private NotifyBody content;
     private String title;
+
 
 }

@@ -5,6 +5,8 @@ import com.google.firebase.messaging.FirebaseMessagingException;
 import com.google.firebase.messaging.Message;
 import com.google.firebase.messaging.Notification;
 import com.google.gson.Gson;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 
@@ -18,9 +20,10 @@ public class FcmService {
     }
 
     public String pushNotification(PnsRequest pnsRequest){
-        String content = new Gson().toJson(pnsRequest.getContent());
+        String content = pnsRequest.getContent().getMessageContent();
         Notification notification = Notification
                 .builder()
+                .setImage(pnsRequest.getContent().getImageUrl())
                 .setTitle(pnsRequest.getTitle())
                 .setBody(content)
                 .build();
