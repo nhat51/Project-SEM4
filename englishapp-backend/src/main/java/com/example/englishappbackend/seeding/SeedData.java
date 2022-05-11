@@ -2,6 +2,7 @@ package com.example.englishappbackend.seeding;
 
 import com.example.englishappbackend.entity.User;
 import com.example.englishappbackend.entity.Word;
+import com.example.englishappbackend.enums.WordCategory;
 import com.example.englishappbackend.repo.UserRepository;
 import com.example.englishappbackend.repo.WordRepository;
 import com.github.javafaker.Faker;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -46,6 +46,7 @@ public class SeedData implements CommandLineRunner {
     public void seedUser() {
         if (userRepository.count() == 0) {
             Faker faker = new Faker();
+            Random rand = new Random();
             for (int i = 1; i < 11; i++) {
                 userRepository.save(
                         new User(i
@@ -57,7 +58,9 @@ public class SeedData implements CommandLineRunner {
                                 , null
                                 , 1
                                 , 1
-                                , null)
+                                , rand.nextInt(24)
+                                , rand.nextInt(24)
+                                ,null )
                 );
 
             }
@@ -81,7 +84,7 @@ public class SeedData implements CommandLineRunner {
                     w.setExample(faker.shakespeare().asYouLikeItQuote());
                     w.setTranslated_example(faker.shakespeare().asYouLikeItQuote());
                     w.setLast_remind(yesterday());
-                    w.setCategory_type(1);
+                    w.setCategory_type(WordCategory.ONCE_EVERY_THREE_DAY);
                     w.setSuccess_time(1);
                     w.setUser(user);
                     wordSet.add(w);

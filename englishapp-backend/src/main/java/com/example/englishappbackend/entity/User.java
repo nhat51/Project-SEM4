@@ -1,5 +1,6 @@
 package com.example.englishappbackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,15 +19,25 @@ public class User extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
-    private String password_hash;
-    private String full_name;
+    private String passwordHash;
+    private String fullName;
     private String email;
     private String phone;
-    private String user_device_token;
+    private String userDeviceToken;
     private int role;
     private int status;
+    private int startRemindTime;
+    private int endRemindTime;
 
     @OneToMany(mappedBy = "user")
+    @JsonManagedReference
     Set<Word> words;
 
+    @OneToMany(mappedBy = "user")
+    @JsonManagedReference
+    Set<CompetitionUser> competitionUsers;
+
+    @OneToMany(mappedBy = "user")
+    @JsonManagedReference
+    Set<Transaction> transactions;
 }

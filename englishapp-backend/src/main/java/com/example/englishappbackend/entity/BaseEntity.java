@@ -4,9 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -14,6 +19,12 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @MappedSuperclass
 public class BaseEntity {
-    private LocalDate created_at;
-    private LocalDate updated_at;
+    @CreatedDate
+    private LocalDateTime createdAt;
+    @LastModifiedDate
+    private LocalDateTime updatedAt;
+    private LocalDateTime deletedAt;
+    private User createdBy; // khoá ngoại từ bảng user
+    private User updatedBy;
+    private User deletedBy;
 }

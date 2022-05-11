@@ -11,16 +11,21 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "transactions")
-public class Transaction extends BaseEntity{
+@Entity(name = "competitions_user")
+public class CompetitionUser extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "user_id")
     private int userId;
-    private double amountOfMoney;
+    @Column(name = "competition_id")
+    private int competitionId;
 
     @ManyToOne
     @JoinColumn(name = "user_id",insertable = false,updatable = false)
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "competition_id",insertable = false,updatable = false)
+    private Competition competition;
 }

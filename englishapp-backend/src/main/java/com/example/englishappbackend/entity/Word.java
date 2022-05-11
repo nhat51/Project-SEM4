@@ -1,5 +1,6 @@
 package com.example.englishappbackend.entity;
 
+import com.example.englishappbackend.enums.WordCategory;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,12 +23,13 @@ public class Word extends BaseEntity{
     private String name;
     private String content;
     private String pronounce;
-    private String part_of_speech;
+    private String partOfSpeech;
     private String example;
-    private String translated_example;
-    private LocalDate last_remind;
-    private int success_time;
-    private int category_type;
+    private String translatedExample;
+    private LocalDate lastRemind;
+    private int successTime;
+    private WordCategory categoryType;
+    private boolean isRemember;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
