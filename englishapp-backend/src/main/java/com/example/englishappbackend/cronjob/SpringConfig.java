@@ -8,6 +8,7 @@ import com.example.englishappbackend.fcm.NotifyBody;
 import com.example.englishappbackend.fcm.PnsRequest;
 import com.example.englishappbackend.repo.UserRepository;
 import com.example.englishappbackend.repo.WordRepository;
+import com.example.englishappbackend.util.WordSuccessTime;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -39,48 +40,77 @@ public class SpringConfig {
     public void scheduleFixedDelayTask() {
         List<Word> list = wordRepository.findAll();
         for (Word w : list) {
-            /*
-            * Lấy ra ngày hiện tại và ngày cuối cùng nhắc nhở để tính
-            *
-            System.out.println(w.getLast_remind());
-            System.out.println(Calendar.getInstance().getTime());
-            System.out.println(DAYS.between(w.getLast_remind(), LocalDate.now()));
-            */
             User user = userRepository.getById(w.getUser().getId());
             Date date = new Date();   // given date
             Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
             calendar.setTime(date);
-            if(calendar.get(Calendar.HOUR_OF_DAY) >= user.getStart_remind_time()
-                    && calendar.get(Calendar.HOUR_OF_DAY) <= user.getEnd_remind_time()
+            if(calendar.get(Calendar.HOUR_OF_DAY) >= user.getStartRemindTime()
+                    && calendar.get(Calendar.HOUR_OF_DAY) <= user.getEndRemindTime()
             ){
-
+                wordControl(w,user.getUserDeviceToken());
             }
-
-            /*if (DAYS.between(w.getLast_remind(), LocalDate.now()) == WordCategory.ONCE_A_DAY.){
-                System.out.println("Gửi nhắc nhở");
-                PnsRequest messageData = new PnsRequest();
-                messageData.setTitle("Từ mới cho hôm nay nè");
-                messageData.setFcmToken(user.getUser_device_token());
-                messageData.setContent(convertWordToMessage(w));
-//                fcmService.pushNotification(messageData);
-            }*/
         }
     }
 
     /*
-    * Gửi thông báo cho người dùng thông qua các category_type của từ
+    *Gửi notify và chuyển word category cho từng từ
     * */
-    public void sendNotify(Word word){
+    public void wordControl(Word word,String deviceToken){
+        if (DAYS.between(word.getLastRemind(), LocalDate.now()) == WordCategory.ONCE_A_DAY.getValue()){
+            pushNotify(word, deviceToken);
+            if (word.getSuccessTime() == WordSuccessTime.THIRD_TIME){
+                word.setSuccessTime(WordSuccessTime.ZERO);
+                word.setCategoryType(WordCategory.ONCE_EVERY_THREE_DAY);
+                wordRepository.save(word);
+            }
+        }
+        if (DAYS.between(word.getLastRemind(), LocalDate.now()) == WordCategory.ONCE_EVERY_THREE_DAY.getValue()){
+            pushNotify(word, deviceToken);
+            if (word.getSuccessTime() == WordSuccessTime.THIRD_TIME){
+                word.setSuccessTime(WordSuccessTime.ZERO);
+                word.setCategoryType(WordCategory.ONCE_EVERY_SEVEN_DAY);
+                wordRepository.save(word);
+            }
+        }
+        if (DAYS.between(word.getLastRemind(), LocalDate.now()) == WordCategory.ONCE_EVERY_SEVEN_DAY.getValue()){
+            pushNotify(word, deviceToken);
+            if (word.getSuccessTime() == WordSuccessTime.THIRD_TIME){
+                word.setSuccessTime(WordSuccessTime.ZERO);
+                word.setCategoryType(WordCategory.ONCE_EVERY_THIRTY_DAY);
+                wordRepository.save(word);
+            }
+        }
+        if (DAYS.between(word.getLastRemind(), LocalDate.now()) == WordCategory.ONCE_EVERY_THIRTY_DAY.getValue()){
+            pushNotify(word, deviceToken);
+            if (word.getSuccessTime() == WordSuccessTime.THIRD_TIME){
+                /*
+                 * Đoạn này gửi để cho người dùng confirm xem đã thuộc hay chưa
+                 * Nếu người dùng chọn chưa thuộc thì gửi đặt lại success time và category type
+                 * Rồi save từ
+                 * */
+                word.setSuccessTime(WordSuccessTime.ZERO);
+                word.setCategoryType(WordCategory.ONCE_EVERY_SEVEN_DAY);
 
+                wordRepository.save(word);
+            }
+        }
     }
 
-    public long getDifferentDay(Date d1, Date d2){
-        long diff = d1.getTime() - d2.getTime();
-
-        TimeUnit time = TimeUnit.DAYS;
-        long diffrence = time.convert(diff, TimeUnit.MILLISECONDS);
-        return diff;
+    /*
+    * Gửi notify lên firebase
+    * */
+    private void pushNotify(Word word, String deviceToken) {
+        if (word.getSuccessTime() < WordSuccessTime.THIRD_TIME){
+            PnsRequest messageData = new PnsRequest();
+            messageData.setTitle("Từ mới cho hôm nay nè");
+            messageData.setFcmToken(deviceToken);
+            messageData.setContent(convertWordToMessage(word));
+            fcmService.pushNotification(messageData);
+            word.setSuccessTime(word.getSuccessTime() + 1);
+            wordRepository.save(word);
+        }
     }
+
 
     public NotifyBody convertWordToMessage(Word word){
         NotifyBody notifyBody = new NotifyBody();

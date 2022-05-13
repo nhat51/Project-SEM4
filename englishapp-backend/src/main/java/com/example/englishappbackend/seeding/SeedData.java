@@ -60,7 +60,9 @@ public class SeedData implements CommandLineRunner {
                                 , 1
                                 , rand.nextInt(24)
                                 , rand.nextInt(24)
-                                ,null )
+                                ,null
+                                ,null
+                                , null)
                 );
 
             }
@@ -80,12 +82,12 @@ public class SeedData implements CommandLineRunner {
                     w.setName(faker.harryPotter().location());
                     w.setContent(faker.harryPotter().quote());
                     w.setPronounce("pronounce " + i);
-                    w.setPart_of_speech(listPronounce.get(rand.nextInt(listPronounce.size())));
+                    w.setPartOfSpeech(listPronounce.get(rand.nextInt(listPronounce.size())));
                     w.setExample(faker.shakespeare().asYouLikeItQuote());
-                    w.setTranslated_example(faker.shakespeare().asYouLikeItQuote());
-                    w.setLast_remind(yesterday());
-                    w.setCategory_type(WordCategory.ONCE_EVERY_THREE_DAY);
-                    w.setSuccess_time(1);
+                    w.setTranslatedExample(faker.shakespeare().asYouLikeItQuote());
+                    w.setLastRemind(yesterday());
+                    w.setCategoryType(WordCategory.ONCE_EVERY_THREE_DAY);
+                    w.setSuccessTime(1);
                     w.setUser(user);
                     wordSet.add(w);
                     wordRepository.save(w);

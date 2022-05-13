@@ -50,12 +50,12 @@ public class WordServiceImpl implements WordService{
         Word wordExist = wordRepository.getById(wordId);
         if (wordExist != null){
             wordExist.setName(word.getName());
-            wordExist.setCategory_type(word.getCategory_type());
-            wordExist.setPart_of_speech(word.getPart_of_speech());
+            wordExist.setCategoryType(word.getCategoryType());
+            wordExist.setPartOfSpeech(word.getPartOfSpeech());
             wordExist.setPronounce(word.getPronounce());
             wordExist.setContent(word.getContent());
             wordExist.setExample(word.getExample());
-            wordExist.setTranslated_example(word.getTranslated_example());
+            wordExist.setTranslatedExample(word.getTranslatedExample());
         }
         return wordRepository.save(wordExist);
     }

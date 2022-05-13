@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService{
         if (userExist.isPresent()){
             userExist.get().setEmail(user.getEmail());
             userExist.get().setPhone(user.getPhone());
-            userExist.get().setFull_name(user.getFull_name());
+            userExist.get().setFullName(user.getFullName());
             return userRepository.save(userExist.get());
         }
         return null;
@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService{
     public User getToken(int user_id, String token) {
         Optional<User> user = userRepository.findById(user_id);
         if (user.isPresent()){
-            user.get().setUser_device_token(token);
+            user.get().setUserDeviceToken(token);
             return userRepository.save(user.get());
         }
         return null;
