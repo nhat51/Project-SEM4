@@ -24,5 +24,7 @@ public class BaseEntity {
     @LastModifiedDate
     private LocalDateTime updatedAt;
     private LocalDateTime deletedAt;
-
+    private String createdBy; // khoá ngoại từ bảng user
+    private String updatedBy;
+    private String deletedBy;
 }

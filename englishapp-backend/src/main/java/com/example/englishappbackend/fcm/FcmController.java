@@ -1,10 +1,9 @@
 package com.example.englishappbackend.fcm;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/notification")
@@ -14,7 +13,13 @@ public class FcmController {
     FcmService service;
 
     @RequestMapping(method = RequestMethod.POST,path = "/send")
-    public String sendSampleNotification(@RequestBody PnsRequest pnsRequest){
-        return service.pushNotification(pnsRequest);
+    public ResponseEntity<?> sendSampleNotification(@RequestBody PnsRequest pnsRequest){
+        return new ResponseEntity<>(service.pushNotification(pnsRequest), HttpStatus.OK);
     }
+
+    @RequestMapping(method = RequestMethod.POST,path = "/get-token")
+    public ResponseEntity<?> getToken(@RequestParam(name = "user-id")int userId, @RequestParam(name = "token") String token){
+        return new ResponseEntity<>(service.getDeviceToken(userId,token), HttpStatus.OK);
+    }
+
 }

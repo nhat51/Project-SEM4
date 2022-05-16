@@ -47,7 +47,7 @@ public class SpringConfig {
             if(calendar.get(Calendar.HOUR_OF_DAY) >= user.getStartRemindTime()
                     && calendar.get(Calendar.HOUR_OF_DAY) <= user.getEndRemindTime()
             ){
-                wordControl(w,user.getUserDeviceToken());
+//                wordControl(w,user.getUserDeviceToken());
             }
         }
     }

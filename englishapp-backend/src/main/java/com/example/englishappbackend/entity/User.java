@@ -26,8 +26,8 @@ public class User extends BaseEntity{
     private String userDeviceToken;
     private int role;
     private int status;
-    private int startRemindTime;
-    private int endRemindTime;
+    private double startRemindTime;
+    private double endRemindTime;
 
     @OneToMany(mappedBy = "user")
     @JsonManagedReference
