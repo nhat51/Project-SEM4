@@ -1,5 +1,6 @@
-package com.example.englishappbackend.entity;
+package com.example.englishappbackend.entity.competetion;
 
+import com.example.englishappbackend.entity.BaseEntity;
 import com.example.englishappbackend.enums.QuestionType;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -16,7 +17,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "questions")
-public class Question extends BaseEntity{
+public class Question extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

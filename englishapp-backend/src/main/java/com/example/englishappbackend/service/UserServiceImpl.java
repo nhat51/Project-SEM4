@@ -12,8 +12,12 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService{
 
-    @Autowired
+    final
     UserRepository userRepository;
+
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public Page<User> getAllUser(int page, int size) {

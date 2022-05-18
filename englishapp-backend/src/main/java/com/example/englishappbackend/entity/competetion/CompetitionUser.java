@@ -1,5 +1,8 @@
-package com.example.englishappbackend.entity;
+package com.example.englishappbackend.entity.competetion;
 
+import com.example.englishappbackend.entity.BaseEntity;
+import com.example.englishappbackend.entity.User;
+import com.example.englishappbackend.entity.competetion.Competition;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +15,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "competitions_user")
-public class CompetitionUser extends BaseEntity{
+public class CompetitionUser extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

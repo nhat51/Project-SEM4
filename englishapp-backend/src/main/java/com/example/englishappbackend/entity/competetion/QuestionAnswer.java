@@ -1,5 +1,6 @@
-package com.example.englishappbackend.entity;
+package com.example.englishappbackend.entity.competetion;
 
+import com.example.englishappbackend.entity.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "question_answers")
-public class QuestionAnswer extends BaseEntity{
+public class QuestionAnswer extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

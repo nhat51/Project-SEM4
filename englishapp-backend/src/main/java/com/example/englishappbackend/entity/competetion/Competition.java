@@ -1,5 +1,6 @@
-package com.example.englishappbackend.entity;
+package com.example.englishappbackend.entity.competetion;
 
+import com.example.englishappbackend.entity.BaseEntity;
 import com.example.englishappbackend.enums.CompetitionStatus;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
@@ -8,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -17,7 +17,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "competitions")
-public class Competition extends BaseEntity{
+public class Competition extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

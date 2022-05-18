@@ -5,6 +5,8 @@ import com.example.englishappbackend.entity.Word;
 import com.example.englishappbackend.repo.UserRepository;
 import com.example.englishappbackend.repo.WordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,30 +16,36 @@ import java.util.Optional;
 @Service
 public class WordServiceImpl implements WordService{
 
-    @Autowired
+    final
     WordRepository wordRepository;
 
-    @Autowired
+    final
     UserRepository userRepository;
 
-    @Override
-    public List<Word> getAll() {
-        return wordRepository.findAll();
+    public WordServiceImpl(WordRepository wordRepository, UserRepository userRepository) {
+        this.wordRepository = wordRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
-    public List<Word> getWordsByUser(int userId) {
-       Optional<User> user = userRepository.findById(userId);
-       if (user.isPresent()){
-           List<Word> list = new ArrayList<>(user.get().getWords());
-           return list;
-       }
-        return null;
+    public Page<Word> getAll(int page, int size) {
+        PageRequest paging = PageRequest.of(page - 1,size);
+        return wordRepository.findAll(paging);
+    }
+
+    @Override
+    public Page<Word> getWordsByUser(int userId, int page, int size) {
+        PageRequest paging = PageRequest.of(page - 1,size);
+        return wordRepository.findWordsByUser_id(userId,paging);
     }
 
     @Override
     public Word getWordDetail(int wordId) {
-        return wordRepository.getById(wordId);
+        Optional<Word> word = wordRepository.findById(wordId);
+        if (word.isPresent()){
+            return word.get();
+        }
+        return null;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.example.englishappbackend.entity;
 
+import com.example.englishappbackend.entity.competetion.CompetitionUser;
+import com.example.englishappbackend.enums.UserStatus;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,7 +27,7 @@ public class User extends BaseEntity{
     private String phone;
     private String userDeviceToken;
     private int role;
-    private int status;
+    private UserStatus status;
     private double startRemindTime;
     private double endRemindTime;
 

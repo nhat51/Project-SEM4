@@ -44,11 +44,11 @@ public class SpringConfig {
             Date date = new Date();   // given date
             Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
             calendar.setTime(date);
-            if(calendar.get(Calendar.HOUR_OF_DAY) >= user.getStartRemindTime()
-                    && calendar.get(Calendar.HOUR_OF_DAY) <= user.getEndRemindTime()
-            ){
-//                wordControl(w,user.getUserDeviceToken());
-            }
+//            if(calendar.get(Calendar.HOUR_OF_DAY) >= user.getStartRemindTime()
+//                    && calendar.get(Calendar.HOUR_OF_DAY) <= user.getEndRemindTime()
+//            ){
+////                wordControl(w,user.getUserDeviceToken());
+//            }
         }
     }
 

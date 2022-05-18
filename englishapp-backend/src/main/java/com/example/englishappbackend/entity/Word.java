@@ -24,6 +24,7 @@ public class Word extends BaseEntity{
     private String content;
     private String pronounce;
     private String partOfSpeech;
+    @Column(columnDefinition = "TEXT")
     private String example;
     private String translatedExample;
     private LocalDate lastRemind;
