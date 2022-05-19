@@ -1,20 +1,17 @@
-package com.example.englishappbackend.service;
+package com.example.englishappbackend.service.word;
 
-import com.example.englishappbackend.entity.User;
 import com.example.englishappbackend.entity.Word;
 import com.example.englishappbackend.repo.UserRepository;
 import com.example.englishappbackend.repo.WordRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.englishappbackend.service.word.WordService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Service
-public class WordServiceImpl implements WordService{
+public class WordServiceImpl implements WordService {
 
     final
     WordRepository wordRepository;

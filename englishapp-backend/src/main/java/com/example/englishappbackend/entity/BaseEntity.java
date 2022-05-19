@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 public class BaseEntity {
     @CreatedDate
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
     @LastModifiedDate
     private LocalDateTime updatedAt;
     private LocalDateTime deletedAt;

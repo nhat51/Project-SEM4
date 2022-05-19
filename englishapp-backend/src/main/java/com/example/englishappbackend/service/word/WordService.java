@@ -1,4 +1,4 @@
-package com.example.englishappbackend.service;
+package com.example.englishappbackend.service.word;
 
 import com.example.englishappbackend.entity.Word;
 import org.springframework.data.domain.Page;

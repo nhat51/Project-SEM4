@@ -1,16 +1,15 @@
-package com.example.englishappbackend.service;
+package com.example.englishappbackend.service.user;
 
 import com.example.englishappbackend.entity.User;
 import com.example.englishappbackend.repo.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.englishappbackend.service.user.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     final
     UserRepository userRepository;
