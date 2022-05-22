@@ -27,6 +27,7 @@ public class User extends BaseEntity{
     private String phone;
     private String userDeviceToken;
     private int role;
+    @Enumerated(EnumType.ORDINAL)
     private UserStatus status;
     private double startRemindTime;
     private double endRemindTime;

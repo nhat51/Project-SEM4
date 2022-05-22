@@ -1,5 +1,6 @@
 package com.example.englishappbackend.entity;
 
+import com.example.englishappbackend.enums.ArticleStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,11 @@ public class Article extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
+    private String images;
     @Column(columnDefinition = "TEXT")
     private String description;
+    @Column(columnDefinition = "TEXT")
+    private String content;
+    @Enumerated(EnumType.ORDINAL)
+    private ArticleStatus status;
 }
