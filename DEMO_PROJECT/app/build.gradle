@@ -48,8 +48,8 @@ dependencies {
     def room_version = "2.2.5"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
-    //recycle view
-    implementation "androidx.recyclerview:recyclerview:1.2.1"
+//    //recycle view
+//    implementation "androidx.recyclerview:recyclerview:1.2.1"
     //gson
     implementation'com.google.code.gson:gson:2.8.6'
     //retrofit

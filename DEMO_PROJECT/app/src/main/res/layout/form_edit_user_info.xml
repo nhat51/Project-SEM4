@@ -28,6 +28,16 @@
                     android:src="@drawable/ic_arrow_back"
                     app:tint="@color/white" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/btn_back_account"
+                    android:text="Chỉnh sửa tài khoản "
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
                 <ImageView
                     android:layout_width="35dp"
                     android:layout_height="35dp"
@@ -60,23 +70,20 @@
                     android:textSize="25sp" />
             </LinearLayout>
         </LinearLayout>
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:layout_marginTop="15dp">
-            <androidx.cardview.widget.CardView
+            android:layout_height="300dp"
+            app:cardCornerRadius="30dp"
+            app:cardBackgroundColor="@color/gray"
+            android:elevation="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
-                app:cardCornerRadius="30dp"
-                app:cardBackgroundColor="@color/gray"
-                android:elevation="20dp">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
+                android:layout_height="match_parent"
+                android:padding="10dp">
+                <TextView
                         android:id="@+id/information"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -87,67 +94,73 @@
                         android:text="Thông tin"
                         android:textColor="@color/demo3"
                         android:textSize="25sp" />
-                    <LinearLayout
-                        android:id="@+id/email"
-                        android:layout_width="wrap_content"
+                <LinearLayout
+                        android:id="@+id/edit_email"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_below="@id/information">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Email:"
-                            android:layout_marginStart="20dp"
-                            android:textStyle="bold"
-                            android:textSize="18sp"
-                            android:textColor="@color/demo3"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/email_user"
-                            android:text="huong@gmail.com"
-                            android:textColor="@color/orange"
-                            android:textStyle="bold"
-                            android:textSize="18sp"
-                            android:layout_marginStart="15dp"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/phone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_below="@id/email"
-                        android:layout_marginTop="10dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Số điện thoại:"
-                            android:layout_marginStart="20dp"
-                            android:textStyle="bold"
-                            android:textSize="18sp"
-                            android:textColor="@color/demo3"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/phone_user"
-                            android:text="0987654321"
-                            android:textColor="@color/orange"
-                            android:textStyle="bold"
-                            android:textSize="18sp"
-                            android:layout_marginStart="15dp"/>
-                    </LinearLayout>
+                        android:layout_below="@id/information"
+                        android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/edit_user_btn"
-                        android:layout_width="40dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="20dp"
-                        android:src="@drawable/edit"
-                        app:tint="@color/demo3" />
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="30dp"
+                            android:text="Email:"
+                            android:textColor="@color/demo3"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/tv_edit_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/bg_edit_text_login"
+                            android:hint="Email"
+                            android:paddingStart="20dp"
+                            android:textColorHint="@color/demo3" />
+                    </LinearLayout>
+                <LinearLayout
+                        android:id="@+id/edit_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/edit_email"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="30dp"
+                            android:text="Phone:"
+                            android:textColor="@color/demo3"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/et_edit_phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/bg_edit_text_login"
+                            android:hint="Phone"
+                            android:paddingStart="20dp"
+                            android:textColorHint="@color/demo3" />
+                    </LinearLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_bg_register"
+            android:layout_gravity="center"
+            android:text="Xác nhận"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"/>
     </LinearLayout>
 </ScrollView>

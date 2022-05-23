@@ -5,6 +5,8 @@ import androidx.room.PrimaryKey;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 
+import com.example.demo_project.entity.enums.WordCategory;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
@@ -13,33 +15,19 @@ public class Word{
     public int id;
     public String name;
     public String content;
+    public String example;
+    public String translatedExample;
     public String pronounce;
-    public String part_of_speech;
-    public int user_id;
-    public String last_remind;
-    public int category_type;
-    public int success_time;
-    public String created_at;
-    public String updated_at;
+    public String partOfSpeech;
+    public int userId;
+    public String lastRemind;
+    public WordCategory categoryType;
+    public int successTime;
+    public String createdAt;
+    public String updatedAt;
 
     public Word() {
     }
-
-    public Word(int id, String name, String content, String pronounce, String part_of_speech) {
-        this.id = id;
-        this.name = name;
-        this.content = content;
-        this.pronounce = pronounce;
-        this.part_of_speech = part_of_speech;
-    }
-
-    public Word(int id, String name, String content, String part_of_speech) {
-        this.id = id;
-        this.name = name;
-        this.content = content;
-        this.part_of_speech = part_of_speech;
-    }
-
 
     public int getId() {
         return id;
@@ -65,6 +53,22 @@ public class Word{
         this.content = content;
     }
 
+    public String getExample() {
+        return example;
+    }
+
+    public void setExample(String example) {
+        this.example = example;
+    }
+
+    public String getTranslatedExample() {
+        return translatedExample;
+    }
+
+    public void setTranslatedExample(String translatedExample) {
+        this.translatedExample = translatedExample;
+    }
+
     public String getPronounce() {
         return pronounce;
     }
@@ -73,77 +77,60 @@ public class Word{
         this.pronounce = pronounce;
     }
 
-    public String getPart_of_speech() {
-        return part_of_speech;
+    public String getPartOfSpeech() {
+        return partOfSpeech;
     }
 
-    public void setPart_of_speech(String part_of_speech) {
-        this.part_of_speech = part_of_speech;
+    public void setPartOfSpeech(String partOfSpeech) {
+        this.partOfSpeech = partOfSpeech;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public String getLast_remind() {
-        return last_remind;
+    public String getLastRemind() {
+        return lastRemind;
     }
 
-    public void setLast_remind(String last_remind) {
-        this.last_remind = last_remind;
+    public void setLastRemind(String lastRemind) {
+        this.lastRemind = lastRemind;
     }
 
-    public int getCategory_type() {
-        return category_type;
+    public WordCategory getCategoryType() {
+        return categoryType;
     }
 
-    public void setCategory_type(int category_type) {
-        this.category_type = category_type;
+    public void setCategoryType(WordCategory categoryType) {
+        this.categoryType = categoryType;
     }
 
-    public int getSuccess_time() {
-        return success_time;
+    public int getSuccessTime() {
+        return successTime;
     }
 
-    public void setSuccess_time(int success_time) {
-        this.success_time = success_time;
+    public void setSuccessTime(int successTime) {
+        this.successTime = successTime;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public String getUpdated_at() {
-        return updated_at;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdated_at(String updated_at) {
-        this.updated_at = updated_at;
-    }
-
-    @Override
-    public String toString() {
-        return "Word{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", content='" + content + '\'' +
-                ", pronounce='" + pronounce + '\'' +
-                ", part_of_speech='" + part_of_speech + '\'' +
-                ", user_id=" + user_id +
-                ", last_remind=" + last_remind +
-                ", category_type=" + category_type +
-                ", success_time=" + success_time +
-                ", created_at=" + created_at +
-                ", updated_at=" + updated_at +
-                '}';
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public static class DateConverter {

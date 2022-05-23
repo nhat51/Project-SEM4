@@ -12,16 +12,6 @@
         android:id="@+id/top_page"
         android:padding="20dp"
         android:layout_marginTop="20dp">
-<!--        <TextView-->
-<!--            android:id="@+id/text_first_page"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:fontFamily="@font/bowlby_one"-->
-<!--            android:gravity="center"-->
-<!--            android:text="Welcome to"-->
-<!--            android:textColor="@color/orange"-->
-<!--            android:textSize="25sp" />-->
 
         <ImageView
             android:layout_width="match_parent"
@@ -42,7 +32,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_bg_login"
-            android:text="Đăng nhập" />
+            app:shapeAppearanceOverlay="@drawable/btn_bg_login"
+            android:text="Đăng nhập"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/btn_register_first_page"
@@ -51,7 +44,10 @@
             android:layout_below="@id/btn_login_first_page"
             android:layout_marginTop="20dp"
             android:background="@drawable/btn_bg_register"
-            android:text="Đăng ký" />
+            app:shapeAppearanceOverlay="@drawable/btn_bg_register"
+            android:text="Đăng ký"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
     </RelativeLayout>
 
     <TextView
@@ -62,7 +58,7 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="hoặc đăng nhâp bằng"
-        android:textColor="@color/orange"
+        android:textColor="@color/demo"
         android:textSize="15sp"
         android:textStyle="bold" />
 

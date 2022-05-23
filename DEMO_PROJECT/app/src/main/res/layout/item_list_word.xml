@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="5dp">
+    android:padding="5dp"
+    android:id="@+id/words_wrapper">
     <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="120dp"
@@ -25,7 +26,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Word"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:textStyle="bold"
                         android:textColor="#2D248F" />
                     <TextView
@@ -38,7 +39,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Meaning"
-                        android:textSize="20sp"/>
+                        android:textSize="17sp"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -50,17 +51,17 @@
 
                     <ImageView
                         android:id="@+id/btn_edit"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_marginEnd="15dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="25dp"
                         android:src="@drawable/edit"
                         app:tint="#F6B618" />
 
                     <ImageView
                         android:id="@+id/btn_delete"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_marginRight="15dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="15dp"
                         android:src="@drawable/delete" />
                 </LinearLayout>
             </RelativeLayout>
