@@ -30,5 +30,5 @@ public class ArticleController {
     @RequestMapping(method = RequestMethod.GET, path = "detail")
     public ResponseEntity<?> getDetail(@RequestParam(name = "articleId") int id){
         return new ResponseEntity<>(articleService.getDetail(id),HttpStatus.OK);
-    }
+    } 
 }
