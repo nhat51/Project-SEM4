@@ -34,6 +34,7 @@ public class FragmentListWord extends Fragment {
     private ImageView btn_back_list_word, btn_setting_list_word;
     private View view;
     private Context currentContext;
+    public static FragmentDetailWord fragmentDetailWord;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         currentContext = container.getContext();

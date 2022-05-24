@@ -2,17 +2,20 @@ package com.example.demo_project.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.demo_project.R;
 import com.example.demo_project.entity.Word;
 import com.example.demo_project.fragment.FragmentDetailWord;
+import com.example.demo_project.fragment.FragmentHome;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,11 +41,16 @@ public class ListWordAdapter extends RecyclerView.Adapter<ListWordAdapter.ViewHo
         holder.wordWrapper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(currentContext, FragmentDetailWord.class);
-                intent.putExtra("words", (ArrayList<Word>) words);
-                int mLastPosition = holder.getAdapterPosition();
-                intent.putExtra("position", mLastPosition);
-                currentContext.startActivity(intent);
+//                Intent intent = new Intent(currentContext, FragmentDetailWord.class);
+//                intent.putExtra("words", (ArrayList<Word>) words);
+//                int mLastPosition = holder.getAdapterPosition();
+//                intent.putExtra("position", mLastPosition);
+//                currentContext.startActivity(intent);
+                Bundle bundle = new Bundle();
+                bundle.putInt("wordId", currentWord.getId());
+
+                FragmentDetailWord fragmentDetailWord = new FragmentDetailWord();
+                fragmentDetailWord.setArguments(bundle);
             }
         });
     }

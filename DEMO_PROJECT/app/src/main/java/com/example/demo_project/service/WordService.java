@@ -4,6 +4,7 @@ import com.example.demo_project.entity.Word;
 import com.example.demo_project.entity.WordResponse;
 
 import java.util.List;
+import java.util.concurrent.Executor;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -23,5 +24,4 @@ public interface WordService {
 
     @GET("api/v1/words/word-detail?")
     Call<WordResponse> getWordDetail(@Query("word-id") int wordId);
-
 }
