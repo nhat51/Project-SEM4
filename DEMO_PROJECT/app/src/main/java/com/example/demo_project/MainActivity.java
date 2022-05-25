@@ -58,10 +58,12 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         fragmentListWordRemind = new FragmentListWordRemind();
         fragmentListWord = new FragmentListWord();
         fragmentAddNewWordForm = new FragmentAddNewWordForm();
+        fragmentDetailWord = new FragmentDetailWord();
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frameLayout, fragmentHome, FragmentHome.class.getName())
                 .commit();
+
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

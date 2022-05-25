@@ -26,16 +26,16 @@ public class FragmentHome extends Fragment {
                 .beginTransaction()
                 .replace(R.id.frameLayout, MainActivity.fragmentListWordRemember, FragmentListWordRemember.class.getName())
                 .commit());
-        CardView listRememberHomePage = view.findViewById(R.id.list_remember_home_page);
-        listRememberHomePage.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.frameLayout, MainActivity.fragmentListWordRemember, FragmentListWordRemember.class.getName())
-                .commit());
+//        CardView listRememberHomePage = view.findViewById(R.id.list_remember_home_page);
+//        listRememberHomePage.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.frameLayout, MainActivity.fragmentListWordRemember, FragmentListWordRemember.class.getName())
+//                .commit());
 
         TextView txtAllViewMore = view.findViewById(R.id.all_view_more);
         txtAllViewMore.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.frameLayout, MainActivity.fragmentListWord, FragmentListWordRemember.class.getName())
+                .replace(R.id.frameLayout, MainActivity.fragmentListWord, FragmentListWord.class.getName())
                 .commit());
 
         TextView txtRemidViewMore = view.findViewById(R.id.remind_view_more);

@@ -23,5 +23,5 @@ public interface WordService {
     Call<Word> addNewWord(@Body Word newWord);
 
     @GET("api/v1/words/word-detail?")
-    Call<WordResponse> getWordDetail(@Query("word-id") int wordId);
+    Call<Word> getWordDetail(@Query("word-id") int wordId);
 }

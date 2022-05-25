@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import com.example.demo_project.MainActivity;
 import com.example.demo_project.R;
@@ -84,6 +85,16 @@ public class FragmentAddNewWordForm extends Fragment {
                         CharSequence charSequence = "Tạo thành công";
                         Toast toast = Toast.makeText(currentContext.getApplicationContext(), charSequence, Toast.LENGTH_LONG);
                         toast.show();
+
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("wordId", wordCall.body().getId());
+
+                        FragmentDetailWord fragmentDetailWord = new FragmentDetailWord();
+                        fragmentDetailWord.setArguments(bundle);
+                        ((FragmentActivity)currentContext).getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.frameLayout, fragmentDetailWord)
+                                .commit();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

@@ -49,6 +49,8 @@ public class FragmentListWord extends Fragment {
         rvWord = view.findViewById(R.id.rvWord);
         rvWord.setLayoutManager(new LinearLayoutManager(currentContext));
         rvWord.setAdapter(new ListWordAdapter(currentContext, words));
+
+        fragmentDetailWord = new FragmentDetailWord();
     }
     private void initData() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -67,6 +69,7 @@ public class FragmentListWord extends Fragment {
             e.printStackTrace();
         }
     }
+
     private void initBackView() {
         btn_back_list_word = view.findViewById(R.id.btn_back_list_word);
         btn_back_list_word.setOnClickListener(new View.OnClickListener() {
@@ -84,10 +87,10 @@ public class FragmentListWord extends Fragment {
         btn_setting_list_word.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                btn_setting_list_word.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
-//                        .beginTransaction()
-//                        .replace(R.id.frameLayout, MainActivity.fragmentSetting, FragmentSetting.class.getName())
-//                        .commit());
+                btn_setting_list_word.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frameLayout, MainActivity.fragmentSetting, FragmentSetting.class.getName())
+                        .commit());
             }
         });
     }

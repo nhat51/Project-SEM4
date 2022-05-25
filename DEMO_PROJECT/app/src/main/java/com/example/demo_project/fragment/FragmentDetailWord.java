@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.demo_project.MainActivity;
 import com.example.demo_project.R;
 import com.example.demo_project.entity.Word;
 import com.example.demo_project.entity.WordResponse;
@@ -29,17 +30,17 @@ public class FragmentDetailWord extends Fragment {
     TextView tvName_word_detail, tvPos_word_detail, tvWord_detail_meaning, tvWord_detail_example, tvWord_detail_example_trans;
     ImageView back_detail_word_page, search_detail_word_page, edit_detail_word_page;
     Word currentWord;
-    List<Word> words;
     WordService wordService;
     private View view;
     private Context currentContext;
-    int currentPosition;
+    int wordId;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         currentContext = container.getContext();
         view = inflater.inflate(R.layout.fragment_detail_word, container, false);
         initView();
         initData();
+        initBackView();
         return view;
     }
     private void initView() {
@@ -56,27 +57,60 @@ public class FragmentDetailWord extends Fragment {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        words = (List<Word>) getIntent().getSerializableExtra("words");
-        currentPosition = getIntent().getIntExtra("position", 0);
-        currentWord = words.get(currentPosition);
-        tvName_word_detail.setText(currentWord.getName());
-        tvPos_word_detail.setText(currentWord.getName());
-        tvWord_detail_meaning.setText(currentWord.getName());
-        tvWord_detail_example.setText(currentWord.getName());
-        tvWord_detail_example_trans.setText(currentWord.getName());
-
-        words = new ArrayList<>();
+        Bundle bundle = this.getArguments();
+        if (bundle != null){
+            wordId = bundle.getInt("wordId");
+            Log.d("wordId: ", String.valueOf(wordId));
+        }
         if (wordService == null){
             wordService = RetrofitGenerator.createService(WordService.class);
         }
         try {
-            Response<WordResponse> wordDetailResponse = wordService.getWordDetail().execute();
-            Log.d("wordssssss: ", String.valueOf(wordDetailResponse.body().getContent().size()));
+            Response<Word> wordDetailResponse = wordService.getWordDetail(wordId).execute();
             if (wordDetailResponse.isSuccessful()){
-                words.addAll(wordDetailResponse.body().getContent());
+                currentWord = wordDetailResponse.body();
+                tvName_word_detail.setText(currentWord.getName());
+                tvPos_word_detail.setText(currentWord.getPronounce());
+                tvWord_detail_meaning.setText(currentWord.getContent());
+                tvWord_detail_example.setText(currentWord.getExample());
+                tvWord_detail_example_trans.setText(currentWord.getTranslatedExample());
             }
         }catch (IOException e){
             e.printStackTrace();
         }
     }
+    private void initBackView() {
+        back_detail_word_page = view.findViewById(R.id.btn_back_detail_word_page);
+        back_detail_word_page.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                back_detail_word_page.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frameLayout, MainActivity.fragmentListWord, FragmentListWord.class.getName())
+                        .commit());
+            }
+        });
+    }
+//        words = (List<Word>) getIntent().getSerializableExtra("words");
+//        currentPosition = getIntent().getIntExtra("position", 0);
+//        currentWord = words.get(currentPosition);
+//        tvName_word_detail.setText(currentWord.getName());
+//        tvPos_word_detail.setText(currentWord.getName());
+//        tvWord_detail_meaning.setText(currentWord.getName());
+//        tvWord_detail_example.setText(currentWord.getName());
+//        tvWord_detail_example_trans.setText(currentWord.getName());
+//
+//        words = new ArrayList<>();
+//        if (wordService == null){
+//            wordService = RetrofitGenerator.createService(WordService.class);
+//        }
+//        try {
+//            Response<WordResponse> wordDetailResponse = wordService.getWordDetail().execute();
+//            Log.d("wordssssss: ", String.valueOf(wordDetailResponse.body().getContent().size()));
+//            if (wordDetailResponse.isSuccessful()){
+//                words.addAll(wordDetailResponse.body().getContent());
+//            }
+//        }catch (IOException e){
+//            e.printStackTrace();
+//        }
 }

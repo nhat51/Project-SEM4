@@ -30,7 +30,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/user_nameFragment"
+                    android:id="@+id/user_nameHomeFragment"
                     android:text="Nguyen Huong"
                     android:textColor="@color/white"
                     android:textStyle="bold"
@@ -43,7 +43,7 @@
                     android:layout_gravity="center"
                     android:background="@drawable/bg_search_bar"
                     android:queryHint="Các từ đã thêm"
-                    android:iconifiedByDefault="false"/>/>
+                    android:iconifiedByDefault="false"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

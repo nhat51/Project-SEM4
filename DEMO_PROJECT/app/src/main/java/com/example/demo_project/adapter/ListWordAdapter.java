@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,6 +52,10 @@ public class ListWordAdapter extends RecyclerView.Adapter<ListWordAdapter.ViewHo
 
                 FragmentDetailWord fragmentDetailWord = new FragmentDetailWord();
                 fragmentDetailWord.setArguments(bundle);
+                ((FragmentActivity)currentContext).getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frameLayout, fragmentDetailWord)
+                        .commit();
             }
         });
     }
@@ -61,7 +66,7 @@ public class ListWordAdapter extends RecyclerView.Adapter<ListWordAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ScrollView wordWrapper;
+        CardView wordWrapper;
         TextView tvWord;
         TextView tvMeaning;
         TextView tvPartOfSpeech;
