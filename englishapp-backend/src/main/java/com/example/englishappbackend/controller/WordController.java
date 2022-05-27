@@ -21,8 +21,9 @@ public class WordController {
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> getAllWord(
             @RequestParam(name = "page",defaultValue = "1") int page,
-            @RequestParam(name = "size", defaultValue = "5") int size){
-        return new ResponseEntity<>(wordService.getAll(page, size), HttpStatus.OK);
+            @RequestParam(name = "size", defaultValue = "5") int size,
+            @RequestParam(name = "word",defaultValue = "")String name){
+        return new ResponseEntity<>(wordService.getAll(page, size,name), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET,path = "user-word")

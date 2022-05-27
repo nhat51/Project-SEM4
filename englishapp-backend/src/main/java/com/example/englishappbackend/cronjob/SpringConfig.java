@@ -36,21 +36,21 @@ public class SpringConfig {
     @Autowired
     UserRepository userRepository;
 
-    @Scheduled(fixedDelay = 1000*60*60)
-    public void scheduleFixedDelayTask() {
-        List<Word> list = wordRepository.findAll();
-        for (Word w : list) {
-            User user = userRepository.getById(w.getUser().getId());
-            Date date = new Date();   // given date
-            Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
-            calendar.setTime(date);
-//            if(calendar.get(Calendar.HOUR_OF_DAY) >= user.getStartRemindTime()
-//                    && calendar.get(Calendar.HOUR_OF_DAY) <= user.getEndRemindTime()
-//            ){
-////                wordControl(w,user.getUserDeviceToken());
-//            }
-        }
-    }
+//    @Scheduled(fixedDelay = 1000*60*60)
+//    public void scheduleFixedDelayTask() {
+//        List<Word> list = wordRepository.findAll();
+//        for (Word w : list) {
+//            User user = userRepository.getById(w.getUser().getId());
+//            Date date = new Date();   // given date
+//            Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
+//            calendar.setTime(date);
+////            if(calendar.get(Calendar.HOUR_OF_DAY) >= user.getStartRemindTime()
+////                    && calendar.get(Calendar.HOUR_OF_DAY) <= user.getEndRemindTime()
+////            ){
+//////                wordControl(w,user.getUserDeviceToken());
+////            }
+//        }
+//    }
 
     /*
     *Gửi notify và chuyển word category cho từng từ

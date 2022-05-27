@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getToken(int user_id, String token) {
+    public User getToken(int user_id, String token  ) {
         Optional<User> user = userRepository.findById(user_id);
         if (user.isPresent()){
             user.get().setUserDeviceToken(token);

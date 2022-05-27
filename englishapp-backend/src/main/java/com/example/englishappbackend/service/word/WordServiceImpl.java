@@ -4,12 +4,15 @@ import com.example.englishappbackend.entity.Word;
 import com.example.englishappbackend.repo.UserRepository;
 import com.example.englishappbackend.repo.WordRepository;
 import com.example.englishappbackend.service.word.WordService;
+import com.example.englishappbackend.specification.SearchCriteria;
+import com.example.englishappbackend.specification.WordSpecification;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -30,9 +33,13 @@ public class WordServiceImpl implements WordService {
     }
 
     @Override
-    public Page<Word> getAll(int page, int size) {
+    public Page<Word> getAll(int page, int size, String name) {
         PageRequest paging = PageRequest.of(page - 1, size);
-        return wordRepository.findAll(paging);
+        Specification<Word> spec =Specification.where(null);
+        if (name != null){
+            spec = spec.and(new WordSpecification(new SearchCriteria("name",":",name)));
+        }
+        return wordRepository.findAll(spec,paging);
     }
 
     @Override
@@ -91,7 +98,6 @@ public class WordServiceImpl implements WordService {
         final String uri = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
 
         RestTemplate restTemplate = new RestTemplate();
-        String result = restTemplate.getForObject(uri, String.class);
-        return result;
+        return restTemplate.getForObject(uri, String.class);
     }
 }
