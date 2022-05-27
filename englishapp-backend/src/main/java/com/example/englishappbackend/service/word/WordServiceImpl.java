@@ -4,9 +4,14 @@ import com.example.englishappbackend.entity.Word;
 import com.example.englishappbackend.repo.UserRepository;
 import com.example.englishappbackend.repo.WordRepository;
 import com.example.englishappbackend.service.word.WordService;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Optional;
 
@@ -26,20 +31,20 @@ public class WordServiceImpl implements WordService {
 
     @Override
     public Page<Word> getAll(int page, int size) {
-        PageRequest paging = PageRequest.of(page - 1,size);
+        PageRequest paging = PageRequest.of(page - 1, size);
         return wordRepository.findAll(paging);
     }
 
     @Override
     public Page<Word> getWordsByUser(int userId, int page, int size) {
-        PageRequest paging = PageRequest.of(page - 1,size);
-        return wordRepository.findWordsByUser_id(userId,paging);
+        PageRequest paging = PageRequest.of(page - 1, size);
+        return wordRepository.findWordsByUser_id(userId, paging);
     }
 
     @Override
     public Word getWordDetail(int wordId) {
         Optional<Word> word = wordRepository.findById(wordId);
-        if (word.isPresent()){
+        if (word.isPresent()) {
             return word.get();
         }
         return null;
@@ -47,13 +52,30 @@ public class WordServiceImpl implements WordService {
 
     @Override
     public Word createWord(Word word) {
+        String json = null;
+        if (word != null) {
+            json = callThirdPartyApiSearchWord(word.getName());
+
+            JsonParser parser = new JsonParser();
+            JsonArray rootObj = parser.parse(json).getAsJsonArray();
+
+            String phonetic = null;
+            for (int i = 0; i < rootObj.size(); i++) {
+                JsonElement jsonElement = rootObj.get(i);
+                JsonObject jsonObject = jsonElement.getAsJsonObject();
+                phonetic = jsonObject.get("phonetic").getAsString();
+                word.setPronounce(phonetic);
+                break;
+            }
+            System.out.println(phonetic);
+        }
         return wordRepository.save(word);
     }
 
     @Override
     public Word updateWord(int wordId, Word word) {
         Word wordExist = wordRepository.getById(wordId);
-        if (wordExist != null){
+        if (wordExist != null) {
             wordExist.setName(word.getName());
             wordExist.setCategoryType(word.getCategoryType());
             wordExist.setPartOfSpeech(word.getPartOfSpeech());
@@ -63,5 +85,13 @@ public class WordServiceImpl implements WordService {
             wordExist.setTranslatedExample(word.getTranslatedExample());
         }
         return wordRepository.save(wordExist);
+    }
+
+    private String callThirdPartyApiSearchWord(String word) {
+        final String uri = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
+
+        RestTemplate restTemplate = new RestTemplate();
+        String result = restTemplate.getForObject(uri, String.class);
+        return result;
     }
 }

@@ -41,4 +41,8 @@ public class WordController {
         return new ResponseEntity<>(wordService.createWord(word), HttpStatus.CREATED);
     }
 
+    @RequestMapping(method = RequestMethod.GET,path = "word-detail")
+    public ResponseEntity<?> getWordDetail(@RequestParam(name = "word-id") int id){
+        return new ResponseEntity<>(wordService.getWordDetail(id), HttpStatus.OK);
+    }
 }
