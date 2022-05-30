@@ -55,7 +55,7 @@ public class SeedData implements CommandLineRunner {
             Set<User> userSet = new HashSet<>();
 
             User user1 = new User();
-            user1.setId(1);
+//            user1.setId(1);
             user1.setUsername("dr.nhat");
             user1.setPasswordHash("123");
             user1.setFullName("Nguyen Quang Nhat");
@@ -66,7 +66,7 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user1);
 
             User user2 = new User();
-            user2.setId(2);
+//            user2.setId(2);
             user2.setUsername("son3coc");
             user2.setPasswordHash("123");
             user2.setFullName("Dang Hoang Son");
@@ -77,7 +77,7 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user2);
 
             User user3 = new User();
-            user3.setId(3);
+//            user3.setId(3);
             user3.setUsername("Christian.Le");
             user3.setPasswordHash("123");
             user3.setFullName("Christian Le");
@@ -88,7 +88,7 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user3);
 
             User user4 = new User();
-            user4.setId(4);
+//            user4.setId(4);
             user4.setUsername("hong.ne");
             user4.setPasswordHash("123");
             user4.setFullName("Nguyen Thi Hong");
@@ -99,7 +99,7 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user4);
 
             User user5 = new User();
-            user5.setId(5);
+//            user5.setId(5);
             user5.setUsername("chinhnguyen321");
             user5.setPasswordHash("123");
             user5.setFullName("Nguyen Duc Chinh");
@@ -110,7 +110,7 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user5);
 
             User user6 = new User();
-            user6.setId(6);
+//            user6.setId(6);
             user6.setUsername("nhituyetle129");
             user6.setPasswordHash("123");
             user6.setFullName("Le Tuyet Nhi");
@@ -121,7 +121,7 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user6);
 
             User user7 = new User();
-            user7.setId(7);
+//            user7.setId(7);
             user7.setUsername("luonCaoBang");
             user7.setPasswordHash("123");
             user7.setFullName("Phung Thanh Do");
@@ -132,7 +132,7 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user7);
 
             User user8 = new User();
-            user8.setId(8);
+//            user8.setId(8);
             user8.setUsername("torau9856");
             user8.setPasswordHash("123");
             user8.setFullName("Truong Tue Chau");
@@ -143,7 +143,7 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user8);
 
             User user9 = new User();
-            user9.setId(9);
+//            user9.setId(9);
             user9.setUsername("anculaunam879");
             user9.setPasswordHash("123");
             user9.setFullName("Phong Thanh Duong");
@@ -154,7 +154,7 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user9);
 
             User user10 = new User();
-            user10.setId(10);
+//            user10.setId(10);
             user10.setUsername("cmcmcmcmcm710");
             user10.setPasswordHash("123");
             user10.setFullName("Cristiano Messi");
@@ -200,7 +200,7 @@ public class SeedData implements CommandLineRunner {
             Set<Word> wordSet = new HashSet<>();
 
             Word word1 = new Word();
-            word1.setId(51);
+//            word1.setId(51);
             word1.setName("abdomen");
             word1.setContent("bụng");
             word1.setPartOfSpeech("noun");
@@ -211,7 +211,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word1);
 
             Word word2 = new Word();
-            word2.setId(52);
+//            word2.setId(52);
             word2.setName("cicada");
             word2.setContent("ve sầu");
             word2.setPartOfSpeech("noun");
@@ -222,7 +222,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word2);
 
             Word word3 = new Word();
-            word3.setId(53);
+//            word3.setId(53);
             word3.setName("hatch");
             word3.setContent("nở ra");
             word3.setPartOfSpeech("verb");
@@ -233,7 +233,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word3);
 
             Word word4 = new Word();
-            word3.setId(54);
+//            word3.setId(54);
             word4.setName("cockroach");
             word4.setContent("con gián");
             word4.setPartOfSpeech("noun");
@@ -244,7 +244,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word4);
 
             Word word5 = new Word();
-            word5.setId(55);
+//            word5.setId(55);
             word5.setName("greenfly");
             word5.setContent("ruồi xanh");
             word5.setPartOfSpeech("noun");
@@ -255,7 +255,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word5);
 
             Word word6 = new Word();
-            word6.setId(56);
+//            word6.setId(56);
             word6.setName("cheat");
             word6.setContent("gian lận");
             word6.setPartOfSpeech("verb");
@@ -266,7 +266,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word6);
 
             Word word7 = new Word();
-            word7.setId(57);
+//            word7.setId(57);
             word7.setName("acre ");
             word7.setContent("mẫu (Anh)");
             word7.setPartOfSpeech("noun");
@@ -277,7 +277,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word7);
 
             Word word8 = new Word();
-            word8.setId(58);
+//            word8.setId(58);
             word8.setName("bale");
             word8.setContent("kiện: một lượng lớn vật liệu nhẹ được ép chặt vào nhau và buộc lại");
             word8.setPartOfSpeech("noun");
@@ -288,7 +288,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word8);
 
             Word word9 = new Word();
-            word9.setId(59);
+//            word9.setId(59);
             word9.setName("barley");
             word9.setContent("lúa mạch ");
             word9.setPartOfSpeech("noun");
@@ -299,7 +299,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word9);
 
             Word word10 = new Word();
-            word9.setId(60);
+//            word9.setId(60);
             word10.setName("canola");
             word10.setContent("cải dầu");
             word10.setPartOfSpeech("noun");
@@ -310,7 +310,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word10);
 
             Word word11 = new Word();
-            word11.setId(61);
+//            word11.setId(61);
             word11.setName("altitude");
             word11.setContent("độ cao");
             word11.setPartOfSpeech("noun");
@@ -321,7 +321,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word11);
 
             Word word12 = new Word();
-            word12.setId(62);
+//            word12.setId(62);
             word12.setName("archipelago");
             word12.setContent("quần đảo");
             word12.setPartOfSpeech("noun");
@@ -332,7 +332,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word12);
 
             Word word13 = new Word();
-            word13.setId(63);
+//            word13.setId(63);
             word13.setName("arid");
             word13.setContent("khô khan");
             word13.setPartOfSpeech("adjective");
@@ -343,7 +343,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word13);
 
             Word word14 = new Word();
-            word14.setId(64);
+//            word14.setId(64);
             word14.setName("avalanche");
             word14.setContent("tuyết lở");
             word14.setPartOfSpeech("noun");
@@ -354,7 +354,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word14);
 
             Word word15 = new Word();
-            word15.setId(65);
+//            word15.setId(65);
             word15.setName("basin");
             word15.setContent("lòng {chảo)");
             word15.setPartOfSpeech("noun");
@@ -365,7 +365,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word15);
 
             Word word16 = new Word();
-            word16.setId(66);
+//            word16.setId(66);
             word16.setName("accommodation");
             word16.setContent("chỗ ở");
             word16.setPartOfSpeech("noun");
@@ -376,7 +376,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word16);
 
             Word word17 = new Word();
-            word17.setId(67);
+//            word17.setId(67);
             word17.setName("backpack");
             word17.setContent("ba lô");
             word17.setPartOfSpeech("noun");
@@ -387,7 +387,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word17);
 
             Word word18 = new Word();
-            word18.setId(68);
+//            word18.setId(68);
             word18.setName("canal");
             word18.setContent("con kênh");
             word18.setPartOfSpeech("noun");
@@ -398,7 +398,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word18);
 
             Word word19 = new Word();
-            word19.setId(69);
+//            word19.setId(69);
             word19.setName("cruise");
             word19.setContent("du thuyền");
             word19.setPartOfSpeech("noun");
@@ -409,7 +409,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word19);
 
             Word word20 = new Word();
-            word20.setId(70);
+//            word20.setId(70);
             word20.setName("excursion");
             word20.setContent("đi chơi, dã ngoại");
             word20.setPartOfSpeech("noun");
@@ -420,7 +420,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word20);
 
             Word word21 = new Word();
-            word21.setId(71);
+//            word21.setId(71);
             word21.setName("explore");
             word21.setContent("đi chơi, dã ngoại");
             word21.setPartOfSpeech("verb");
@@ -431,7 +431,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word21);
 
             Word word22 = new Word();
-            word22.setId(72);
+//            word22.setId(72);
             word22.setName("maid");
             word22.setContent("người giúp việc ");
             word22.setPartOfSpeech("noun");
@@ -442,7 +442,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word22);
 
             Word word23 = new Word();
-            word23.setId(73);
+//            word23.setId(73);
             word23.setName("overbook");
             word23.setContent("đặt trước quá nhiều");
             word23.setPartOfSpeech("verb");
@@ -453,7 +453,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word23);
 
             Word word24 = new Word();
-            word24.setId(74);
+//            word24.setId(74);
             word24.setName("porter");
             word24.setContent("người khuân vác");
             word24.setPartOfSpeech("noun");
@@ -464,7 +464,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word24);
 
             Word word25 = new Word();
-            word25.setId(75);
+//            word25.setId(75);
             word25.setName("reservation");
             word25.setContent("đặt chỗ ");
             word25.setPartOfSpeech("noun");
@@ -475,7 +475,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word25);
 
             Word word26 = new Word();
-            word26.setId(76);
+//            word26.setId(76);
             word26.setName("staycation");
             word26.setContent("ở lại ");
             word26.setPartOfSpeech("noun");
@@ -486,7 +486,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word26);
 
             Word word27 = new Word();
-            word27.setId(77);
+//            word27.setId(77);
             word27.setName("suitcase ");
             word27.setContent("chiếc vali");
             word27.setPartOfSpeech("noun");
@@ -497,7 +497,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word27);
 
             Word word28 = new Word();
-            word28.setId(78);
+//            word28.setId(78);
             word28.setName("vacancy ");
             word28.setContent("vị trí còn trống ");
             word28.setPartOfSpeech("noun");
@@ -508,7 +508,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word28);
 
             Word word29 = new Word();
-            word29.setId(79);
+//            word29.setId(79);
             word29.setName("valet");
             word29.setContent("người hầu");
             word29.setPartOfSpeech("noun");
@@ -519,7 +519,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word29);
 
             Word word30 = new Word();
-            word30.setId(80);
+//            word30.setId(80);
             word30.setName("voyage");
             word30.setContent("hành trình");
             word30.setPartOfSpeech("noun");
@@ -530,7 +530,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word30);
 
             Word word31 = new Word();
-            word31.setId(81);
+//            word31.setId(81);
             word31.setName("aerospace");
             word31.setContent("hàng không vũ trụ");
             word31.setPartOfSpeech("noun");
@@ -541,7 +541,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word31);
 
             Word word32 = new Word();
-            word32.setId(82);
+//            word32.setId(82);
             word32.setName("aircraft");
             word32.setContent("phi cơ");
             word32.setPartOfSpeech("noun");
@@ -552,7 +552,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word32);
 
             Word word33 = new Word();
-            word33.setId(83);
+//            word33.setId(83);
             word33.setName("aviation");
             word33.setContent("hàng không");
             word33.setPartOfSpeech("noun");
@@ -563,7 +563,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word33);
 
             Word word34 = new Word();
-            word34.setId(84);
+//            word34.setId(84);
             word34.setName("beacon");
             word34.setContent("một đèn hiệu điều hướng");
             word34.setPartOfSpeech("noun");
@@ -574,7 +574,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word34);
 
             Word word35 = new Word();
-            word35.setId(85);
+//            word35.setId(85);
             word35.setName("charter");
             word35.setContent("điều lệ");
             word35.setPartOfSpeech("noun");
@@ -585,7 +585,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word35);
 
             Word word36 = new Word();
-            word36.setId(86);
+//            word36.setId(86);
             word36.setName("clearance");
             word36.setContent("giải tỏa");
             word36.setPartOfSpeech("noun");
@@ -596,7 +596,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word36);
 
             Word word37 = new Word();
-            word37.setId(87);
+//            word37.setId(87);
             word37.setName("disembark");
             word37.setContent("xuống (khỏi một cái gì đó)");
             word37.setPartOfSpeech("verb");
@@ -607,7 +607,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word37);
 
             Word word38 = new Word();
-            word38.setId(88);
+//            word38.setId(88);
             word38.setName("domestic");
             word38.setContent("nội địa");
             word38.setPartOfSpeech("adjective");
@@ -618,7 +618,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word38);
 
             Word word39 = new Word();
-            word39.setId(89);
+//            word39.setId(89);
             word39.setName("glider");
             word39.setContent("tàu lượn");
             word39.setPartOfSpeech("noun");
@@ -629,7 +629,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word39);
 
             Word word40 = new Word();
-            word40.setId(90);
+//            word40.setId(90);
             word40.setName("intercom");
             word40.setContent("liên lạc nội bộ");
             word40.setPartOfSpeech("noun");
@@ -640,7 +640,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word40);
 
             Word word41 = new Word();
-            word41.setId(91);
+//            word41.setId(91);
             word41.setName("originate ");
             word41.setContent("bắt nguồn ");
             word41.setPartOfSpeech("verb");
@@ -651,7 +651,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word41);
 
             Word word42 = new Word();
-            word42.setId(92);
+//            word42.setId(92);
             word42.setName("propeller");
             word42.setContent("cánh quạt");
             word42.setPartOfSpeech("noun");
@@ -662,7 +662,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word42);
 
             Word word43 = new Word();
-            word43.setId(93);
+//            word43.setId(93);
             word43.setName("refuel");
             word43.setContent("tiếp nhiên liệu");
             word43.setPartOfSpeech("verb");
@@ -673,7 +673,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word43);
 
             Word word44 = new Word();
-            word44.setId(94);
+//            word44.setId(94);
             word44.setName("tailspin");
             word44.setContent("vòng xoáy");
             word44.setPartOfSpeech("noun");
@@ -684,7 +684,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word44);
 
             Word word45 = new Word();
-            word45.setId(95);
+//            word45.setId(95);
             word45.setName("transit");
             word45.setContent("quá cảnh");
             word45.setPartOfSpeech("noun");
@@ -695,7 +695,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word45);
 
             Word word46 = new Word();
-            word46.setId(96);
+//            word46.setId(96);
             word46.setName("turbulence");
             word46.setContent("sự hỗn loạn");
             word46.setPartOfSpeech("noun");
@@ -706,7 +706,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word46);
 
             Word word47 = new Word();
-            word47.setId(97);
+//            word47.setId(97);
             word47.setName("buoyant");
             word47.setContent("phát triển");
             word47.setPartOfSpeech("adjective");
@@ -717,7 +717,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word47);
 
             Word word48 = new Word();
-            word48.setId(98);
+//            word48.setId(98);
             word48.setName("certain");
             word48.setContent("chắc chắn ");
             word48.setPartOfSpeech("adjective");
@@ -728,7 +728,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word48);
 
             Word word49 = new Word();
-            word49.setId(99);
+//            word49.setId(99);
             word49.setName("cliffhanger");
             word49.setContent("phá đám");
             word49.setPartOfSpeech("noun");
@@ -739,7 +739,7 @@ public class SeedData implements CommandLineRunner {
             wordSet.add(word49);
 
             Word word50 = new Word();
-            word50.setId(100);
+//            word50.setId(100);
             word50.setName("conjectural");
             word50.setContent("phỏng đoán");
             word50.setPartOfSpeech("adjective");
@@ -758,7 +758,7 @@ public class SeedData implements CommandLineRunner {
             Set<Article> articleSet = new HashSet<>();
 
             Article article1 = new Article();
-            article1.setId(1);
+//            article1.setId(1);
             article1.setTitle("GIAI ĐOẠN NƯỚC RÚT, CÓ NÊN LUYỆN CÀNG NHIỀU ĐỀ THI?");
             article1.setContent("Kỳ thi tuyển sinh vào 10 ngày căng đến gần. Ở giai đoạn gấp rút này, chắc hẳn các bạn học sinh cuối cấp đều cảm thấy vô cùng căng thẳng, mệt mỏi và lo lắng. Tuy nhiên, AMES English tin rằng, mọi nỗ lực của các bạn cuối cùng cũng sẽ tạo ra những “trái ngọt” mà thôi. Vì vậy, trong giai đoạn “chạy nước rút”, hãy cố gắng tập trung và thường xuyên luyện thật nhiều đề nhé!\n" +
                     "\nTại sao nên luyện đề thường xuyên?\n" +
@@ -785,7 +785,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article1);
 
             Article article2 = new Article();
-            article2.setId(2);
+//            article2.setId(2);
             article2.setTitle("ĐỂ ĐẠT 8+ MÔN TIẾNG ANH KỲ THI TỐT NGHIỆP THPTQG, PHẢI LÀM GÌ?");
             article2.setContent("Kỳ thi THPT Quốc gia sắp đến gần, nếu bạn đang có mong muốn đạt được số điểm cực ấn tượng trong bài thi môn tiếng Anh THPT Quốc gia thì bài viết này chính là dành cho bạn đó! Hãy để AMES English chỉ ra những mẹo và phương pháp học tập cực hữu ích, giúp bạn ôn thi hiệu quả và đạt được số điểm như mong đợi nha!\n" +
                     "\n" +
@@ -825,7 +825,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article2);
 
             Article article3 = new Article();
-            article3.setId(3);
+//            article3.setId(3);
             article3.setTitle("3 ĐIỀU CẦN BIẾT VỀ KỲ THI CAMBRIDGE YLE");
             article3.setContent("Hiện nay có rất nhiều phụ huynh cho con đi học và thi lấy chứng chỉ Cambridge nhưng lại không biết rõ đây là loại chứng chỉ gì, tác dụng ra sao? Việc chưa tìm hiểu kĩ như vậy khiến ba mẹ tốn tiền, mất thời gian khi tìm khóa học cho con, hơn nữa còn ảnh hưởng đến định hướng phát triển của con sau này. Chính vì thế, sau đây AMES English sẽ chia sẻ về các loại chứng chỉ YLE để các bậc phụ huynh hiểu rõ hơn về các loại chứng chỉ này nhé.\n"+
                     "Chứng chỉ YLE là gì?\n" +
@@ -884,7 +884,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article3);
 
             Article article4 = new Article();
-            article4.setId(4);
+//            article4.setId(4);
             article4.setTitle("KIẾN THỨC CẦN NHỚ ĐỂ ĐẠT TRÊN 8 ĐIỂM MÔN TIẾNG ANH THI VÀO 10");
             article4.setContent("Tiếng Anh là môn thi bắt buộc tại nhiều tỉnh thành trong kỳ thi vào 10. Kỳ thi đang đến rất gần rồi, tuy nhiên với môn tiếng Anh, học sinh không cần quá lo lắng vì nội dung chủ yếu nằm trong chương trình lớp 9 theo yêu cầu chuẩn kiến thức, kỹ năng hiện hành. Mục tiêu đạt kết quả tốt sẽ dễ dàng thực hiện khi bạn chăm chỉ ôn tập. Hôm nay AMES English sẽ giúp các bạn hệ thống các kiến thức cần ôn để đạt từ 8 điểm trở lên môn tiếng Anh nhé!\n" +
                     "️Đề thi tuyển sinh vào lớp 10 sẽ kiểm tra, đánh giá năng lực của học sinh ở 3 thành tố của ngôn ngữ: ngữ pháp, từ vựng, ngữ âm.\n" +
@@ -920,7 +920,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article4);
 
             Article article5 = new Article();
-            article5.setId(5);
+//            article5.setId(5);
             article5.setTitle("ĐẠT 8.0 IELTS - ĐÂU LÀ BÍ QUYẾT");
             article5.setContent("IELTS là một trong những kỳ thi tiếng Anh đạt tiêu chuẩn Quốc tế. Học sinh, sinh viên Việt Nam chắc hẳn đã quá quen với bài thi IELTS. Bởi với kết quả IELTS cao có thể mở ra cho các bạn nhiều cơ hội và sự lựa chọn trong việc học và công việc sau này. Nhưng để có kết quả tốt nhất, các bạn học sinh nên có những bí quyết cho riêng mình. Dưới đây là một số bí quyết giúp bạn chinh phục IELTS với điểm số tốt nhất. \n" +
                     "Bí quyết chinh phục IELTS Writing\n" +
@@ -943,7 +943,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article5);
 
             Article article6 = new Article();
-            article6.setId(6);
+//            article6.setId(6);
             article6.setTitle("GẠT BỎ RÀO CẢN, CHINH PHỤC TIẾNG ANH GIAO TIẾP");
             article6.setContent("Mức lương khởi điểm cao hơn đến 20% trung bình, những cơ hội thăng tiến rộng mở cùng khả năng trúng tuyển vào các công ty, tập đoàn lớn đáng mơ ước nhờ có khả năng giao tiếp tiếng Anh trôi chảy nghe quả thực vô cùng hấp dẫn phải không? Tuy nhiên, trên thực tế, trong quá trình học tiếng Anh giao tiếp, không ít người trong độ tuổi đi làm gặp phải những khó khăn gây cản trở con đường chinh phục tiếng Anh của mình.\n" +
                     "\nVậy, những khó khăn đó là gì?\n" +
@@ -972,7 +972,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article6);
 
             Article article7 = new Article();
-            article7.setId(7);
+//            article7.setId(7);
             article7.setTitle("04 LỢI ÍCH KHI HỌC IELTS TỪ CẤP 3");
             article7.setContent("Trong môi trường hội nhập như ngày nay, ngoại ngữ được xem như chiếc chìa khóa để mở rộng cánh cửa tri thức và cơ hội việc làm. Trong đó, tiếng Anh là ngôn ngữ phổ biến, thông dụng mà bất cứ ai cũng nên biết. Vậy nên, nếu con trẻ được tiếp xúc với tiếng Anh ngay từ lúc còn nhỏ là một lợi thế vô cùng to lớn. Bên cạnh đó, các khóa học thi các chứng chỉ như IELTS đã và đang dành được sự quan tâm lớn của phụ huynh bởi đây sẽ là cơ hội lớn để con vừa rèn luyện tiếng Anh, vừa có được bằng học thuật. Nhưng thời điểm nào thích hợp để bắt đầu cho các con tham gia học IELTS vẫn là băn khoăn của khá nhiều các bậc phụ huynh.\n" +
                     "\n" +
@@ -1005,7 +1005,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article7);
 
             Article article8 = new Article();
-            article8.setId(8);
+//            article8.setId(8);
             article8.setTitle("GIỎI TIẾNG ANH NHỜ PHƯƠNG PHÁP POMODORO “THẦN THÁNH”");
             article8.setContent("Thay vì dành hàng giờ đồng hồ liên tục chỉ để đắm mình trong những tin tức nóng hổi, giật gân, những video xu hướng trên mạng xã hội, hay cùng hội bạn thân tán gẫu, “facetime” cả đêm, sẽ thật tuyệt vời nếu chúng ta có thể sử dụng tối đa và hiệu quả quỹ thời gian mình đang có để ôn tập lại kiến thức, hoàn thành hết bài tập được giao hoặc nạp thêm một vài cấu trúc, từ vựng tiếng Anh mới phải không. Tuy nhiên, câu hỏi được đặt ra chính là làm thế nào để chúng ta có thể quản lý quỹ thời gian của mình thật tốt và cải thiện khả năng tập trung một cách hiệu quả? Hãy cùng AMES English áp dụng phương pháp Pomodoro “thần thánh” ngay nhé!\n" +
                     "Phương pháp Pomodoro là gì?\n" +
@@ -1050,7 +1050,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article8);
 
             Article article9 = new Article();
-            article9.setId(9);
+//            article9.setId(9);
             article9.setTitle("6 TIPS XÓA TAN NỖI SỢ IELTS WRITNG TASK 2");
             article9.setContent("IELTS Writing gồm 2 phần thi và Task 2 thường là nỗi ám ảnh đối với các sĩ tử. Đây là phần chiếm trọng điểm của kỹ năng này khi chiếm tới ⅔ số điểm tổng và đòi hỏi thí sinh có tư duy nhạy bén, ngữ pháp và từ vựng tốt để có thể đạt được điểm cao. Task 2 sẽ yêu cầu thí sinh trả lời những câu hỏi gần gũi, quen thuộc mà mọi người trên thế giới đều đang quan tâm bằng một đoạn văn khoảng 250 từ. Vậy làm cách nào để có thể đạt được điểm số cao ở phần thi quan trọng này? Ở bài viết dưới đây, AMES English sẽ chia sẻ tới bạn 6 mẹo nhỏ giúp bạn tự tin hơn trước khi bước vào kỳ thi nhé!\n" +
                     "\n" +
@@ -1122,7 +1122,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article9);
 
             Article article10 = new Article();
-            article10.setId(10);
+//            article10.setId(10);
             article10.setTitle("5 TIPS ĐỂ NÓI TIẾNG ANH NHƯ NGƯỜI BẢN XỨ");
             article10.setContent("Mục tiêu học tiếng Anh của nhiều bạn là có thể giao tiếp với người bản xứ một cách trôi chảy, mạch lạc, có thể truyền tải được suy nghĩ của mình một cách dễ dàng hơn. Hai chất giọng phổ biến nhất mà người học tiếng Anh hay hướng tới là Anh-Anh và Anh-Mỹ. Nhiều người cho rằng mình không có bạn bè hay người thân sống ở nước ngoài nên việc luyện tập giọng điệu là không thể. Tuy nhiên, với những tips mà AMES English chia sẻ trong bài viết dưới đây, bạn hoàn toàn có thể làm được điều đó!\n" +
                     "TIP 1: Hãy lựa chọn giọng điệu mà bạn muốn hướng tới\n" +
@@ -1147,7 +1147,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article10);
 
             Article article11 = new Article();
-            article11.setId(11);
+//            article11.setId(11);
             article11.setTitle("TOP 3 CUỐN SÁCH LUYỆN IELTS LISTENING HAY NHẤT CHO NGƯỜI MỚI BẮT ĐẦU");
             article11.setContent("Hiện nay, trên thị trường có rất nhiều sách luyện Listening IELTS, nhưng bạn đã biết những cuốn sách giúp cải thiện kỹ năng Listening và nâng band điểm của bạn chưa? Hôm nay, AMES English sẽ giới thiệu cho bạn top 3 cuốn sách luyện thi Listening IELTS hay nhất dành cho người mới bắt đầu nhé!\n" +
                     "1.Listen Carefully – sách luyện thi IELTS cho người mới bắt đầu\n" +
@@ -1210,7 +1210,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article11);
 
             Article article12 = new Article();
-            article12.setId(12);
+//            article12.setId(12);
             article12.setTitle("6 SAI LẦM ĐIỂN HÌNH KHIẾN BẠN KHÔNG THỂ HỌC GIỎI TIẾNG ANH");
             article12.setContent("Việc học tiếng Anh chắc chắn sẽ khiến nhiều bạn gặp trở ngại, đặc biệt là những người bắt đầu từ con số 0. Muốn thành thạo một loại ngôn ngữ, bạn cần đặc biệt dành nhiều thời gian và sự quyết tâm cho nó. Nếu bạn thấy mình đã cố gắng học tuy nhiên kết quả vẫn dậm chân tại chỗ, và chưa được như mong muốn thì có lẽ bạn đang mắc phải một số lỗi cơ bản. Trong bài viết này AMES sẽ chỉ ra 6 lỗi sai điển hình bạn cần thay đổi ngay nếu muốn cải thiện tình hình học tập.\n" +
                     "1/ Không dành nhiều thời gian cho việc học tiếng Anh\n" +
@@ -1243,7 +1243,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article12);
 
             Article article13 = new Article();
-            article13.setId(13);
+//            article13.setId(13);
             article13.setTitle("CHA MẸ KHÔNG THỂ BỎ LỠ ĐỘ TUỔI NÀY KHI CHO CON BẮT ĐẦU HỌC TIẾNG ANH");
             article13.setContent("Ngày nay, hầu hết các bậc phụ huynh đều nhận thấy tầm quan trọng của việc học ngoại ngữ, vì vậy ai cũng muốn cho con tiếp xúc với ngoại ngữ từ sớm. Nhưng thời điểm “sớm” đó là khi nào? Đâu là độ tuổi vàng cho con bắt đầu học ngoại ngữ thì không phải cha mẹ nào cũng biết.\n" +
                     "Độ tuổi vàng cho trẻ học tiếng Anh \n" +
@@ -1276,7 +1276,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article13);
 
             Article article14 = new Article();
-            article14.setId(14);
+//            article14.setId(14);
             article14.setTitle("ĐỪNG BỎ QUA 3 THỜI ĐIỂM NÀY NẾU BẠN MUỐN CẢI THIỆN TIẾNG ANH");
             article14.setContent("Nhiều người nghĩ rằng buổi sáng sẽ là khoảng thời gian tốt nhất trong ngày đã bắt tay vào học tập. Đây cũng là kết quả nghiên cứu của hai nhà tâm lý học  Pamela Thacher và Serge Onyper thuộc Đại học St Lawrence (Mỹ). Tuy nhiên theo nhiều nghiên cứu khoa học, khoảng thời gian thích hợp nhất để tiếp thu những kiến thức mới là 10-14h và 16-22h. Vậy phải làm thế nào để nắm bắt được thời điểm vàng trong ngày để ôn luyện tiếng Anh?\n" +
                     "1/ 5h-7h sáng: Thời điểm vàng để ghi nhớ từ vựng\n" +
@@ -1297,7 +1297,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article14);
 
             Article article15 = new Article();
-            article15.setId(15);
+//            article15.setId(15);
             article15.setTitle("20 IDIOMS chủ đề FINANCE giúp tăng band điểm IELTS Speaking");
             article15.setContent("Chủ đề Tài chính hay Tiền bạc cũng là chủ đề rất gần gũi với cuộc sống và có khả năng xuất hiện trong bài thi IELTS Speaking.\n" +
                     "Vì vậy nếu bạn có vốn từ vựng nâng cao ở chủ đề này, bạn sẽ tăng khả năng dành được điểm cao từ người chấm thi.\n" +
@@ -1386,7 +1386,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article15);
 
             Article article16 = new Article();
-            article16.setId(16);
+//            article16.setId(16);
             article16.setTitle("TOP 4 CUỐN SÁCH LUYỆN ĐỀ IELTS SĨ TỬ KHÔNG NÊN BỎ QUA");
             article16.setContent("Chuẩn bị cho kỳ thi IELTS cần rất nhiều quyết tâm, thời gian, tinh thần chăm chỉ và đương nhiên không thể thiếu được những cuốn sách ôn luyện. Ở bài viết này, AMES English sẽ chia sẻ với các bạn 4 đầu sách hay giúp các bạn có thể luyện bước đà tốt trong kì thi IELTS nhé. Đây là 4 cuốn sách được đánh giá rất cao và được tin dùng bởi rất nhiều học giả trên thế giới.\n" +
                     "1. Road to IELTS\n" +
@@ -1437,7 +1437,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article16);
 
             Article article17 = new Article();
-            article17.setId(17);
+//            article17.setId(17);
             article17.setTitle("\"BÍ KÍP\" TỐI ƯU HÓA ĐIỂM THI IELTS SPEAKING");
             article17.setContent("Phần thi IELTS Speaking có lẽ là phần khiến nhiều thí sinh cảm thấy lo lắng nhất vì đây là bài thi mang nhiều yếu tố tâm lý khi phải ngồi đối diện với giám khảo chấm thi. Nhiều thí sinh khi luyện thi đạt được điểm rất cao nhưng không chuẩn bị kỹ về mặt tâm lý nên không nhận được kết quả như mong muốn trong ngày thi chính thức. Trong bài viết này, AMES English sẽ chia sẻ với các bạn 8 tips nhỏ rất hữu ích mà các bạn có thể áp dụng vào ngày thi IELTS Speaking của mình. \n" +
                     "\n" +
@@ -1509,7 +1509,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article17);
 
             Article article18 = new Article();
-            article18.setId(18);
+//            article18.setId(18);
             article18.setTitle("PHƯƠNG PHÁP KHUYẾN KHÍCH TRẺ TỰ TIN NÓI TIẾNG ANH");
             article18.setContent("1. Hãy học cùng con\n" +
                     "Khi ba mẹ học cùng con sẽ giúp con có thêm động lực và cảm hứng. Người ta thường nói trẻ con là tấm gương phản chiếu của cha mẹ. Vì vậy, khi nhìn thấy ba mẹ của mình đọc sách, xem phim và giao tiếp bằng tiếng Anh, trẻ sẽ cảm thấy hứng thú hơn để học theo.\n" +
@@ -1536,7 +1536,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article18);
 
             Article article19 = new Article();
-            article19.setId(19);
+//            article19.setId(19);
             article19.setTitle("HỌC TỪ VỰNG IELTS VỚI PHƯƠNG PHÁP SPACED REPETITION");
             article19.setContent("Trong những phương pháp học từ vựng phổ biến như dùng flashcards, học theo ngữ cảnh, sử dụng sơ đồ tư duy,...bạn đã từng nghe đến phương pháp Spaced Repetition? Để biết được phương pháp này là gì cũng như cách áp dụng phương pháp này ra sao trong việc học từ vựng tiếng Anh nói chung và học từ vựng IELTS nói riêng, các bạn hãy đọc bài viết này thật kỹ nha!\n" +
                     "\n" +
@@ -1573,7 +1573,7 @@ public class SeedData implements CommandLineRunner {
             articleSet.add(article19);
 
             Article article20 = new Article();
-            article20.setId(20);
+//            article20.setId(20);
             article20.setTitle("Chứng chỉ IELTS giúp thí sinh có cơ hội trúng tuyển vào nhiều trường đại học?");
             article20.setContent("Nhiều trường ĐH, học viện xét tuyển chứng chỉ kết hợp trong mùa tuyển sinh 2021, tạo điều kiện giúp thí sinh có nhiều cơ hội khi xét tuyển vào những trường, ngành học cạnh tranh.\n" +
                     "Tuyển sinh bằng các chứng chỉ tiếng Anh quốc tế là phương thức được nhiều trường Đại học lớn trên thế giới sử dụng. Ở nước ta, từ năm 2018, rất nhiều trường đại học ở Việt Nam cũng đã bổ sung phương thức này trong quy chế tuyển sinh, tạo điều kiện giúp các em học giỏi Tiếng Anh có nhiều cơ hội khi xét tuyển vào những trường, ngành học cạnh tranh.\n" +

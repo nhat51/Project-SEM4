@@ -53,4 +53,8 @@ public class UserController {
         return new ResponseEntity<>(service.getToken(user_id,token),HttpStatus.BAD_REQUEST);
     }
 
+    @RequestMapping(method = RequestMethod.PUT,path = "delete-user")
+    public ResponseEntity<?> deleteUser(@RequestParam(name = "user-id") int user_id){
+        return new ResponseEntity<>(service.deleteUser(user_id),HttpStatus.OK);
+    }
 }
