@@ -11,12 +11,16 @@ import com.example.englishappbackend.repo.WordRepository;
 import com.github.javafaker.Faker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
+
+import static com.example.englishappbackend.constant.RoleConstant.ADMIN;
+import static com.example.englishappbackend.constant.RoleConstant.USER;
 
 @Component
 public class SeedData implements CommandLineRunner {
@@ -28,6 +32,9 @@ public class SeedData implements CommandLineRunner {
 
     @Autowired
     ArticleRepository articleRepository;
+
+    @Autowired
+    BCryptPasswordEncoder passwordEncoder;
 
 
     private final List<String> listPronounce = Arrays.asList(
@@ -57,110 +64,110 @@ public class SeedData implements CommandLineRunner {
             User user1 = new User();
             user1.setId(1);
             user1.setUsername("dr.nhat");
-            user1.setPasswordHash("123");
+            user1.setPasswordHash(passwordEncoder.encode("1234"));
             user1.setFullName("Nguyen Quang Nhat");
             user1.setEmail("nhatngao@gmail.com");
             user1.setPhone("(84-8) 8510847");
-            user1.setRole(1);
+            user1.setRole(ADMIN);
             user1.setStatus(UserStatus.ACTIVATED);
             userSet.add(user1);
 
             User user2 = new User();
             user2.setId(2);
             user2.setUsername("son3coc");
-            user2.setPasswordHash("123");
+            user2.setPasswordHash(passwordEncoder.encode("1234"));
             user2.setFullName("Dang Hoang Son");
             user2.setEmail("nhaude@gmail.com");
             user2.setPhone("(84-8) 8323791");
-            user2.setRole(1);
+            user2.setRole(ADMIN);
             user2.setStatus(UserStatus.ACTIVATED);
             userSet.add(user2);
 
             User user3 = new User();
             user3.setId(3);
             user3.setUsername("Christian.Le");
-            user3.setPasswordHash("123");
+            user3.setPasswordHash(passwordEncoder.encode("1234"));
             user3.setFullName("Christian Le");
             user3.setEmail("sorryallday@gmail.com");
             user3.setPhone("(84-4) 39 283 977");
-            user3.setRole(1);
+            user3.setRole(USER);
             user3.setStatus(UserStatus.ACTIVATED);
             userSet.add(user3);
 
             User user4 = new User();
             user4.setId(4);
             user4.setUsername("hong.ne");
-            user4.setPasswordHash("123");
+            user4.setPasswordHash(passwordEncoder.encode("1234"));
             user4.setFullName("Nguyen Thi Hong");
             user4.setEmail("goilaiemhong@gmail.com");
             user4.setPhone("(84-8) 39 570 522");
-            user4.setRole(1);
+            user4.setRole(USER);
             user4.setStatus(UserStatus.ACTIVATED);
             userSet.add(user4);
 
             User user5 = new User();
             user5.setId(5);
             user5.setUsername("chinhnguyen321");
-            user5.setPasswordHash("123");
+            user5.setPasswordHash(passwordEncoder.encode("1234"));
             user5.setFullName("Nguyen Duc Chinh");
             user5.setEmail("nguyenducchinhhhhhh@gmail.com");
             user5.setPhone("(84-8) 38 439 697");
-            user5.setRole(1);
+            user5.setRole(USER);
             user5.setStatus(UserStatus.ACTIVATED);
             userSet.add(user5);
 
             User user6 = new User();
             user6.setId(6);
             user6.setUsername("nhituyetle129");
-            user6.setPasswordHash("123");
+            user6.setPasswordHash(passwordEncoder.encode("1234"));
             user6.setFullName("Le Tuyet Nhi");
             user6.setEmail("tuyetnhi635465@gmail.com");
             user6.setPhone("84-0-983682958");
-            user6.setRole(1);
+            user6.setRole(USER);
             user6.setStatus(UserStatus.ACTIVATED);
             userSet.add(user6);
 
             User user7 = new User();
             user7.setId(7);
             user7.setUsername("luonCaoBang");
-            user7.setPasswordHash("123");
+            user7.setPasswordHash(passwordEncoder.encode("1234"));
             user7.setFullName("Phung Thanh Do");
             user7.setEmail("vohatxihoicungso@gmail.com");
             user7.setPhone("(84-64) 3 851 922");
-            user7.setRole(1);
+            user7.setRole(USER);
             user7.setStatus(UserStatus.ACTIVATED);
             userSet.add(user7);
 
             User user8 = new User();
             user8.setId(8);
             user8.setUsername("torau9856");
-            user8.setPasswordHash("123");
+            user8.setPasswordHash(passwordEncoder.encode("1234"));
             user8.setFullName("Truong Tue Chau");
             user8.setEmail("trauhoncun12093@gmail.com");
             user8.setPhone("(650) 3658414 ");
-            user8.setRole(1);
+            user8.setRole(USER);
             user8.setStatus(UserStatus.ACTIVATED);
             userSet.add(user8);
 
             User user9 = new User();
             user9.setId(9);
             user9.setUsername("anculaunam879");
-            user9.setPasswordHash("123");
+            user9.setPasswordHash(passwordEncoder.encode("1234"));
             user9.setFullName("Phong Thanh Duong");
             user9.setEmail("detuDCCC@gmail.com");
             user9.setPhone("04. 3 7 951 711");
-            user9.setRole(1);
+            user9.setRole(USER);
             user9.setStatus(UserStatus.ACTIVATED);
             userSet.add(user9);
 
             User user10 = new User();
             user10.setId(10);
             user10.setUsername("cmcmcmcmcm710");
-            user10.setPasswordHash("123");
+            user10.setPasswordHash(passwordEncoder.encode("1234"));
             user10.setFullName("Cristiano Messi");
             user10.setEmail("cm710@gmail.com");
             user10.setPhone("(08) 38350961");
-            user10.setRole(1);
+            user10.setRole(USER);
             user10.setStatus(UserStatus.ACTIVATED);
             userSet.add(user10);
 

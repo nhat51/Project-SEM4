@@ -1,5 +1,6 @@
 package com.example.englishappbackend.controller;
 
+import com.example.englishappbackend.dtos.UserDto;
 import com.example.englishappbackend.entity.User;
 import com.example.englishappbackend.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET,path = "save")
-    public ResponseEntity<?> saveUser(@RequestBody User user){
+    public ResponseEntity<?> saveUser(@RequestBody UserDto user){
         return new ResponseEntity<>(service.saveUser(user),HttpStatus.BAD_REQUEST);
     }
 

@@ -26,11 +26,13 @@ public class User extends BaseEntity{
     private String email;
     private String phone;
     private String userDeviceToken;
-    private int role;
+    @Column(name = "role")
+    private String role;
     @Enumerated(EnumType.ORDINAL)
     private UserStatus status;
     private double startRemindTime;
     private double endRemindTime;
+
 
     @OneToMany(mappedBy = "user")
     @JsonManagedReference
@@ -43,4 +45,11 @@ public class User extends BaseEntity{
     @OneToMany(mappedBy = "user")
     @JsonManagedReference
     Set<Transaction> transactions;
+
+    public User(String username, String password, String role) {
+        this.username = username;
+        this.passwordHash = password;
+        this.role = role;
+        this.status = UserStatus.NON_ACTIVATED;
+    }
 }
