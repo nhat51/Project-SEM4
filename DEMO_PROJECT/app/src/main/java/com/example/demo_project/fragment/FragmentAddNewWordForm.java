@@ -95,6 +95,13 @@ public class FragmentAddNewWordForm extends Fragment {
                                 .beginTransaction()
                                 .replace(R.id.frameLayout, fragmentDetailWord)
                                 .commit();
+
+                        etWord.getText().clear();
+                        etPartOfSpeech.getText().clear();
+                        etWordMeaning.getText().clear();
+                        etWordExample.getText().clear();
+                        etExampleTrans.getText().clear();
+
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

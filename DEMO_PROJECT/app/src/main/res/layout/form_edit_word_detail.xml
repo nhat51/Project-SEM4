@@ -18,7 +18,7 @@
                 android:layout_height="70dp"
                 android:background="@color/demo">
                 <ImageView
-                    android:id="@+id/btn_back_article"
+                    android:id="@+id/btn_back_edit_form"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="15dp"
-                    android:layout_toEndOf="@+id/btn_back_article"
+                    android:layout_toEndOf="@+id/btn_back_edit_form"
                     android:text="Chỉnh sửa từ"
                     android:textColor="@color/white"
                     android:textSize="25sp"

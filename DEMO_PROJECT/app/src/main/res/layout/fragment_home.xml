@@ -79,6 +79,13 @@
                             android:textColor="@color/demo3"
                             android:textSize="25sp" />
 
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/image_list_word" />
                         <TextView
                             android:id="@+id/all_view_more"
                             android:layout_width="wrap_content"
@@ -90,7 +97,6 @@
                             android:textColor="@color/demo3"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
 <!--                        <ImageView-->
 <!--                            android:layout_width="70dp"-->
 <!--                            android:layout_height="70dp"-->
@@ -135,7 +141,7 @@
                             android:textStyle="bold" />
 
                         <ImageView
-                            android:layout_width="80dp"
+                            android:layout_width="90dp"
                             android:layout_height="100dp"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentBottom="true"
@@ -178,11 +184,10 @@
                             android:textStyle="bold" />
 
                         <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
+                            android:layout_width="90dp"
+                            android:layout_height="100dp"
                             android:layout_alignParentEnd="true"
                             android:layout_centerInParent="true"
-                            android:layout_marginEnd="10dp"
                             android:src="@drawable/remember_home_page" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
@@ -197,45 +202,29 @@
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"/>
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical">
-                <androidx.cardview.widget.CardView
-                    android:layout_width="210dp"
+                android:orientation="horizontal">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="22dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:id="@+id/banner_article"
-                            android:layout_width="match_parent"
-                            android:layout_height="200dp"
-                            android:scaleType="centerCrop"
-                            android:src="@color/black"/>
-                        <TextView
-                            android:id="@+id/title_article"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="8dp"
-                            android:text="Title"
-                            android:textColor="@color/black"
-                            android:textSize="25sp"
-                            android:textStyle="bold"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:ellipsize="end"
-                            android:maxLines="3"
-                            android:minLines="3"
-                            android:text="Description"/>
-                    </LinearLayout>
+                    android:padding="10dp"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="22dp"
+                    app:cardElevation="20dp"
+                    app:circularflow_radiusInDP="5">
+                    <ImageView
+                        android:id="@+id/more_article"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/more_article"
+                        app:tint="@color/demo"
+                        android:layout_gravity="center" />
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

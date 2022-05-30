@@ -13,29 +13,33 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <LinearLayout
                 android:id="@+id/top_banner"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="70dp"
                 android:background="@color/demo"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:id="@+id/btn_back_detail_word_page"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="17dp"
                     android:src="@drawable/ic_arrow_back" />
+
                 <ImageView
                     android:id="@+id/btn_search_detail_word_page"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="230dp"
                     android:src="@drawable/ic_search" />
+
                 <ImageView
                     android:id="@+id/btn_edit_detail_word_page"
-                    android:layout_width="35dp"
+                    android:layout_width="25dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="30dp"
@@ -50,6 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="20dp">
+
                     <TextView
                         android:id="@+id/name_word_detail"
                         android:layout_width="wrap_content"
@@ -57,21 +62,22 @@
                         android:layout_marginTop="20dp"
                         android:text="Red"
                         android:textColor="@color/demo"
-                        android:textSize="60sp"
+                        android:textSize="40sp"
                         android:textStyle="bold" />
+
                     <TextView
-                        android:id="@+id/pos_word_detail"
+                        android:id="@+id/tv_pronounce_word_detail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="45dp"
+                        android:layout_marginTop="40dp"
                         android:layout_toEndOf="@id/name_word_detail"
                         android:text="red"
                         android:textColor="@color/purple_200"
-                        android:textSize="27sp" />
+                        android:textSize="20sp" />
                 </RelativeLayout>
                 <LinearLayout
-                    android:id="@+id/meaning"
+                    android:id="@+id/part_of_speech"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/word"
@@ -83,28 +89,69 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="6dp"
+                            android:src="@drawable/part_of_speech"
+                            app:tint="@color/black" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="Loại từ: "
+                            android:textColor="@color/black"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/pos_detail_word"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="hahaha"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/meaning"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/part_of_speech"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_marginTop="6dp"
                             android:src="@drawable/meaning"
                             app:tint="@color/black" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:text="Nghĩa của từ: "
                             android:textColor="@color/black"
-                            android:textSize="30sp"
+                            android:textSize="25sp"
                             android:textStyle="bold" />
                     </LinearLayout>
+
                     <TextView
                         android:id="@+id/word_detail_meaning"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="37dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="20dp"
                         android:text="hahaha"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
                 <LinearLayout
                     android:id="@+id/example"
@@ -119,7 +166,7 @@
                         android:orientation="horizontal">
                         <ImageView
                             android:layout_width="30dp"
-                            android:layout_height="40dp"
+                            android:layout_height="30dp"
                             android:layout_marginTop="6dp"
                             android:src="@drawable/example"
                             app:tint="@color/black" />
@@ -129,7 +176,7 @@
                             android:layout_marginStart="10dp"
                             android:text="Ví dụ: "
                             android:textColor="@color/black"
-                            android:textSize="30sp"
+                            android:textSize="25sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                     <TextView
@@ -138,7 +185,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:text="red car"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
                 <LinearLayout
                     android:id="@+id/example_trans"
@@ -147,10 +194,11 @@
                     android:layout_below="@id/example"
                     android:layout_marginStart="20dp"
                     android:orientation="horizontal">
+
                     <ImageView
-                        android:layout_width="30dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:layout_marginTop="6dp"
+                        android:layout_marginTop="5dp"
                         android:src="@drawable/trans"
                         app:tint="@color/black" />
                     <TextView
@@ -158,10 +206,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:layout_marginTop="6dp"
+                        android:layout_marginTop="7dp"
                         android:text="xe ô tô đỏ"
                         android:textColor="@color/blue"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
             </RelativeLayout>
         </RelativeLayout>

@@ -42,11 +42,6 @@ public class ListWordAdapter extends RecyclerView.Adapter<ListWordAdapter.ViewHo
         holder.wordWrapper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(currentContext, FragmentDetailWord.class);
-//                intent.putExtra("words", (ArrayList<Word>) words);
-//                int mLastPosition = holder.getAdapterPosition();
-//                intent.putExtra("position", mLastPosition);
-//                currentContext.startActivity(intent);
                 Bundle bundle = new Bundle();
                 bundle.putInt("wordId", currentWord.getId());
 

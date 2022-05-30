@@ -4,15 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.example.demo_project.MainActivity;
 import com.example.demo_project.R;
-import com.example.demo_project.fragment.FragmentAccount;
 
 public class FragmentHome extends Fragment {
     @Nullable
@@ -26,11 +25,6 @@ public class FragmentHome extends Fragment {
                 .beginTransaction()
                 .replace(R.id.frameLayout, MainActivity.fragmentListWordRemember, FragmentListWordRemember.class.getName())
                 .commit());
-//        CardView listRememberHomePage = view.findViewById(R.id.list_remember_home_page);
-//        listRememberHomePage.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
-//                .beginTransaction()
-//                .replace(R.id.frameLayout, MainActivity.fragmentListWordRemember, FragmentListWordRemember.class.getName())
-//                .commit());
 
         TextView txtAllViewMore = view.findViewById(R.id.all_view_more);
         txtAllViewMore.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
@@ -38,10 +32,16 @@ public class FragmentHome extends Fragment {
                 .replace(R.id.frameLayout, MainActivity.fragmentListWord, FragmentListWord.class.getName())
                 .commit());
 
-        TextView txtRemidViewMore = view.findViewById(R.id.remind_view_more);
-        txtRemidViewMore.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
+        TextView txtRemindViewMore = view.findViewById(R.id.remind_view_more);
+        txtRemindViewMore.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frameLayout, MainActivity.fragmentListWordRemind, FragmentListWordRemind.class.getName())
+                .commit());
+
+        ImageView ivMoreArticle = view.findViewById(R.id.more_article);
+        ivMoreArticle.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frameLayout, MainActivity.fragmentListArticle, FragmentListArticle.class.getName())
                 .commit());
         return view;
     }
