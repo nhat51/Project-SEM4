@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.PopUpLogOutActivity">
+    <androidx.cardview.widget.CardView
+        android:layout_width="320dp"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"
+        app:cardMaxElevation="50dp"
+        app:cardBackgroundColor="@color/demo3"
+        app:cardCornerRadius="30dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/pop_up_logout"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="English App"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đăng xuất khỏi ứng dụng?"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <Button
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:backgroundTint="@color/demo3"
+                    android:text="HỦY"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"/>
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/demo3"
+                    android:text="ĐỒNG Ý"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

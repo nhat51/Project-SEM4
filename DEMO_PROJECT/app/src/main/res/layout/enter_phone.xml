@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.LoginActivity"
+    android:background="@color/white">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_top_login"
+                android:id="@+id/top_register">
+
+                <TextView
+                    android:id="@+id/text_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/fugaz_one"
+                    android:text="Quên mật khẩu"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_toEndOf="@+id/text_login"
+                    android:src="@drawable/banner_login" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="30dp"
+                android:id="@+id/main_login">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vui lòng nhập số điện thoại"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/demo3"/>
+
+                <EditText
+                    android:id="@+id/et_register_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="60dp"
+                    android:background="@drawable/bg_edit_text_login"
+                    android:hint="Số điện thoại"
+                    android:inputType="textPassword"
+                    android:paddingStart="20dp"
+                    android:textColorHint="@color/demo3" />
+            </RelativeLayout>
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_bg_register"
+                    android:text="Xác nhận"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

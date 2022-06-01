@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/alata</item>
+        <item>@font/alatsi</item>
+        <item>@font/allerta</item>
+        <item>@font/archivo_black</item>
+        <item>@font/baloo</item>
+        <item>@font/baloo_bhai</item>
+        <item>@font/baloo_tamma</item>
+        <item>@font/bowlby_one</item>
+        <item>@font/candal</item>
+        <item>@font/capriola</item>
+        <item>@font/fugaz_one</item>
+    </array>
+</resources>

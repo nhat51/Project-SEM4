@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.FragmentListWordRemind"
+    android:background="@drawable/gradient_bg_blue2">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/demo">
+
+            <ImageView
+                android:id="@+id/btn_back_remind_list"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/btn_edit_remind_list"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:src="@drawable/settings"
+                app:tint="@color/white" />
+
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/directory_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Danh sách các từ nhắc nhở"
+            android:textColor="@color/demo3"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"/>
+        <!--    <ImageView-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="170dp"-->
+        <!--        android:src="@drawable/banner_list_word"-->
+        <!--        android:layout_marginTop="10dp"/>-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRemind_Word"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:padding="20dp"/>
+    </LinearLayout>
+</FrameLayout>
