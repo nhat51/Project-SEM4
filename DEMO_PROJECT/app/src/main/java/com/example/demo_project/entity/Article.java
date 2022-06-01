@@ -7,6 +7,15 @@ public class Article {
     private String description;
     private String content;
 
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    private String createdAt;
     public Article() {
     }
 

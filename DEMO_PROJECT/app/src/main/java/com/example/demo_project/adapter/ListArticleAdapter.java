@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.demo_project.R;
 import com.example.demo_project.entity.Article;
+import com.example.demo_project.fragment.FragmentDetailArticle;
+import com.example.demo_project.fragment.FragmentDetailWord;
 
 
 import java.util.List;
@@ -26,30 +28,30 @@ public class ListArticleAdapter extends RecyclerView.Adapter<ListArticleAdapter.
         this.articles = articles;
     }
     @Override
-    public ListArticleAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(currentContext).inflate(R.layout.item_list_article, parent,false);
         return new ViewHolder(view);
     }
     @Override
-    public void onBindViewHolder(ListArticleAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         Article currentArticle = articles.get(position);
         holder.tvTitleArticle.setText(currentArticle.getTitle());
         holder.tvDescriptionArticle.setText(currentArticle.getDescription());
 //        holder.imBannerArticle.setText(currentArticle.getImages());
-//        holder.wrapperArticle.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("wordId", currentArticle.getId());
-//
-//                FragmentDetailWord fragmentDetailWord = new FragmentDetailWord();
-//                fragmentDetailWord.setArguments(bundle);
-//                ((FragmentActivity)currentContext).getSupportFragmentManager()
-//                        .beginTransaction()
-//                        .replace(R.id.frameLayout, fragmentDetailWord)
-//                        .commit();
-//            }
-//        });
+        holder.wrapperArticle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("articleId", currentArticle.getId());
+
+                FragmentDetailArticle fragmentDetailArticle = new FragmentDetailArticle();
+                fragmentDetailArticle.setArguments(bundle);
+                ((FragmentActivity)currentContext).getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frameLayout, fragmentDetailArticle)
+                        .commit();
+            }
+        });
     }
 
     @Override

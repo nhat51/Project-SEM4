@@ -211,7 +211,7 @@
                     android:padding="10dp"/>
                 <androidx.cardview.widget.CardView
                     android:layout_width="160dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="200dp"
                     app:cardCornerRadius="22dp"
                     app:cardElevation="20dp"
                     app:circularflow_radiusInDP="5">

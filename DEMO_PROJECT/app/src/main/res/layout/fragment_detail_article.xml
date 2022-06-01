@@ -18,7 +18,7 @@
                 android:background="@color/demo">
 
                 <ImageView
-                    android:id="@+id/btn_back_article"
+                    android:id="@+id/btn_back_article_detail"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -28,6 +28,7 @@
                     app:tint="@color/white" />
 
                 <ImageView
+                    android:id="@+id/btn_setting_article_detail"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_alignParentEnd="true"
