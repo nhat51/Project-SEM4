@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14606f1c-40b5-4952-9e31-efd2f652c8bd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/entity/LoginDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/entity/LoginToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/entity/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/activity/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/activity/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/forgot_password.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/forgot_password.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/authentication/UserAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/authentication/UserAuthorizationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/ArticleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/WordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/WordController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +31,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\it\.android\avd\Pixel_3a_XL_API_24.avd]" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -103,5 +129,17 @@
       <updated>1653443574885</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

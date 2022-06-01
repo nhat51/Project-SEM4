@@ -29,7 +29,8 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class UserAuthorizationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        if (request.getServletPath().equals(URL_LOGIN) || request.getServletPath().equals(URL_ACCOUNT_REGISTER)) {
+        if (request.getServletPath().equals(URL_LOGIN)
+                || request.getServletPath().equals(URL_ACCOUNT_REGISTER)){
             filterChain.doFilter(request, response);
         } else {
             String authorization = request.getHeader(AUTHORIZATION);

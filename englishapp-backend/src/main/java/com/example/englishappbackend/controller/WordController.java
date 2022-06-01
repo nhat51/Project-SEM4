@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/words")
+@CrossOrigin("*")
 public class WordController {
 
     final
