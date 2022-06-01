@@ -14,6 +14,7 @@ import com.example.demo_project.fragment.FragmentAccount;
 import com.example.demo_project.fragment.FragmentAddNewWordForm;
 import com.example.demo_project.fragment.FragmentDetailWord;
 import com.example.demo_project.fragment.FragmentHome;
+import com.example.demo_project.fragment.FragmentListArticle;
 import com.example.demo_project.fragment.FragmentListWord;
 import com.example.demo_project.fragment.FragmentListWordRemember;
 import com.example.demo_project.fragment.FragmentListWordRemind;
@@ -36,11 +37,13 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
     public static FragmentListWordRemind fragmentListWordRemind;
     public static FragmentListWord fragmentListWord;
     public static FragmentDetailWord fragmentDetailWord;
+    public static FragmentListArticle fragmentListArticle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+//        hideNavigation();
     }
     private void initView() {
         floatingActionButton = findViewById(R.id.btn_floating_add);
@@ -59,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         fragmentListWord = new FragmentListWord();
         fragmentAddNewWordForm = new FragmentAddNewWordForm();
         fragmentDetailWord = new FragmentDetailWord();
+        fragmentListArticle = new FragmentListArticle();
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frameLayout, fragmentHome, FragmentHome.class.getName())
@@ -74,7 +78,17 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
             }
         });
     }
-
+//    public void hideNavigation(){
+//        bottomNavigationView.addOnDestinationChangedListener { , destination,  ->
+//            if(destination.id == R.id.full_screen_destination) {
+//
+//                bottomNavigationView.visibility = View.GONE
+//            } else {
+//
+//                bottomNavigationView.visibility = View.VISIBLE
+//            }
+//        }
+//    }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -103,12 +117,6 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
                         .replace(R.id.frameLayout, fragmentSetting, FragmentSetting.class.getName())
                         .commit();
                 break;
-//            case R.id.btn_floating_add:
-//                getSupportFragmentManager()
-//                        .beginTransaction()
-//                        .replace(R.id.frameLayout, fragmentAddNewWordForm, FragmentAddNewWordForm.class.getName())
-//                        .commit();
-//                break;
         }
         return true;
     }

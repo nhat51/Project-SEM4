@@ -27,7 +27,7 @@ import java.util.List;
 import retrofit2.Response;
 
 public class FragmentDetailWord extends Fragment {
-    TextView tvName_word_detail, tvPos_word_detail, tvWord_detail_meaning, tvWord_detail_example, tvWord_detail_example_trans;
+    TextView tvName_word_detail, tvPos_word_detail, tvWord_detail_meaning, tvPronounce_word_detail, tvWord_detail_example, tvWord_detail_example_trans;
     ImageView back_detail_word_page, search_detail_word_page, edit_detail_word_page;
     Word currentWord;
     WordService wordService;
@@ -45,7 +45,8 @@ public class FragmentDetailWord extends Fragment {
     }
     private void initView() {
         tvName_word_detail = view.findViewById(R.id.name_word_detail);
-        tvPos_word_detail = view.findViewById(R.id.pos_word_detail);
+        tvPos_word_detail = view.findViewById(R.id.pos_detail_word);
+        tvPronounce_word_detail = view.findViewById(R.id.tv_pronounce_word_detail);
         tvWord_detail_meaning = view.findViewById(R.id.word_detail_meaning);
         tvWord_detail_example = view.findViewById(R.id.word_detail_example);
         tvWord_detail_example_trans = view.findViewById(R.id.word_detail_example_trans);
@@ -70,10 +71,11 @@ public class FragmentDetailWord extends Fragment {
             if (wordDetailResponse.isSuccessful()){
                 currentWord = wordDetailResponse.body();
                 tvName_word_detail.setText(currentWord.getName());
-                tvPos_word_detail.setText(currentWord.getPronounce());
+                tvPos_word_detail.setText(currentWord.getPartOfSpeech());
                 tvWord_detail_meaning.setText(currentWord.getContent());
                 tvWord_detail_example.setText(currentWord.getExample());
                 tvWord_detail_example_trans.setText(currentWord.getTranslatedExample());
+                tvPronounce_word_detail.setText(currentWord.getPronounce());
             }
         }catch (IOException e){
             e.printStackTrace();
