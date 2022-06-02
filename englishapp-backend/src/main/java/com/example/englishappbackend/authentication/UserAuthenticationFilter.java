@@ -3,7 +3,6 @@ package com.example.englishappbackend.authentication;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.example.englishappbackend.dtos.UserDto;
-import com.example.englishappbackend.entity.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import org.springframework.http.HttpStatus;
@@ -27,6 +26,7 @@ import java.util.stream.Collectors;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 public class UserAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+
     private final AuthenticationManager authenticationManager;
 
     public UserAuthenticationFilter(AuthenticationManager authenticationManager) {
@@ -63,7 +63,6 @@ public class UserAuthenticationFilter extends UsernamePasswordAuthenticationFilt
                 .withExpiresAt(new Date(System.currentTimeMillis() + 30L * 24 * 3600 * 1000))
                 .withIssuer(request.getRequestURL().toString())
                 .sign(algorithm);
-
         HashMap<String, String> tokens = new HashMap<>();
         tokens.put("access_token", access_token);
         tokens.put("refresh_token", refresh_token);

@@ -10,20 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14606f1c-40b5-4952-9e31-efd2f652c8bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/entity/LoginDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/entity/LoginToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/entity/UserResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/activity/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/activity/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/forgot_password.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/forgot_password.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/authentication/UserAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/authentication/UserAuthorizationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/ArticleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/WordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/WordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/service/word/WordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/service/word/WordServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

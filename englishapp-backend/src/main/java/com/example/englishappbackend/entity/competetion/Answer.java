@@ -1,7 +1,6 @@
 package com.example.englishappbackend.entity.competetion;
 
 import com.example.englishappbackend.entity.BaseEntity;
-import com.example.englishappbackend.entity.competetion.Question;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

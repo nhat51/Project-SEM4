@@ -1,6 +1,5 @@
 package com.example.englishappbackend.cronjob;
 
-import com.example.englishappbackend.entity.User;
 import com.example.englishappbackend.entity.Word;
 import com.example.englishappbackend.enums.WordCategory;
 import com.example.englishappbackend.fcm.FcmService;
@@ -9,17 +8,11 @@ import com.example.englishappbackend.fcm.PnsRequest;
 import com.example.englishappbackend.repo.UserRepository;
 import com.example.englishappbackend.repo.WordRepository;
 import com.example.englishappbackend.util.WordSuccessTime;
-import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/words")
-@CrossOrigin("*")
 public class WordController {
 
     final
@@ -28,10 +27,10 @@ public class WordController {
     }
 
     @RequestMapping(method = RequestMethod.GET,path = "user-word")
-    public ResponseEntity<?> getWordByUser(@RequestParam(name = "user-id") int user_id,
+    public ResponseEntity<?> getWordByUser(
                                            @RequestParam(name = "page",defaultValue = "1") int page,
-                                           @RequestParam(name = "size", defaultValue = "5") int size){
-        Page<Word> wordList = wordService.getWordsByUser(user_id,page,size);
+                                           @RequestParam(name = "size", defaultValue = "10") int size){
+        Page<Word> wordList = wordService.getWordsByUser(page,size);
         if (wordList.getContent().size() > 0){
             return new ResponseEntity<>(wordList, HttpStatus.OK);
         }

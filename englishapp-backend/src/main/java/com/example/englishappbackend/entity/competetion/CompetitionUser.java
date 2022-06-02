@@ -2,7 +2,6 @@ package com.example.englishappbackend.entity.competetion;
 
 import com.example.englishappbackend.entity.BaseEntity;
 import com.example.englishappbackend.entity.User;
-import com.example.englishappbackend.entity.competetion.Competition;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

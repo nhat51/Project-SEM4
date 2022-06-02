@@ -4,8 +4,6 @@ import com.example.englishappbackend.dtos.UserDto;
 import com.example.englishappbackend.entity.User;
 import org.springframework.data.domain.Page;
 
-import java.util.List;
-
 public interface UserService {
     Page<User> getAllUser(int page,int size);
     User userDetail(int user_id);

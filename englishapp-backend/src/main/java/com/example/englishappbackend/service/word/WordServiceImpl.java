@@ -1,9 +1,9 @@
 package com.example.englishappbackend.service.word;
 
+import com.example.englishappbackend.entity.User;
 import com.example.englishappbackend.entity.Word;
 import com.example.englishappbackend.repo.UserRepository;
 import com.example.englishappbackend.repo.WordRepository;
-import com.example.englishappbackend.service.word.WordService;
 import com.example.englishappbackend.specification.SearchCriteria;
 import com.example.englishappbackend.specification.WordSpecification;
 import com.google.gson.JsonArray;
@@ -13,9 +13,11 @@ import com.google.gson.JsonParser;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.security.Principal;
 import java.util.Optional;
 
 @Service
@@ -43,9 +45,11 @@ public class WordServiceImpl implements WordService {
     }
 
     @Override
-    public Page<Word> getWordsByUser(int userId, int page, int size) {
+    public Page<Word> getWordsByUser(int page, int size) {
         PageRequest paging = PageRequest.of(page - 1, size);
-        return wordRepository.findWordsByUser_id(userId, paging);
+        Principal principal = SecurityContextHolder.getContext().getAuthentication();
+        User user = userRepository.findByUsername(principal.getName());
+        return wordRepository.findWordsByUserId(user.getId(), paging);
     }
 
     @Override
@@ -75,6 +79,9 @@ public class WordServiceImpl implements WordService {
                 break;
             }
             System.out.println(phonetic);
+            Principal principal = SecurityContextHolder.getContext().getAuthentication();
+            User user = userRepository.findByUsername(principal.getName());
+            word.setUser(user);
         }
         return wordRepository.save(word);
     }
