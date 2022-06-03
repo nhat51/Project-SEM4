@@ -16,8 +16,8 @@ public interface WordService {
     @GET("api/v1/words")
     Call<WordResponse> getAll();
 
-    @GET("api/v1/words/user-word?user_id=1")
-    Call<List<Word>> getListWord();
+    @GET("api/v1/words/user-word")
+    Call<WordResponse> getListWord();
 
     @POST("api/v1/words/save")
     Call<Word> addNewWord(@Body Word newWord);

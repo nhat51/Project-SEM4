@@ -13,5 +13,4 @@ import retrofit2.http.POST;
 public interface UserService {
     @POST("api/v1/users/login")
     Call<UserResponse> login(@Body LoginDto loginDto);
-
 }

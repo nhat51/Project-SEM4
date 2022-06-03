@@ -25,7 +25,7 @@ public class RetrofitGenerator {
             httpClient.addInterceptor(chain -> {
                 Request original = chain.request();
                 Request request = original.newBuilder()
-                        .header("Authorization", token)
+                        .header("Authorization","Bearer " + token)
                         .build();
                 return chain.proceed(request);
             });

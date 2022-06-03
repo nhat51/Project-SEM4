@@ -78,7 +78,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_centerInParent="true"
-                        android:layout_marginLeft="200dp"
+                        android:layout_marginStart="220dp"
                         android:layout_toEndOf="@id/et_login_pass"
                         android:src="@drawable/hide_password"
                         app:tint="@color/demo" />
