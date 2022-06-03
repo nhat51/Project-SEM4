@@ -10,27 +10,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14606f1c-40b5-4952-9e31-efd2f652c8bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/entity/LoginDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/entity/LoginToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/entity/UserResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/activity/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/activity/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/fragment/FragmentListWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/fragment/FragmentListWord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/forgot_password.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/forgot_password.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/authentication/UserAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/authentication/UserAuthorizationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/ArticleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/WordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/controller/WordController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\it\.android\avd\Pixel_3a_XL_API_24.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Admin\.android\avd\Pixel_3_XL_API_24.avd]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DEMO_PROJECT" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DEMO_PROJECT" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DEMO_PROJECT" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>

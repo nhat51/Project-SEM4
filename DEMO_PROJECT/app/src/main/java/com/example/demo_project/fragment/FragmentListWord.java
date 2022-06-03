@@ -60,7 +60,7 @@ public class FragmentListWord extends Fragment {
             wordService = RetrofitGenerator.createService(WordService.class);
         }
         try {
-            Response<WordResponse> listResponse = wordService.getAll().execute();
+                Response<WordResponse> listResponse = wordService.getAll().execute();
             Log.d("wordssssss: ", String.valueOf(listResponse.body().getContent().size()));
             if (listResponse.isSuccessful()){
                 words.addAll(listResponse.body().getContent());
