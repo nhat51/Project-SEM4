@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.FragmentSearch"
+    android:background="@color/demo3">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:id="@+id/btn_back_search"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/btn_back_search"
+                android:text="Tìm kiếm"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/settings"
+                app:tint="@color/white" />
+
+        </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ENGLISH APP"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="40sp"
+            android:layout_marginTop="200dp"/>
+
+        <SearchView
+            android:id="@+id/search_page"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="25dp"
+            android:background="@drawable/bg_search_bar"
+            android:iconifiedByDefault="false"
+            android:queryHint="Các từ đã thêm" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="350dp"
+            android:layout_height="55dp"
+            android:layout_below="@id/search_page"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="30dp"
+            android:layout_centerInParent="true" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="350dp"
+            android:layout_height="55dp"
+            android:layout_below="@id/search_page"
+            app:cardBackgroundColor="@color/demo"
+            android:layout_centerInParent="true"
+            app:cardElevation="20dp"
+            app:circularflow_radiusInDP="5"
+            android:layout_marginTop="20dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/text_suggest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="hello"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="220dp"
+                    android:layout_toEndOf="@+id/text_suggest"
+                    android:src="@drawable/next_search_fragment"
+                    app:tint="@color/white" />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</FrameLayout>

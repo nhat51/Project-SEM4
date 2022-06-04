@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.FragmentAddNewWordForm"
+    android:background="@color/demo3">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@color/demo">
+                <ImageView
+                    android:id="@+id/btn_back_edit_form"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/ic_arrow_back"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@+id/btn_back_edit_form"
+                    android:text="Chỉnh sửa từ"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/settings"
+                    app:tint="@color/white" />
+
+            </RelativeLayout>
+            <ImageView
+                android:id="@+id/banner_add_form"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/banner_add_form" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="30dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="40dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ti_word"
+                        android:layout_marginTop="20dp">
+                        <EditText
+                            android:id="@+id/edit_etWord"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Từ cần edit"
+                            android:textColorHint="@color/orange"
+                            android:textSize="15sp"
+                            android:background="@color/white"
+                            android:maxLines="1"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ti_pos"
+                        android:layout_marginTop="20dp">
+                        <EditText
+                            android:id="@+id/edit_etPartOfSpeech"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Loại từ"
+                            android:textSize="15sp"
+                            android:background="@color/white"
+                            android:maxLines="1"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ti_meaning"
+                        android:layout_marginTop="20dp">
+                        <EditText
+                            android:id="@+id/edit_etWordMeaning"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Nghĩa của từ"
+                            android:textSize="15sp"
+                            android:background="@color/white"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ti_example"
+                        android:layout_marginTop="20dp">
+                        <EditText
+                            android:id="@+id/edit_etWordExample"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ví dụ"
+                            android:textSize="15sp"
+                            android:background="@color/white"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ti_trans"
+                        android:layout_marginTop="20dp">
+                        <EditText
+                            android:id="@+id/edit_etExampleTrans"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Nghĩa của ví dự"
+                            android:textSize="15sp"
+                            android:background="@color/white"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <Button
+                        android:id="@+id/btnEditSubmit"
+                        android:layout_width="110dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/btn_submit"
+                        android:text="Lưu"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

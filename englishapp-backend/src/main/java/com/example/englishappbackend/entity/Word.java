@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -24,12 +23,14 @@ public class Word extends BaseEntity{
     private String content;
     private String pronounce;
     private String partOfSpeech;
+    @Column(columnDefinition = "TEXT")
     private String example;
     private String translatedExample;
     private LocalDate lastRemind;
     private int successTime;
     private WordCategory categoryType;
     private boolean isRemember;
+
 
     @ManyToOne
     @JoinColumn(name = "user_id")

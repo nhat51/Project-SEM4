@@ -1,19 +1,25 @@
 package com.example.englishappbackend.fcm;
 
+import com.example.englishappbackend.entity.User;
+import com.example.englishappbackend.repo.UserRepository;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import com.google.firebase.messaging.Message;
 import com.google.firebase.messaging.Notification;
 import com.google.gson.Gson;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 
 @Service
 public class FcmService {
 
     private final FirebaseMessaging firebaseMessaging;
+
+    @Autowired
+    UserRepository userRepository;
 
     public FcmService(FirebaseMessaging firebaseMessaging) {
         this.firebaseMessaging = firebaseMessaging;
@@ -41,5 +47,15 @@ public class FcmService {
             e.printStackTrace();
         }
         return response;
+    }
+
+    public String getDeviceToken(int userId,String deviceToken){
+        Optional<User> user = userRepository.findById(userId);
+        if (user.isPresent()){
+            user.get().setUserDeviceToken(deviceToken);
+            userRepository.save(user.get());
+            return deviceToken;
+        }
+        return "";
     }
 }
