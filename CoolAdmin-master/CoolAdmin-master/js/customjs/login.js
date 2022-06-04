@@ -23,10 +23,13 @@ document.addEventListener('DOMContentLoaded', function (){
         xmlHttpRequest.onreadystatechange = function () {
             // kiểm tra khi trạng thái request đã hoàn thành (readyState = 1) và tạo thành công (status = 201) (thất bại = 500)
             if (
-                xmlHttpRequest.status == successStatus
+                xmlHttpRequest.status == successStatus || xmlHttpRequest.onreadystatechange == 4
             ) {
                 // alert('Login success!');
                 window.location.href = './index.html';
+                var data = JSON.parse(xmlHttpRequest.responseText);
+                console.log(data.body.username)
+                sessionStorage.setItem("username", data.body.username);
             }
         };
 
