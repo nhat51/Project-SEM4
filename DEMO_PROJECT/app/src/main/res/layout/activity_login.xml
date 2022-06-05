@@ -10,7 +10,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,57 +44,84 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="30dp">
-
-                <EditText
-                    android:id="@+id/et_login_name"
+                <LinearLayout
+                    android:id="@+id/login_username"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="30dp"
-                    android:background="@drawable/bg_edit_text_login"
-                    android:hint="Tên đăng nhập"
-                    android:paddingStart="20dp"
-                    android:textColorHint="@color/blue" />
-
-                <RelativeLayout
-                    android:id="@+id/enter_pass_login_form"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_below="@id/et_login_name"
-                    android:layout_marginTop="40dp"
-                    android:background="@drawable/bg_edit_text_login">
-
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
                     <EditText
-                        android:id="@+id/et_login_pass"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:hint="Mật khẩu"
-                        android:inputType="textPassword"
+                        android:id="@+id/et_login_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/bg_edit_text_login"
+                        android:hint="Tên đăng nhập"
                         android:paddingStart="20dp"
                         android:textColorHint="@color/blue" />
+                    <TextView
+                        android:id="@+id/UserNameAlertLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:textColor="#B71C1C"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/password_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/login_username">
+                    <RelativeLayout
+                        android:id="@+id/enter_pass_login_form"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/bg_edit_text_login">
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_centerInParent="true"
-                        android:layout_marginStart="220dp"
-                        android:layout_toEndOf="@id/et_login_pass"
-                        android:src="@drawable/hide_password"
-                        app:tint="@color/demo" />
-                </RelativeLayout>
+                        <EditText
+                            android:id="@+id/et_login_pass"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Mật khẩu"
+                            android:inputType="textPassword"
+                            android:paddingStart="20dp"
+                            android:textColorHint="@color/blue" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="220dp"
+                            android:layout_toEndOf="@id/et_login_pass"
+                            android:src="@drawable/hide_password"
+                            app:tint="@color/demo" />
+                    </RelativeLayout>
+                    <TextView
+                        android:id="@+id/PasswordAlertLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:textColor="#B71C1C"/>
+                </LinearLayout>
                 <TextView
+                    android:id="@+id/redirect_forgot_password_form"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/enter_pass_login_form"
+                    android:layout_below="@id/password_login"
                     android:layout_alignParentEnd="true"
                     android:paddingTop="10dp"
                     android:text="Quên mật khẩu?"
                     android:textColor="@color/blue" />
-
                 <TextView
+                    android:id="@+id/redirect_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/enter_pass_login_form"
+                    android:layout_below="@id/password_login"
                     android:paddingTop="10dp"
                     android:text="Bạn chưa có tài khoản?"
                     android:textColor="@color/blue" />

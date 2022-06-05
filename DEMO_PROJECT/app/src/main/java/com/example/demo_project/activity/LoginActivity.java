@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.demo_project.MainActivity;
@@ -26,70 +27,10 @@ import java.io.IOException;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
-//    Button btn_login;
-//    EditText et_login_name, et_login_pass;
-//    UserService userService;
-//    LoginToken loginToken = null;
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_login);
-//        int SDK_INT = android.os.Build.VERSION.SDK_INT;
-//        if (SDK_INT > 8)
-//        {
-//            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-//                    .permitAll().build();
-//            StrictMode.setThreadPolicy(policy);
-//            //your codes here
-//        }
-//        initData();
-//        initListener();
-//    }
-//
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        SharedPreferences sharedPref = getSharedPreferences("token", MODE_PRIVATE);
-//        SharedPreferences.Editor editor = sharedPref.edit();
-//        editor.putString("token", loginToken.getAccessToken());
-//        editor.commit();
-//        Log.d("token", sharedPref.getString("token", null));
-//    }
-//
-//    private void initData() {
-//        btn_login = findViewById(R.id.btn_login);
-//        et_login_name = findViewById(R.id.et_login_name);
-//        et_login_pass = findViewById(R.id.et_login_pass);
-//    }
-//    private void initListener(){
-//        btn_login.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String username = et_login_name.getText().toString();
-//                String password = et_login_pass.getText().toString();
-//
-//                LoginDto loginDto = new LoginDto();
-//                loginDto.setUsername(username);
-//                loginDto.setPassword(password);
-//                if (userService == null){
-//                    userService = RetrofitGenerator.createService(UserService.class);
-//                }
-//                try {
-//                    Response<UserResponse> tokenResponse =  userService.login(loginDto).execute();
-//                    if(tokenResponse.isSuccessful()){
-//
-//                        loginToken = tokenResponse.body().getBody();
-//                        Log.d("Token",loginToken.getUsername());
-//                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-//                    }
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//    }
+
 Button btn_login;
     EditText et_login_name, et_login_pass;
+    TextView userNameAlertLogin, passwordAlertLogin;
     UserService userService;
     SharedPreferences settings;
     SharedPreferences.Editor editor;
@@ -116,6 +57,9 @@ Button btn_login;
         btn_login = findViewById(R.id.btn_login);
         et_login_name = findViewById(R.id.et_login_name);
         et_login_pass = findViewById(R.id.et_login_pass);
+
+        userNameAlertLogin = findViewById(R.id.UserNameAlertLogin);
+        passwordAlertLogin = findViewById(R.id.PasswordAlertLogin);
     }
     private void initListener(){
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -148,7 +92,33 @@ Button btn_login;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                validateLoginUser();
+                validateLoginPassword();
             }
         });
+    }
+
+    private boolean validateLoginUser() {
+        String usernameInputLogin = et_login_name.getText().toString().trim();
+
+        //validate username
+        if (usernameInputLogin.isEmpty()) {
+            userNameAlertLogin.setText("Field can't be empty. Please enter your username");
+            return false;
+        }
+        return true;
+    }
+    private boolean validateLoginPassword(){
+        String passwordInputLogin = et_login_pass.getText().toString().trim();
+        //validate pass
+        if (passwordInputLogin.isEmpty()) {
+            passwordAlertLogin.setText("Field can't be empty. PLease enter your password");
+            return false;
+        }
+        if (passwordInputLogin.length() < 3) {
+            passwordAlertLogin.setText("Password must be at least 3 characters");
+            return false;
+        }
+        return true;
     }
 }

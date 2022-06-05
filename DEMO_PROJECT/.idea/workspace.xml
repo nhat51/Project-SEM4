@@ -14,18 +14,17 @@
   <component name="ChangeListManager">
     <list default="true" id="14606f1c-40b5-4952-9e31-efd2f652c8bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/activity/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/activity/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/entity/LoginToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/entity/LoginToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/fragment/FragmentAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/fragment/FragmentAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/fragment/FragmentListWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/fragment/FragmentListWord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/fragment/FragmentSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/fragment/FragmentSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/activity/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/activity/RegisterActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/service/WordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/service/WordService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/util/RetrofitGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/util/RetrofitGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_account.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_list_word_remember.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_list_word_remember.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_setting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_setting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/enter_otp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/enter_otp.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/enter_phone.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/enter_phone.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/forgot_password.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/forgot_password.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/form_edit_user_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/form_edit_user_info.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
