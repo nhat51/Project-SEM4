@@ -1,5 +1,6 @@
 package com.example.englishappbackend.cronjob;
 
+import com.example.englishappbackend.entity.User;
 import com.example.englishappbackend.entity.Word;
 import com.example.englishappbackend.enums.WordCategory;
 import com.example.englishappbackend.fcm.FcmService;
@@ -13,6 +14,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
@@ -28,6 +31,8 @@ public class SpringConfig {
 
     @Autowired
     UserRepository userRepository;
+
+    private Map<User, List<Word>> listMap;
 
 //    @Scheduled(fixedDelay = 1000*60*60)
 //    public void scheduleFixedDelayTask() {

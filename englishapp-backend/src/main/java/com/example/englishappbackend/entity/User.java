@@ -30,8 +30,8 @@ public class User extends BaseEntity{
     private String role;
     @Enumerated(EnumType.ORDINAL)
     private UserStatus status;
-    private double startRemindTime;
-    private double endRemindTime;
+    private long startRemindTime;
+    private long endRemindTime;
 
 
     @OneToMany(mappedBy = "user")

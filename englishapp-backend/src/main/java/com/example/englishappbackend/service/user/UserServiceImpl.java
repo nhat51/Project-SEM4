@@ -4,12 +4,15 @@ import com.example.englishappbackend.dtos.UserDto;
 import com.example.englishappbackend.entity.User;
 import com.example.englishappbackend.exception.RequestValidException;
 import com.example.englishappbackend.repo.UserRepository;
+import com.example.englishappbackend.util.HandleTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.util.Optional;
 
 @Service
@@ -62,17 +65,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getToken(int user_id, String token  ) {
-        Optional<User> user = userRepository.findById(user_id);
-        if (user.isPresent()){
-            user.get().setUserDeviceToken(token);
-            return userRepository.save(user.get());
-        }
-        return null;
+    public User getToken(String token  ) {
+        Principal principal = SecurityContextHolder.getContext().getAuthentication();
+        User user = userRepository.findByUsername(principal.getName());
+        user.setUserDeviceToken(token);
+        return userRepository.save(user);
     }
 
     @Override
-    public User setRemindTime(int user_id, int start_time, int end_time) {
-        return null;
+    public User setRemindTime(String startRemindTime,String endRemindTime) {
+        Principal principal = SecurityContextHolder.getContext().getAuthentication();
+        User user = userRepository.findByUsername(principal.getName());
+        HandleTime handleTime = new HandleTime();
+        long start = handleTime.convertStringToLong(startRemindTime);
+        long end = handleTime.convertStringToLong(endRemindTime);
+        user.setStartRemindTime(start);
+        user.setEndRemindTime(end);
+        userRepository.save(user);
+        return user;
     }
 }

@@ -42,6 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST,URL_ACCOUNT_REGISTER).permitAll()
                 .antMatchers(HttpMethod.GET,URL_ALL).hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers(HttpMethod.GET,URL_WORD_USER).hasAnyAuthority("ROLE_USER")
+                .antMatchers("/api/notification/send").permitAll()
                 .anyRequest().authenticated().and().httpBasic();
 
         http.addFilter(userAuthenticationFilter);

@@ -10,13 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14606f1c-40b5-4952-9e31-efd2f652c8bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/demo_project/MyFirebaseMessagingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/resources/firebase-service-account.json" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/resources/firebase-service-account.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/authentication/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../englishapp-backend/src/main/java/com/example/englishappbackend/authentication/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../englishapp-backend/src/main/resources/firebase-service-account.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

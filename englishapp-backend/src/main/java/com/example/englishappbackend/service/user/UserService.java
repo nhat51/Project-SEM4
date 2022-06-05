@@ -9,6 +9,6 @@ public interface UserService {
     User userDetail(int user_id);
     UserDto saveUser(UserDto user);
     User updateUser(int user_id, User user);
-    User getToken(int user_id,String token);
-    User setRemindTime(int user_id,int start_time,int end_time);
+    User getToken(String token);
+    User setRemindTime(String startRemindTime, String endRemindTime);
 }

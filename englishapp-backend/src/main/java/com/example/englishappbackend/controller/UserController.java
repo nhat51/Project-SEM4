@@ -49,9 +49,13 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.GET,path = "receive-device-token")
     public ResponseEntity<?> receiveToken(
-            @RequestHeader(name = "device-token") String token,
-            @RequestHeader(name = "user-id") int user_id){
-        return new ResponseEntity<>(service.getToken(user_id,token),HttpStatus.BAD_REQUEST);
+            @RequestHeader(name = "device-token") String token){
+        return new ResponseEntity<>(service.getToken(token),HttpStatus.BAD_REQUEST);
     }
 
+    @RequestMapping(method = RequestMethod.POST, path = "setRemindTime")
+    public ResponseEntity<?> setRemindTime(@RequestParam(name = "startTime") String start,
+                                           @RequestParam(name = "endTime") String end){
+        return new ResponseEntity<>(service.setRemindTime(start,end),HttpStatus.OK);
+    }
 }
