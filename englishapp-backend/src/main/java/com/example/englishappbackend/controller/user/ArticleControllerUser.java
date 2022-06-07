@@ -1,4 +1,4 @@
-package com.example.englishappbackend.controller;
+package com.example.englishappbackend.controller.user;
 
 import com.example.englishappbackend.service.article.ArticleService;
 import org.springframework.http.HttpStatus;
@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/v1/articles")
-public class ArticleController {
+@RequestMapping("api/v1/user/articles")
+public class ArticleControllerUser {
 
     final ArticleService articleService;
 
-    public ArticleController(ArticleService articleService){
+    public ArticleControllerUser(ArticleService articleService){
         this.articleService = articleService;
     }
 

@@ -1,4 +1,4 @@
-package com.example.englishappbackend.controller;
+package com.example.englishappbackend.controller.user;
 
 import com.example.englishappbackend.entity.Word;
 import com.example.englishappbackend.service.word.WordService;
@@ -8,23 +8,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/words")
-public class WordController {
+@RequestMapping("api/v1/user/words")
+public class WordControllerUser {
 
     final
     WordService wordService;
 
-    public WordController(WordService wordService) {
+    public WordControllerUser(WordService wordService) {
         this.wordService = wordService;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<?> getAllWord(
-            @RequestParam(name = "page",defaultValue = "1") int page,
-            @RequestParam(name = "size", defaultValue = "5") int size,
-            @RequestParam(name = "word",defaultValue = "")String name){
-        return new ResponseEntity<>(wordService.getAll(page, size,name), HttpStatus.OK);
-    }
 
     @RequestMapping(method = RequestMethod.GET,path = "user-word")
     public ResponseEntity<?> getWordByUser(
