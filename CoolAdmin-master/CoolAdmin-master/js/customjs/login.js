@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function (){
     var btnLogin =document.getElementById("btn-signin");
-    var txtuserName =document.forms['login-form']['username'];
-    var txtpassWord =document.forms['login-form']['password'];
+    var txtUserName =document.forms['login-form']['username'];
+    var txtPassWord =document.forms['login-form']['password'];
 
     btnLogin.onclick= function (){
-        var username = txtuserName.value;
-        var password = txtpassWord.value;
+        var username = txtUserName.value;
+        var password = txtPassWord.value;
 
 
         var dataToSend={
@@ -22,14 +22,11 @@ document.addEventListener('DOMContentLoaded', function (){
         // sự kiện khi request thay đổi trạng thái
         xmlHttpRequest.onreadystatechange = function () {
             // kiểm tra khi trạng thái request đã hoàn thành (readyState = 1) và tạo thành công (status = 201) (thất bại = 500)
-            if (
-                xmlHttpRequest.status == successStatus || xmlHttpRequest.onreadystatechange == 4
-            ) {
-                // alert('Login success!');
-                window.location.href = './index.html';
+            if (xmlHttpRequest.status == successStatus && xmlHttpRequest.readyState == 4) {
                 var data = JSON.parse(xmlHttpRequest.responseText);
-                console.log(data.body.username)
-                sessionStorage.setItem("username", data.body.username);
+                localStorage.setItem("access_token", data.body.access_token);
+                localStorage.setItem("username", data.body.username);
+                window.location.href = './index.html';
             }
         };
 
