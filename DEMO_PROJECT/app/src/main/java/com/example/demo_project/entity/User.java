@@ -4,7 +4,7 @@ import java.util.Date;
 public class User {
     private int userTd;
     private String userName;
-    private String passwordHash;
+    private String password;
     private String fullName;
     private String email;
     private String phone;
@@ -13,10 +13,14 @@ public class User {
     private Date created_at;
     private Date updated_at;
 
-    public User(int userTd, String userName, String passwordHash, String fullName, String email, String phone, int role, int status, Date created_at, Date updated_at) {
+
+    public User() {
+    }
+
+    public User(int userTd, String userName, String password, String fullName, String email, String phone, int role, int status, Date created_at, Date updated_at) {
         this.userTd = userTd;
         this.userName = userName;
-        this.passwordHash = passwordHash;
+        this.password = password;
         this.fullName = fullName;
         this.email = email;
         this.phone = phone;
@@ -24,9 +28,6 @@ public class User {
         this.status = status;
         this.created_at = created_at;
         this.updated_at = updated_at;
-    }
-
-    public User() {
     }
 
     public int getUserTd() {
@@ -45,13 +46,6 @@ public class User {
         this.userName = userName;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
-    }
-
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
-    }
 
 
     public String getEmail() {
@@ -108,5 +102,13 @@ public class User {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

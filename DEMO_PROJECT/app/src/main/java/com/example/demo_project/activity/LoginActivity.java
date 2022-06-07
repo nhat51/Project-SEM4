@@ -88,6 +88,8 @@ Button btn_login;
                         editor.commit();
                         Toast.makeText(LoginActivity.this, "Login success",Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Login fail. Please check your information again!",Toast.LENGTH_SHORT).show();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

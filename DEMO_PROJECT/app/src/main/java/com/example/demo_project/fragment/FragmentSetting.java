@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.example.demo_project.MainActivity;
@@ -15,6 +16,7 @@ import com.example.demo_project.R;
 
 public class FragmentSetting extends Fragment {
     private ImageView btn_back_setting;
+    private CardView log_out;
     private View view;
     private Context currentContext;
     @Nullable
@@ -37,5 +39,8 @@ public class FragmentSetting extends Fragment {
                         .commit());
             }
         });
+    }
+    private boolean logout(){
+       return true;
     }
 }

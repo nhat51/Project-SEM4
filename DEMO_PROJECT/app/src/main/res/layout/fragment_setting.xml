@@ -98,30 +98,33 @@
                             android:gravity="center"
                             android:orientation="horizontal">
 
-                            <TextView
+                            <EditText
                                 android:id="@+id/start_hour"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_marginEnd="20dp"
                                 android:text="13"
                                 android:textColor="@color/white"
-                                android:textSize="50sp" />
+                                android:textSize="50sp"
+                                android:background="@android:color/transparent" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_marginEnd="20dp"
+                                android:gravity="center"
                                 android:text=":"
                                 android:textSize="50sp"
                                 android:textColor="@color/white"/>
 
-                            <TextView
+                            <EditText
                                 android:id="@+id/start_minute"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:text="06"
                                 android:textSize="50sp"
-                                android:textColor="@color/white"/>
+                                android:textColor="@color/white"
+                                android:background="@android:color/transparent" />
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
@@ -142,30 +145,34 @@
                             android:gravity="center"
                             android:orientation="horizontal">
 
-                            <TextView
+                            <EditText
                                 android:id="@+id/end_hour"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_marginEnd="20dp"
                                 android:text="13"
                                 android:textColor="@color/white"
-                                android:textSize="50sp" />
+                                android:textSize="50sp"
+                                android:background="@android:color/transparent" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_marginEnd="20dp"
                                 android:text=":"
+                                android:gravity="center"
                                 android:textSize="50sp"
                                 android:textColor="@color/white"/>
 
-                            <TextView
+                            <EditText
                                 android:id="@+id/end_minute"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:text="06"
                                 android:textSize="50sp"
-                                android:textColor="@color/white"/>
+                                android:textColor="@color/white"
+                                android:background="@android:color/transparent"
+                                />
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
@@ -252,7 +259,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/rbtn_monday"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -271,7 +278,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/rbtn_tuesday"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -290,7 +297,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/rbtn_wednesday"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -309,7 +316,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/rbtn_thursday"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -328,7 +335,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/rbtn_friday"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -347,7 +354,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/rbtn_saturday"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -366,7 +373,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/rbtn_sunday"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"

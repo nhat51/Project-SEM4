@@ -2,6 +2,7 @@ package com.example.demo_project.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -36,6 +37,7 @@ public class FragmentAddNewWordForm extends Fragment {
     private ImageView btn_back_add_form;
     private View view;
     private Context currentContext;
+    private String token = null;
 
     @Override
     public View onCreateView( LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
@@ -74,13 +76,18 @@ public class FragmentAddNewWordForm extends Fragment {
                 newWord.setExample(example);
                 newWord.setTranslatedExample(translated_example);
                 newWord.setCategoryType(WordCategory.ONCE_A_DAY);
-                newWord.setUserId(1);
 
+                SharedPreferences settings = getActivity().getSharedPreferences("token", Context.MODE_PRIVATE);
+                token = settings.getString("token", "");
+                String refreshToken = settings.getString("refreshToken", "");
+                Log.d("token", token);
+                Log.d("refreshToken", refreshToken);
                 WordService wordService = RetrofitGenerator.createService(WordService.class);
                 Log.d("Success", new Gson().toJson(newWord));
                 Response<Word> wordCall = null;
                 try {
                     wordCall = wordService.addNewWord(newWord).execute();
+                    Log.d("hhhhhhhhhh", wordCall.message());
                     if(wordCall.isSuccessful()){
                         CharSequence charSequence = "Tạo thành công";
                         Toast toast = Toast.makeText(currentContext.getApplicationContext(), charSequence, Toast.LENGTH_LONG);

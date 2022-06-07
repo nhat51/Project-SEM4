@@ -1,5 +1,7 @@
 package com.example.demo_project.util;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Retrofit;
@@ -14,7 +16,8 @@ public class RetrofitGenerator {
     private static Retrofit retrofit = builder.build();
     private static OkHttpClient.Builder httpClient
             = new OkHttpClient.Builder();
-
+    private static OkHttpClient client = httpClient.connectTimeout(100, TimeUnit.SECONDS)
+            .readTimeout(100, TimeUnit.SECONDS).build();
     public static <S> S createService(Class<S> serviceClass) {
         return retrofit.create(serviceClass);
     }
@@ -29,7 +32,7 @@ public class RetrofitGenerator {
                         .build();
                 return chain.proceed(request);
             });
-            builder.client(httpClient.build());
+            builder.client(client);
             retrofit = builder.build();
         }
         return retrofit.create(serviceClass);
