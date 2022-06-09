@@ -3,6 +3,8 @@ package com.example.demo_project.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.text.Editable;
@@ -11,6 +13,7 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,17 +33,17 @@ import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText et_register_name, et_register_email, et_register_phone, et_register_pass, et_register_pass_confirm,et_register_full_name;
+    EditText et_register_name, et_register_email, et_register_phone, et_register_pass, et_register_pass_confirm, et_register_full_name;
     Button btn_register;
     TextView redirect_login, userNameAlert, fullNameAlert, emailAlert, phoneAlert, passwordAlert, passwordConfirmAlert;
     private TextWatcher text = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         int SDK_INT = android.os.Build.VERSION.SDK_INT;
-        if (SDK_INT > 8)
-        {
+        if (SDK_INT > 8) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                     .permitAll().build();
             StrictMode.setThreadPolicy(policy);
@@ -52,17 +55,19 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    private void checkConfirmPassword(){
-        String password = et_register_pass.getText().toString();
-        String checkPassword = et_register_pass_confirm.getText().toString();
-
-        TextWatcher fieldValidatorTextWatcher = new TextWatcher() {
+    private void checkConfirmPassword() {
+        et_register_pass_confirm.addTextChangedListener(new TextWatcher() {
             @Override
-            public void afterTextChanged(Editable s) {if (!password.equals(checkPassword)){
-                // đưa ra lỗi.
+            public void afterTextChanged(Editable s) {
+                String password = et_register_pass.getText().toString();
+                String checkPassword = et_register_pass_confirm.getText().toString();
+                if (!password.equals(checkPassword)) {
+                    // đưa ra lỗi.
                     passwordConfirmAlert.setText("Password not be matched. Please try again");
-                }else {
+                    passwordConfirmAlert.setTextColor(Color.RED);
+                } else {
                     passwordConfirmAlert.setText("Password Matched");
+                    passwordConfirmAlert.setTextColor(Color.GREEN);
                 }
             }
 
@@ -73,12 +78,9 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
-        };
-
-        et_register_pass_confirm.addTextChangedListener(fieldValidatorTextWatcher);
+        });
     }
-
-    private void redirectLogin(){
+    private void redirectLogin() {
         redirect_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,7 +89,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void initData(){
+    private void initData() {
         et_register_name = findViewById(R.id.et_register_name);
         et_register_full_name = findViewById(R.id.et_register_full_name);
         et_register_email = findViewById(R.id.et_register_email);
@@ -95,6 +97,7 @@ public class RegisterActivity extends AppCompatActivity {
         et_register_pass = findViewById(R.id.et_register_pass);
         et_register_pass_confirm = findViewById(R.id.et_register_pass_confirm);
         redirect_login = findViewById(R.id.redirect_login);
+
 
         fullNameAlert = findViewById(R.id.FullNameAlert);
         userNameAlert = findViewById(R.id.UserNameAlert);
@@ -106,7 +109,7 @@ public class RegisterActivity extends AppCompatActivity {
         btn_register = findViewById(R.id.btn_register);
     }
 
-    private void initListener(){
+    private void initListener() {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -129,7 +132,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Response<UserDto> userCall = null;
                 try {
                     userCall = userService.register(user).execute();
-                    if(userCall.isSuccessful()){
+                    if (userCall.isSuccessful()) {
                         CharSequence charSequence = "Tạo thành công";
                         Toast toast = Toast.makeText(getApplicationContext(), charSequence, Toast.LENGTH_LONG);
                         toast.show();
@@ -154,11 +157,12 @@ public class RegisterActivity extends AppCompatActivity {
         if (!phoneInput.matches("(84|0[3|5|7|8|9])+([0-9]{8})\\b")) {
             phoneAlert.setText("Please enter a valid phone number");
             return false;
-        }else {
+        } else {
             phoneAlert.setError(null);
             return true;
         }
     }
+
     private boolean validatePassword() {
         String passwordInput = et_register_pass.getText().toString().trim();
         //validate pass
@@ -172,6 +176,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
         return true;
     }
+
     private boolean validateEmail() {
         String emailInput = et_register_email.getText().toString().trim();
         if (emailInput.isEmpty()) {
@@ -186,6 +191,7 @@ public class RegisterActivity extends AppCompatActivity {
             return true;
         }
     }
+
     private boolean validateUserName() {
         String usernameInput = et_register_name.getText().toString().trim();
 //        String noSpace = "(?=\\S+$)";
@@ -193,7 +199,7 @@ public class RegisterActivity extends AppCompatActivity {
             userNameAlert.setText("Field cannot be empty");
             return false;
         }
-        if (usernameInput.length() >= 15){
+        if (usernameInput.length() >= 15) {
             userNameAlert.setText("Username has to less than 15 characters");
             return false;
         }
@@ -206,13 +212,13 @@ public class RegisterActivity extends AppCompatActivity {
             return true;
         }
     }
+
     private boolean validateFullName() {
         String fullnameInput = et_register_full_name.getText().toString().trim();
         if (fullnameInput.isEmpty()) {
             fullNameAlert.setText("Field cannot be empty");
             return false;
-        }
-        else {
+        } else {
             userNameAlert.setError(null);
             return true;
         }

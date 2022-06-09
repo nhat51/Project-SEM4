@@ -16,6 +16,6 @@ public interface UserService {
     @POST("api/v1/users/login")
     Call<UserResponse> login(@Body LoginDto loginDto);
 
-    @POST("/api/v1/users/save")
+    @POST("/api/v1/user/users/save")
     Call<UserDto> register(@Body UserDto user);
 }
