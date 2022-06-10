@@ -2,7 +2,9 @@ package com.example.demo_project.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,14 @@ import com.example.demo_project.MainActivity;
 import com.example.demo_project.R;
 import com.example.demo_project.activity.LoginActivity;
 import com.example.demo_project.activity.RegisterActivity;
+import com.example.demo_project.entity.UserDto;
+import com.example.demo_project.entity.WordResponse;
+import com.example.demo_project.service.UserService;
+import com.example.demo_project.util.RetrofitGenerator;
+
+import java.io.IOException;
+
+import retrofit2.Response;
 
 public class FragmentSetting extends Fragment {
     private ImageView btn_back_setting;
@@ -28,26 +38,51 @@ public class FragmentSetting extends Fragment {
     private CardView log_out;
     private View view;
     private Context currentContext;
+    private UserService userService;
+    private String token = null;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         currentContext = container.getContext();
         view = inflater.inflate(R.layout.fragment_setting, container, false);
 
-        initListener();
-        initBackView();
         initData();
+        initBackView();
+        initListener();
         logout();
         return view;
     }
 
     private void initListener() {
-        view.setOnClickListener(new View.OnClickListener() {
+        settingOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
-                validateStartTime();
-                validateEndTime();
+                String starHour = startHourInput.getText().toString();
+                String startMins = startMinuteInput.getText().toString();
+                String startTime = starHour.concat(":").concat(startMins);
+
+                String endHour = endHourInput.getText().toString();
+                String endMins = endMinuteInput.getText().toString();
+                String endTime = endHour.concat(":").concat(endMins);
+
+                Log.d("Notify Start Time", startTime);
+                Log.d("Notify End Time", endTime);
+                SharedPreferences settings = getActivity().getSharedPreferences("token", Context.MODE_PRIVATE);
+                token = settings.getString("token", "");
+                if ( validateStartTime() && validateEndTime()){
+                    if (userService == null){
+                        userService = RetrofitGenerator.createService(UserService.class,token);
+                    }
+                    try {
+                        Response<UserDto> listResponse = userService.setRemindTime(startTime,endTime).execute();
+                        if (listResponse.isSuccessful()){
+                            Log.d("Set remind time", "Thành công");
+                        }
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }
+
             }
         });
     }
@@ -83,15 +118,15 @@ public class FragmentSetting extends Fragment {
             startTimeAlert.setText("Start hour is empty");
             return false;
         }
-        if (inputStartMinute.isEmpty()){
+        else if (inputStartMinute.isEmpty()){
             startTimeAlert.setText("Start minute is empty");
             return false;
         }
-        if (inputStartHour.length() <= 23 ){
+        if (inputStartHour.length() >= 23 ){
             startTimeAlert.setText("Start hour must not exceed 23 hours");
             return false;
         }
-        if (inputStartMinute.length()<= 60){
+        if (inputStartMinute.length() >= 60){
             startTimeAlert.setText("Start minute must not exceed 60 minutes");
             return false;
         }
@@ -109,11 +144,11 @@ public class FragmentSetting extends Fragment {
             endTimeAlert.setText("End minute is empty");
             return false;
         }
-        if (inputEndHour.length() <= 23 ){
+        if (inputEndHour.length() >= 23 ){
             endTimeAlert.setText("End hour must not exceed 23 hours");
             return false;
         }
-        if (inputEndMinute.length()<= 60){
+        if (inputEndMinute.length()>= 60){
             endTimeAlert.setText("End minute must not exceed 60 minutes");
             return false;
         }

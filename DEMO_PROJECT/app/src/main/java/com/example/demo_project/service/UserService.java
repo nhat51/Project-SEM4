@@ -11,6 +11,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface UserService {
     @POST("api/v1/users/login")
@@ -18,4 +19,7 @@ public interface UserService {
 
     @POST("/api/v1/user/users/save")
     Call<UserDto> register(@Body UserDto user);
+
+    @POST("/api/v1/user/users/setRemindTime")
+    Call<UserDto> setRemindTime(@Query("startTime")String startTime,@Query("endTime")String endTime);
 }
