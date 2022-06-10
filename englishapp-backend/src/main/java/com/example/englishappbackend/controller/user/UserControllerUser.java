@@ -24,14 +24,14 @@ public class UserControllerUser {
         return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
     }
 
-    @RequestMapping(method = RequestMethod.GET,path = "save")
+    @RequestMapping(method = RequestMethod.POST,path = "save")
     public ResponseEntity<?> saveUser(@RequestBody UserDto user){
-        return new ResponseEntity<>(service.saveUser(user),HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(service.saveUser(user),HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET,path = "update-user")
     public ResponseEntity<?> updateUser(@RequestParam(name = "user-id") int user_id, @RequestBody User user){
-        return new ResponseEntity<>(service.updateUser(user_id,user),HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(service.updateUser(user_id,user),HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET,path = "receive-device-token")

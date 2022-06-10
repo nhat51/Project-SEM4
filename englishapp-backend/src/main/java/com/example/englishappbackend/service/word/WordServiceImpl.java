@@ -53,6 +53,12 @@ public class WordServiceImpl implements WordService {
     }
 
     @Override
+    public Page<Word> getWordsByUserId(int userId, int page, int size) {
+        PageRequest paging = PageRequest.of(page - 1, size);
+        return wordRepository.findWordsByUserId(userId,paging);
+    }
+
+    @Override
     public Word getWordDetail(int wordId) {
         Optional<Word> word = wordRepository.findById(wordId);
         if (word.isPresent()) {

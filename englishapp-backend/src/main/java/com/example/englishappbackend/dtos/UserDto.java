@@ -2,8 +2,14 @@ package com.example.englishappbackend.dtos;
 
 import com.example.englishappbackend.entity.User;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
-@Data
+@Setter
+@Getter
+@NoArgsConstructor
 public class UserDto {
     private String username;
     private String password;

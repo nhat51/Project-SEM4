@@ -34,7 +34,7 @@ public class User extends BaseEntity{
     private long endRemindTime;
 
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
     @JsonManagedReference
     Set<Word> words;
 

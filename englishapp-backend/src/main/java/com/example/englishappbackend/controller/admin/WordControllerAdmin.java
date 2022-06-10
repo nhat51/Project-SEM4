@@ -28,4 +28,5 @@ public class WordControllerAdmin {
     public ResponseEntity<?> getWordDetail(@RequestParam(name = "word-id") int id){
         return new ResponseEntity<>(wordService.getWordDetail(id), HttpStatus.OK);
     }
+
 }
