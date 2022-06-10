@@ -1,7 +1,10 @@
 package com.example.demo_project.fragment;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -35,6 +38,7 @@ public class FragmentListWord extends Fragment {
     private View view;
     private Context currentContext;
     public static FragmentDetailWord fragmentDetailWord;
+    private String token = null;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         currentContext = container.getContext();
@@ -43,6 +47,7 @@ public class FragmentListWord extends Fragment {
         initData();
         initView();
         initSettingView();
+
         return view;
     }
     private void initView() {
@@ -56,12 +61,17 @@ public class FragmentListWord extends Fragment {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         words = new ArrayList<>();
+        SharedPreferences settings = getActivity().getSharedPreferences("token", Context.MODE_PRIVATE);
+        token = settings.getString("token", "");
+        String refreshToken = settings.getString("refreshToken", "");
+        Log.d("token", token);
+        Log.d("refreshToken", refreshToken);
         if (wordService == null){
-            wordService = RetrofitGenerator.createService(WordService.class);
+            wordService = RetrofitGenerator.createService(WordService.class,token);
         }
         try {
-            Response<WordResponse> listResponse = wordService.getAll().execute();
-            Log.d("wordssssss: ", String.valueOf(listResponse.body().getContent().size()));
+                Response<WordResponse> listResponse = wordService.getListWord().execute();
+//            Log.d("wordssssss: ", String.valueOf(listResponse.body().getContent().size()));
             if (listResponse.isSuccessful()){
                 words.addAll(listResponse.body().getContent());
             }

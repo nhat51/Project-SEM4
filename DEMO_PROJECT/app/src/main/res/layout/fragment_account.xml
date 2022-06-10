@@ -31,8 +31,9 @@
                         app:tint="@color/white" />
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:id="@+id/btn_setting_account"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="20dp"
                         android:layout_marginEnd="20dp"

@@ -1,27 +1,27 @@
 package com.example.demo_project.entity;
 
 public class LoginToken {
-    private String accessToken;
-    private String refreshToken;
+    private String access_token;
+    private String refresh_token;
     private String username;
 
     public LoginToken() {
     }
 
-    public String getAccessToken() {
-        return accessToken;
+    public String getAccess_token() {
+        return access_token;
     }
 
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
     }
 
-    public String getRefreshToken() {
-        return refreshToken;
+    public String getRefresh_token() {
+        return refresh_token;
     }
 
-    public void setRefreshToken(String refreshToken) {
-        this.refreshToken = refreshToken;
+    public void setRefresh_token(String refresh_token) {
+        this.refresh_token = refresh_token;
     }
 
     public String getUsername() {
@@ -35,8 +35,8 @@ public class LoginToken {
     @Override
     public String toString() {
         return "LoginToken{" +
-                "accessToken='" + accessToken + '\'' +
-                ", refreshToken='" + refreshToken + '\'' +
+                "access_token='" + access_token + '\'' +
+                ", refresh_token='" + refresh_token + '\'' +
                 ", username='" + username + '\'' +
                 '}';
     }
