@@ -42,7 +42,7 @@
             android:name=".activity.FirstPage"
             android:exported="false" />
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".activity.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -51,7 +51,7 @@
 <!--            android:name=".activity.demo.ListWordActivity"-->
 <!--            android:exported="false" />-->
         <activity
-            android:name=".activity.RegisterActivity"
+            android:name=".activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

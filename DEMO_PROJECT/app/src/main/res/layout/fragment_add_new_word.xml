@@ -98,25 +98,64 @@
                             android:background="@color/white"
                             android:maxLines="1"/>
                     </com.google.android.material.textfield.TextInputLayout>
-                    <com.google.android.material.textfield.TextInputLayout
+<!--                    <com.google.android.material.textfield.TextInputLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:id="@+id/ti_pos"-->
+<!--                        android:layout_marginTop="20dp">-->
+<!--                        <EditText-->
+<!--                            android:id="@+id/etPartOfSpeech"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:hint="Loại từ"-->
+<!--                            android:textSize="20sp"-->
+<!--                            android:background="@color/white"-->
+<!--                            android:maxLines="1"/>-->
+<!--                    </com.google.android.material.textfield.TextInputLayout>-->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/ti_pos"
+                        android:orientation="vertical"
                         android:layout_marginTop="20dp">
-                        <EditText
-                            android:id="@+id/etPartOfSpeech"
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Loại từ"
+                            android:text="Loại từ"
                             android:textSize="20sp"
-                            android:background="@color/white"
-                            android:maxLines="1"/>
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_marginStart="15dp"
+                            android:layout_marginBottom="10dp"
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="15dp">
+                            <CheckBox
+                                android:id="@+id/cb_noun"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Danh Từ"
+                                android:textSize="17sp"/>
+                            <CheckBox
+                                android:id="@+id/cb_verb"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Động Từ"
+                                android:textSize="17sp"
+                                android:layout_marginLeft="20dp"/>
+                            <CheckBox
+                                android:id="@+id/cb_adjective"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tính Từ"
+                                android:textSize="17sp"
+                                android:layout_marginLeft="20dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/ti_meaning"
-                        android:layout_marginTop="20dp">
+                        android:id="@+id/ti_meaning">
                         <EditText
                             android:id="@+id/etWordMeaning"
                             android:layout_width="match_parent"

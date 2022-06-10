@@ -13,15 +13,15 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface WordService {
-    @GET("api/v1/words")
+    @GET("api/v1/user/words")
     Call<WordResponse> getAll();
 
-    @GET("api/v1/words/user-word")
+    @GET("api/v1/user/words/user-word")
     Call<WordResponse> getListWord();
 
-    @POST("api/v1/words/save")
+    @POST("api/v1/user/words/save")
     Call<Word> addNewWord(@Body Word newWord);
 
-    @GET("api/v1/words/word-detail?")
+    @GET("api/v1/user/words/word-detail")
     Call<Word> getWordDetail(@Query("word-id") int wordId);
 }

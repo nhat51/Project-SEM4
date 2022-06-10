@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:cardCornerRadius="30dp"
-                app:cardBackgroundColor="@color/demo"
+                app:cardBackgroundColor="@color/white"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -90,24 +90,24 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="30dp"
                             android:text="Thời gian bắt đầu"
-                            android:textColor="@color/white"
+                            android:textColor="@color/demo3"
                             android:textSize="18sp" />
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <EditText
-                                android:id="@+id/start_hour"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginEnd="20dp"
-                                android:text="13"
-                                android:textColor="@color/white"
-                                android:textSize="50sp"
-                                android:background="@android:color/transparent" />
-
+                            android:orientation="horizontal"
+                            android:layout_marginTop="20dp">
+                                <EditText
+                                    android:id="@+id/start_hour"
+                                    android:layout_width="120dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginEnd="20dp"
+                                    android:textColor="@color/demo"
+                                    android:hint="Hour"
+                                    android:textSize="20sp"
+                                    android:gravity="center"
+                                    />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
@@ -115,17 +115,26 @@
                                 android:gravity="center"
                                 android:text=":"
                                 android:textSize="50sp"
-                                android:textColor="@color/white"/>
-
-                            <EditText
-                                android:id="@+id/start_minute"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="06"
-                                android:textSize="50sp"
-                                android:textColor="@color/white"
-                                android:background="@android:color/transparent" />
+                                android:textColor="@color/demo"/>
+                                <EditText
+                                    android:id="@+id/start_minute"
+                                    android:layout_width="120dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginEnd="20dp"
+                                    android:textColor="@color/demo"
+                                    android:hint="Minute"
+                                    android:textSize="20sp"
+                                    android:gravity="center"
+                                    />
                         </LinearLayout>
+                        <TextView
+                            android:id="@+id/startTimeAlert"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="20dp"
+                            android:textColor="#B71C1C"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -137,43 +146,51 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="10dp"
                             android:text="Thời gian kết thúc"
-                            android:textColor="@color/white"
+                            android:textColor="@color/demo3"
                             android:textSize="18sp" />
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:layout_marginTop="20dp">
 
-                            <EditText
-                                android:id="@+id/end_hour"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginEnd="20dp"
-                                android:text="13"
-                                android:textColor="@color/white"
-                                android:textSize="50sp"
-                                android:background="@android:color/transparent" />
+                                <EditText
+                                    android:id="@+id/end_hour"
+                                    android:layout_width="120dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginEnd="25dp"
+                                    android:textColor="@color/demo"
+                                    android:textSize="20sp"
+                                    android:hint="Hour"
+                                    android:gravity="center" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_marginEnd="20dp"
-                                android:text=":"
                                 android:gravity="center"
+                                android:text=":"
                                 android:textSize="50sp"
-                                android:textColor="@color/white"/>
+                                android:textColor="@color/demo"/>
 
-                            <EditText
-                                android:id="@+id/end_minute"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="06"
-                                android:textSize="50sp"
-                                android:textColor="@color/white"
-                                android:background="@android:color/transparent"
-                                />
+                                <EditText
+                                    android:id="@+id/end_minute"
+                                    android:layout_width="120dp"
+                                    android:layout_height="80dp"
+                                    android:textSize="20sp"
+                                    android:textColor="@color/demo"
+                                    android:hint="Minnute"
+                                    android:gravity="center" />
                         </LinearLayout>
+                        <TextView
+                            android:id="@+id/endTimeAlert"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="20dp"
+                            android:textColor="#B71C1C"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -186,7 +203,7 @@
                         <Button
                             android:id="@+id/btn_remind_time_cancel"
                             android:layout_width="120dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="60dp"
                             android:layout_marginEnd="40dp"
                             android:backgroundTint="@color/demo3"
                             android:text="HỦY"
@@ -197,10 +214,10 @@
                         <Button
                             android:id="@+id/btn_remind_time_ok"
                             android:layout_width="120dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="60dp"
                             android:backgroundTint="@color/demo3"
                             android:text="ĐỒNG Ý"
-                            android:textColor="@color/orange"
+                            android:textColor="@color/white"
                             android:textSize="17sp" />
                     </LinearLayout>
                 </LinearLayout>

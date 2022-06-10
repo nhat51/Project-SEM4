@@ -47,9 +47,10 @@
                 android:id="@+id/main_login">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Vui lòng nhập mã OTP"
+                    android:gravity="center"
                     android:textColor="@color/demo3"
                     android:textSize="20sp"
                     android:textStyle="bold" />

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -38,6 +39,8 @@ public class FragmentAddNewWordForm extends Fragment {
     private View view;
     private Context currentContext;
     private String token = null;
+    CheckBox cb_noun, cb_verb, cb_adj;
+
 
     @Override
     public View onCreateView( LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
@@ -51,11 +54,13 @@ public class FragmentAddNewWordForm extends Fragment {
     private void initData() {
         etWord = view.findViewById(R.id.etWord);
         etWordMeaning = view.findViewById(R.id.etWordMeaning);
-        etPartOfSpeech = view.findViewById(R.id.etPartOfSpeech);
         etWordExample = view.findViewById(R.id.etWordExample);
         etExampleTrans = view.findViewById(R.id.etExampleTrans);
         btnSubmit = view.findViewById(R.id.btnSubmit);
         btn_back_add_form = view.findViewById(R.id.btn_back_add_form);
+        cb_noun = view.findViewById(R.id.cb_noun);
+        cb_verb = view.findViewById(R.id.cb_verb);
+        cb_adj = view.findViewById(R.id.cb_adjective);
     }
     private void initListener() {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -65,24 +70,33 @@ public class FragmentAddNewWordForm extends Fragment {
                 StrictMode.setThreadPolicy(policy);
                 String word = etWord.getText().toString();
                 String meaningWord = etWordMeaning.getText().toString();
-                String partOfSpeech = etPartOfSpeech.getText().toString();
                 String example = etWordExample.getText().toString();
                 String translated_example = etExampleTrans.getText().toString();
 
                 Word newWord = new Word();
                 newWord.setName(word);
                 newWord.setContent(meaningWord);
-                newWord.setPartOfSpeech(partOfSpeech);
                 newWord.setExample(example);
                 newWord.setTranslatedExample(translated_example);
                 newWord.setCategoryType(WordCategory.ONCE_A_DAY);
+
+                //check box
+                if (cb_noun.isChecked()){
+                    newWord.setPartOfSpeech("Danh từ");
+                }
+                if (cb_adj.isChecked()){
+                    newWord.setPartOfSpeech("Tính từ");
+                }
+                if (cb_verb.isChecked()){
+                    newWord.setPartOfSpeech("Động từ");
+                }
 
                 SharedPreferences settings = getActivity().getSharedPreferences("token", Context.MODE_PRIVATE);
                 token = settings.getString("token", "");
                 String refreshToken = settings.getString("refreshToken", "");
                 Log.d("token", token);
                 Log.d("refreshToken", refreshToken);
-                WordService wordService = RetrofitGenerator.createService(WordService.class);
+                WordService wordService = RetrofitGenerator.createService(WordService.class, token);
                 Log.d("Success", new Gson().toJson(newWord));
                 Response<Word> wordCall = null;
                 try {
@@ -104,11 +118,15 @@ public class FragmentAddNewWordForm extends Fragment {
                                 .commit();
 
                         etWord.getText().clear();
-                        etPartOfSpeech.getText().clear();
                         etWordMeaning.getText().clear();
                         etWordExample.getText().clear();
                         etExampleTrans.getText().clear();
 
+                    }else{
+                        Log.d("Error", wordCall.code() + "");
+                        Log.d("Error", wordCall.errorBody() + "");
+                        Log.d("Error", wordCall.message() + "");
+                        Log.d("Error", wordCall.isSuccessful() + "");
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

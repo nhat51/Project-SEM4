@@ -80,6 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
     private void redirectLogin() {
         redirect_login.setOnClickListener(new View.OnClickListener() {
             @Override

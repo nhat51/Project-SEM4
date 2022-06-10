@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
 
 Button btn_login;
     EditText et_login_name, et_login_pass;
-    TextView userNameAlertLogin, passwordAlertLogin;
+    TextView userNameAlertLogin, passwordAlertLogin, redirect_register;
     UserService userService;
     SharedPreferences settings;
     SharedPreferences.Editor editor;
@@ -51,16 +51,19 @@ Button btn_login;
         }
         initData();
         initListener();
+        redirectRegister();
     }
 
     private void initData() {
         btn_login = findViewById(R.id.btn_login);
         et_login_name = findViewById(R.id.et_login_name);
         et_login_pass = findViewById(R.id.et_login_pass);
+        redirect_register = findViewById(R.id.redirect_register);
 
         userNameAlertLogin = findViewById(R.id.UserNameAlertLogin);
         passwordAlertLogin = findViewById(R.id.PasswordAlertLogin);
     }
+
     private void initListener(){
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +113,7 @@ Button btn_login;
         }
         return true;
     }
+
     private boolean validateLoginPassword(){
         String passwordInputLogin = et_login_pass.getText().toString().trim();
         //validate pass
@@ -122,5 +126,14 @@ Button btn_login;
             return false;
         }
         return true;
+    }
+
+    private void redirectRegister() {
+        redirect_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            }
+        });
     }
 }
