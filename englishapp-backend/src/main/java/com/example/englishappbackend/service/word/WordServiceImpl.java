@@ -6,6 +6,7 @@ import com.example.englishappbackend.repo.UserRepository;
 import com.example.englishappbackend.repo.WordRepository;
 import com.example.englishappbackend.specification.SearchCriteria;
 import com.example.englishappbackend.specification.WordSpecification;
+import com.example.englishappbackend.util.WordFilter;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -18,7 +19,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class WordServiceImpl implements WordService {
@@ -35,27 +39,27 @@ public class WordServiceImpl implements WordService {
     }
 
     @Override
-    public Page<Word> getAll(int page, int size, String name) {
-        PageRequest paging = PageRequest.of(page - 1, size);
-        Specification<Word> spec =Specification.where(null);
-        if (name != null){
-            spec = spec.and(new WordSpecification(new SearchCriteria("name",":",name)));
+    public Page<Word> getAll(WordFilter filter) {
+        Specification<Word> spec = Specification.where(null);
+        PageRequest pageRequest = PageRequest.of(filter.getPage() - 1, filter.getSize());
+        if (filter.getName() != null && filter.getName().length() > 0){
+            spec = spec.and(new WordSpecification(new SearchCriteria(WordFilter.NAME,"LIKE",filter.getName())));
         }
-        return wordRepository.findAll(spec,paging);
+        return wordRepository.findAll(spec,pageRequest);
     }
 
     @Override
-    public Page<Word> getWordsByUser(int page, int size) {
-        PageRequest paging = PageRequest.of(page - 1, size);
+    public Page<Word> getWordsByUser(WordFilter filter) {
         Principal principal = SecurityContextHolder.getContext().getAuthentication();
+        PageRequest pageRequest = PageRequest.of(filter.getPage() - 1, filter.getSize());
         User user = userRepository.findByUsername(principal.getName());
-        return wordRepository.findWordsByUserId(user.getId(), paging);
+        return wordRepository.findWordsByUserId(user.getId(), pageRequest);
     }
 
     @Override
-    public Page<Word> getWordsByUserId(int userId, int page, int size) {
-        PageRequest paging = PageRequest.of(page - 1, size);
-        return wordRepository.findWordsByUserId(userId,paging);
+    public Page<Word> getWordsByUserId(int userId, WordFilter filter) {
+        PageRequest pageRequest = PageRequest.of(filter.getPage() - 1, filter.getSize());
+        return wordRepository.findWordsByUserId(userId,pageRequest);
     }
 
     @Override
@@ -105,6 +109,51 @@ public class WordServiceImpl implements WordService {
             wordExist.setTranslatedExample(word.getTranslatedExample());
         }
         return wordRepository.save(wordExist);
+    }
+
+    @Override
+    public Word deleteWord(int wordId) {
+        return null;
+    }
+
+    @Override
+    public List<Word> userSearchWord(String name) {
+        Principal principal = SecurityContextHolder.getContext().getAuthentication();
+        User userExist = userRepository.findByUsername(principal.getName());
+        Set<Word> list = userExist.getWords();
+        List<Word> result = new ArrayList<>();
+        for (Word w : list){
+            if (w.getName().contains(name) || w.getName().equals(name)){
+                result.add(w);
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public List<Word> getRememberedWord() {
+        Principal principal = SecurityContextHolder.getContext().getAuthentication();
+        User userExist = userRepository.findByUsername(principal.getName());
+        List<Word> result = new ArrayList<>();
+        for (Word w: userExist.getWords()){
+            if (w.isRemember()){
+                result.add(w);
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public List<Word> getWordNeedRemind() {
+        Principal principal = SecurityContextHolder.getContext().getAuthentication();
+        User userExist = userRepository.findByUsername(principal.getName());
+        List<Word> result = new ArrayList<>();
+        for (Word w: userExist.getWords()){
+            if (!w.isRemember()){
+                result.add(w);
+            }
+        }
+        return result;
     }
 
     private String callThirdPartyApiSearchWord(String word) {

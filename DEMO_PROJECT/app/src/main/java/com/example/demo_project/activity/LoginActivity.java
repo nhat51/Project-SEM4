@@ -2,6 +2,7 @@ package com.example.demo_project.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.example.demo_project.MainActivity;
 import com.example.demo_project.R;
 import com.example.demo_project.entity.LoginDto;
 import com.example.demo_project.entity.LoginToken;
+import com.example.demo_project.entity.UserDto;
 import com.example.demo_project.entity.UserResponse;
 import com.example.demo_project.service.UserService;
 import com.example.demo_project.util.RetrofitGenerator;
@@ -82,15 +84,23 @@ Button btn_login;
                     if(tokenResponse.isSuccessful()){
 
                         LoginToken loginToken = tokenResponse.body().getBody();
-                        Log.d("aaaa", loginToken.toString());
                         token = loginToken.getAccess_token();
                         String refreshToken = loginToken.getRefresh_token();
-                        Log.d("Token",loginToken.getUsername());
+                        Log.d("Access Token nè",loginToken.getAccess_token());
                         if (token != null) editor.putString("token", token);
                         if (refreshToken != null) editor.putString("refreshToken", refreshToken);
                         editor.commit();
                         Toast.makeText(LoginActivity.this, "Login success",Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        //Send device token to server ================================
+                        SharedPreferences settings = getApplicationContext().getSharedPreferences("device", Context.MODE_PRIVATE);
+                        String deviceToken = settings.getString("deviceToken","");
+                        Log.d("Device token nè==>",deviceToken);
+                        userService = RetrofitGenerator.createService(UserService.class, token);
+                        Response<UserDto> userResponse =  userService.sendDeviceToken(deviceToken).execute();
+                        if(userResponse.isSuccessful()){
+                            Log.d("Gửi token device", "XONG");
+                        }
                     } else {
                         Toast.makeText(LoginActivity.this, "Login fail. Please check your information again!",Toast.LENGTH_SHORT).show();
                     }

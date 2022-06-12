@@ -1,16 +1,26 @@
 package com.example.englishappbackend.util;
 
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class HandleTime {
 
     public static void main(String[] args) {
         HandleTime handleTime = new HandleTime();
-        long fromAndroid = handleTime.convertStringToLong("20:54");
+        Date date = new Date();
+        long fromAndroid = handleTime.convertStringToLong("14:55");
         System.out.println("Time from android: " + fromAndroid);
-        long serverConvert = handleTime.convertLongToTime();
+        long serverConvert = handleTime.calculateTimeToLong(date.getHours(), date.getMinutes());
         System.out.println("Time of server: " + serverConvert);
+
+
+        Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
+        calendar.setTime(date);
+        System.out.println("=========Date================");
+        System.out.println("Calendar hour:" + calendar.get(Calendar.HOUR_OF_DAY));
+        System.out.println("android hour:" + fromAndroid);
 
     }
 
@@ -22,11 +32,14 @@ public class HandleTime {
         return hoursInMins + mins;
     }
 
-    public long convertLongToTime() {
-        Date date = new Date();
+    /*
+    cộng giờ với phút lại với nhau
+    */
+    public long calculateTimeToLong(int hour, int minute) {
+        /*Date date = new Date();
         int hour = date.getHours();
-        int mins = date.getMinutes();
+        int mins = date.getMinutes();*/
         int hoursInMins = hour * 60;
-        return hoursInMins + mins;
+        return hoursInMins + minute;
     }
 }

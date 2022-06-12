@@ -2,6 +2,7 @@ package com.example.englishappbackend.service.user;
 
 import com.example.englishappbackend.dtos.UserDto;
 import com.example.englishappbackend.entity.User;
+import com.example.englishappbackend.enums.UserStatus;
 import com.example.englishappbackend.exception.RequestValidException;
 import com.example.englishappbackend.repo.UserRepository;
 import com.example.englishappbackend.util.HandleTime;
@@ -42,6 +43,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User activeUser(int userId) {
+        Optional<User> userExist = userRepository.findById(userId);
+        if (userExist.isPresent()){
+            userExist.get().setStatus(UserStatus.ACTIVATED);
+            return userRepository.save(userExist.get());
+        }
+        return null;
+    }
+
+    @Override
     public UserDto saveUser(UserDto user) {
         if (userRepository.findByUsername(user.getUsername()) != null) {
             throw new RequestValidException("Username already exists! Please choose another username.");
@@ -67,7 +78,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getToken(String token  ) {
+    public User getToken(String token) {
         Principal principal = SecurityContextHolder.getContext().getAuthentication();
         User user = userRepository.findByUsername(principal.getName());
         user.setUserDeviceToken(token);
@@ -85,5 +96,12 @@ public class UserServiceImpl implements UserService {
         user.setEndRemindTime(end);
         userRepository.save(user);
         return user;
+    }
+
+    @Override
+    public User getProfile() {
+        Principal principal = SecurityContextHolder.getContext().getAuthentication();
+        User userExist = userRepository.findByUsername(principal.getName());
+        return userExist;
     }
 }

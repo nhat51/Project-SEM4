@@ -5,15 +5,33 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
+import com.example.demo_project.entity.UserDto;
+import com.example.demo_project.service.UserService;
+import com.example.demo_project.util.RetrofitGenerator;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+
+import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
+
+import retrofit2.Response;
 
 /**
  * NOTE: There can only be one service in each app that receives FCM messages. If multiple
@@ -29,6 +47,10 @@ import com.google.firebase.messaging.RemoteMessage;
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "MyFirebaseMsgService";
+    SharedPreferences.Editor editor;
+    SharedPreferences settings;
+    Context context;
+
 
     /**
      * Called when message is received.
@@ -96,7 +118,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onNewToken(String token) {
         Log.d(TAG, "Refreshed token: " + token);
-
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                .permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        //your codes here
+        settings = getApplicationContext().getSharedPreferences("device", MODE_PRIVATE);
+        editor = settings.edit();
+        System.out.println("alo alo 1234 alo alo");
+        editor.putString("deviceToken",token);
+        editor.commit();
         // If you want to send messages to this application instance or
         // manage this apps subscriptions on the server side, send the
         // FCM registration token to your app server.
@@ -132,6 +162,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
      */
     private void sendRegistrationToServer(String token) {
         // TODO: Implement this method to send token to your app server.
+//        SharedPreferences setting = getSharedPreferences("token", Context.MODE_PRIVATE);
+//        String access_toknen = setting.getString("token","");
+//        Log.d("Setingg ---->",setting.toString());
+//
+//        if (access_toknen != null){
+//            Log.d("Access Token ----->",access_toknen);
+//            Log.d("Device Token ----->",token);
+//        }
+
     }
 
     /**

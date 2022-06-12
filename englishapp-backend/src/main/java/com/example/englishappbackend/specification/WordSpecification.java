@@ -18,7 +18,7 @@ public class WordSpecification implements Specification<Word> {
 
     @Override
     public Predicate toPredicate(Root<Word> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-         if (searchCriteria.getOperation().equalsIgnoreCase(":")) {
+         if (searchCriteria.getOperation().equalsIgnoreCase("LIKE")) {
             if (root.get(searchCriteria.getKey()).getJavaType() == String.class) {
                 return criteriaBuilder.like(
                         root.<String>get(searchCriteria.getKey()), "%" + searchCriteria.getValue() + "%");

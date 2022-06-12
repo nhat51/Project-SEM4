@@ -22,4 +22,7 @@ public interface UserService {
 
     @POST("/api/v1/user/users/setRemindTime")
     Call<UserDto> setRemindTime(@Query("startTime")String startTime,@Query("endTime")String endTime);
+
+    @GET("/api/v1/user/users/receive-device-token")
+    Call<UserDto> sendDeviceToken(@Query("device-token") String deviceToken);
 }
