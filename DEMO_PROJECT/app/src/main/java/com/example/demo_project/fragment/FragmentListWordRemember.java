@@ -69,11 +69,11 @@ public class FragmentListWordRemember extends Fragment {
             wordService = RetrofitGenerator.createService(WordService.class,token);
         }
         try {
-            Response<WordResponse> listResponse = wordService.getListWord().execute();
+            Response<List<Word>> listResponse = wordService.getRememberedWord().execute();
 //            Log.d("wordssssss: ", String.valueOf(listResponse.body().getContent().size()));
             if (listResponse.isSuccessful()){
                 Log.d("Check check check","+++++++++++++++++++++++++++++");
-                listWordRemembered.addAll(listResponse.body().getContent());
+                listWordRemembered.addAll(listResponse.body());
             }
         }catch (IOException e){
             e.printStackTrace();

@@ -23,6 +23,9 @@ public interface WordService {
     @GET("api/v1/user/words/user-word")
     Call<WordsByUserResponse> getWordsByUser(@Query("page") Integer page, @Query("size") Integer limit);
 
+    @GET("api/v1/user/words/word-remember")
+    Call<List<Word>> getRememberedWord();
+
 //    @GET("api/v1/user/words/word-search")
 //    Call<WordsByUserResponse> findWordByUser();
 

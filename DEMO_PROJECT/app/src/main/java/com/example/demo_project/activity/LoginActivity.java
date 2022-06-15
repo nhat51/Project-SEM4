@@ -84,12 +84,13 @@ public class LoginActivity extends AppCompatActivity {
                         token = loginToken.getAccess_token();
                         String refreshToken = loginToken.getRefresh_token();
                         Log.d("Access Token nè",loginToken.getAccess_token());
+                        SharedPreferences.Editor editor = getSharedPreferences("ACCESS_TOKEN", MODE_PRIVATE).edit();
                         if (token != null) editor.putString("token", token);
                         if (refreshToken != null) editor.putString("refreshToken", refreshToken);
                         editor.commit();
                         Toast.makeText(LoginActivity.this, "Login success",Toast.LENGTH_SHORT).show();
                         Log.d("Token", loginToken.getAccess_token());
-                        SharedPreferences.Editor editor = getSharedPreferences("ACCESS_TOKEN", MODE_PRIVATE).edit();
+                        editor = getSharedPreferences("ACCESS_TOKEN", MODE_PRIVATE).edit();
                         editor.putString("token", loginToken.getAccess_token());
                         editor.apply();
                         Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
