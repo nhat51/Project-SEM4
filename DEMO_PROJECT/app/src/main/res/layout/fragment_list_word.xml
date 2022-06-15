@@ -13,7 +13,6 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="@color/demo">
-
             <ImageView
                 android:id="@+id/btn_back_list_word"
                 android:layout_width="20dp"
@@ -23,18 +22,6 @@
                 android:layout_marginTop="20dp"
                 android:src="@drawable/ic_arrow_back"
                 app:tint="@color/white" />
-
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="25dp"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:layout_toEndOf="@+id/btn_back_list_word"-->
-<!--                android:text="Danh sách các từ"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="25sp"-->
-<!--                android:textStyle="bold" />-->
-
             <ImageView
                 android:id="@+id/btn_setting_list_word"
                 android:layout_width="20dp"
@@ -44,13 +31,7 @@
                 android:layout_marginEnd="20dp"
                 android:src="@drawable/settings"
                 app:tint="@color/white" />
-
         </RelativeLayout>
-<!--        <ImageView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="170dp"-->
-<!--            android:src="@drawable/banner_list_word"-->
-<!--            android:layout_marginTop="10dp"/>-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

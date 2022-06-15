@@ -3,13 +3,16 @@ package com.example.demo_project;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
 
+import com.example.demo_project.activity.LoginActivity;
 import com.example.demo_project.fragment.FragmentAccount;
 import com.example.demo_project.fragment.FragmentAddNewWordForm;
 import com.example.demo_project.fragment.FragmentDetailWord;
@@ -42,6 +45,16 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // check login user
+        SharedPreferences prefs = getSharedPreferences("ACCESS_TOKEN", MODE_PRIVATE);
+        String token = prefs.getString("token", null);//"No name defined" is the default value.
+        if (token == null || token.length() == 0) {
+            // chuyển trang login
+            Intent intent = new Intent();
+            intent.setClass(this, LoginActivity.class);
+            this.startActivity(intent);
+        }
+
         initView();
 //        hideNavigation();
     }

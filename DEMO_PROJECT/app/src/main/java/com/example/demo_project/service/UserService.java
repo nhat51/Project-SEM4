@@ -22,4 +22,7 @@ public interface UserService {
 
     @POST("/api/v1/user/users/setRemindTime")
     Call<UserDto> setRemindTime(@Query("startTime")String startTime,@Query("endTime")String endTime);
+
+    @GET("/api/v1/user/users/get-profile")
+    Call<UserDto> getUserAccountDetails(@Query("user-id") int userId);
 }

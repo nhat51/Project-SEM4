@@ -28,7 +28,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerInParent="true"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="40dp"
                     android:layout_marginBottom="10dp"
                     android:textStyle="bold"
                     android:gravity="center"
@@ -156,16 +156,35 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_below="@id/register_phone">
-                    <EditText
-                        android:id="@+id/et_register_pass"
+<!--                    <EditText-->
+<!--                        android:id="@+id/et_register_pass"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="50dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:background="@drawable/bg_edit_text_register"-->
+<!--                        android:hint="Mật khẩu"-->
+<!--                        android:inputType="textPassword"-->
+<!--                        android:paddingStart="20dp"-->
+<!--                        android:textColorHint="@color/blue" />-->
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/bg_edit_text_register"
+                        android:layout_height="wrap_content"
+                        app:passwordToggleEnabled="true"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
                         android:hint="Mật khẩu"
-                        android:inputType="textPassword"
-                        android:paddingStart="20dp"
-                        android:textColorHint="@color/blue" />
+                        android:textColorHint="@color/blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_register_pass"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:inputType="textPassword"
+                            android:textSize="18sp"
+                            android:background="@drawable/bg_edit_text_register"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
                     <TextView
                         android:id="@+id/PasswordAlert"
                         android:layout_width="match_parent"
@@ -215,7 +234,7 @@
                     android:text="ĐĂNG KÝ"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:layout_marginTop="20dp"/>
+                    android:layout_marginTop="20dp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

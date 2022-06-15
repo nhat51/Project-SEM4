@@ -28,28 +28,26 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-Button btn_login;
+    Button btn_login;
     EditText et_login_name, et_login_pass;
     TextView userNameAlertLogin, passwordAlertLogin, redirect_register;
     UserService userService;
-    SharedPreferences settings;
-    SharedPreferences.Editor editor;
     String token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         int SDK_INT = android.os.Build.VERSION.SDK_INT;
-        if (SDK_INT > 8)
-        {
+        if (SDK_INT > 8) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                     .permitAll().build();
             StrictMode.setThreadPolicy(policy);
             //your codes here
-            settings = getApplicationContext().getSharedPreferences("token", MODE_PRIVATE);
-            editor = settings.edit();
         }
         initData();
+        // nếu có token rồi thì đưa sang trang khác.
+        // Xử lý check token tại trang home (defautl phải là trang home), nếu chưa có token mới về đây.
         initListener();
         redirectRegister();
     }
@@ -64,7 +62,7 @@ Button btn_login;
         passwordAlertLogin = findViewById(R.id.PasswordAlertLogin);
     }
 
-    private void initListener(){
+    private void initListener() {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,25 +72,21 @@ Button btn_login;
                 LoginDto loginDto = new LoginDto();
                 loginDto.setUsername(username);
                 loginDto.setPassword(password);
-                if (userService == null){
+                if (userService == null) {
                     userService = RetrofitGenerator.createService(UserService.class);
                 }
                 try {
-                    Response<UserResponse> tokenResponse =  userService.login(loginDto).execute();
-                    if(tokenResponse.isSuccessful()){
-
+                    Response<UserResponse> tokenResponse = userService.login(loginDto).execute();
+                    if (tokenResponse.isSuccessful()) {
                         LoginToken loginToken = tokenResponse.body().getBody();
-                        Log.d("aaaa", loginToken.toString());
-                        token = loginToken.getAccess_token();
-                        String refreshToken = loginToken.getRefresh_token();
-                        Log.d("Token",loginToken.getUsername());
-                        if (token != null) editor.putString("token", token);
-                        if (refreshToken != null) editor.putString("refreshToken", refreshToken);
-                        editor.commit();
-                        Toast.makeText(LoginActivity.this, "Login success",Toast.LENGTH_SHORT).show();
+                        Log.d("Token", loginToken.getAccess_token());
+                        SharedPreferences.Editor editor = getSharedPreferences("ACCESS_TOKEN", MODE_PRIVATE).edit();
+                        editor.putString("token", loginToken.getAccess_token());
+                        editor.apply();
+                        Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     } else {
-                        Toast.makeText(LoginActivity.this, "Login fail. Please check your information again!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Login fail. Please check your information again!", Toast.LENGTH_SHORT).show();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -114,7 +108,7 @@ Button btn_login;
         return true;
     }
 
-    private boolean validateLoginPassword(){
+    private boolean validateLoginPassword() {
         String passwordInputLogin = et_login_pass.getText().toString().trim();
         //validate pass
         if (passwordInputLogin.isEmpty()) {

@@ -9,7 +9,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitGenerator {
-    private static final String BASE_URL = "https://hello-english-t2004e.herokuapp.com/";
+    private static final String BASE_URL = "https://hello-english-t2004e.herokuapp.com";
 
     private static Retrofit.Builder builder
             = new Retrofit.Builder()
