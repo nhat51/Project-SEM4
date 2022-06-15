@@ -8,7 +8,8 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             app:cardCornerRadius="25dp"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+        android:id="@+id/word_remembered_wrapper">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -21,7 +22,7 @@
                     android:orientation="vertical"
                     android:padding="10dp">
                     <TextView
-                        android:id="@+id/tv_word"
+                        android:id="@+id/tv_word_remembered"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Word"
@@ -29,12 +30,12 @@
                         android:textStyle="bold"
                         android:textColor="#2D248F" />
                     <TextView
-                        android:id="@+id/tv_part_of_speech"
+                        android:id="@+id/tv_part_of_speech_remembered"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Part of speech"/>
                     <TextView
-                        android:id="@+id/tv_meaning"
+                        android:id="@+id/tv_meaning_remembered"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Meaning"

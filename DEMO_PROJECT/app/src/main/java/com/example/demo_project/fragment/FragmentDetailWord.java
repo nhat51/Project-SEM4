@@ -53,6 +53,15 @@ public class FragmentDetailWord extends Fragment {
         back_detail_word_page = view.findViewById(R.id.btn_back_detail_word_page);
         edit_detail_word_page = view.findViewById(R.id.btn_edit_detail_word_page);
         search_detail_word_page = view.findViewById(R.id.btn_search_detail_word_page);
+
+        edit_detail_word_page.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                edit_detail_word_page.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.frameLayout,));
+            }
+        });
     }
     private void initData() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
