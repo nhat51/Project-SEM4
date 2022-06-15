@@ -40,17 +40,27 @@ public class FragmentAddNewWordForm extends Fragment {
     private Context currentContext;
     private String token = null;
     CheckBox cb_noun, cb_verb, cb_adj;
+    private WordService wordService;
 
 
     @Override
-    public View onCreateView( LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         currentContext = container.getContext();
         view = inflater.inflate(R.layout.fragment_add_new_word, container, false);
+        // first config
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        // check login information.
+        SharedPreferences settings = getActivity().getSharedPreferences("ACCESS_TOKEN", Context.MODE_PRIVATE);
+        token = settings.getString("token", "");
+        Log.d("AddNewFormToken", token);
+        wordService = RetrofitGenerator.createService(WordService.class, token);
         initData();
         initListener();
         initBackView();
         return view;
     }
+
     private void initData() {
         etWord = view.findViewById(R.id.etWord);
         etWordMeaning = view.findViewById(R.id.etWordMeaning);
@@ -62,12 +72,11 @@ public class FragmentAddNewWordForm extends Fragment {
         cb_verb = view.findViewById(R.id.cb_verb);
         cb_adj = view.findViewById(R.id.cb_adjective);
     }
+
     private void initListener() {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-                StrictMode.setThreadPolicy(policy);
                 String word = etWord.getText().toString();
                 String meaningWord = etWordMeaning.getText().toString();
                 String example = etWordExample.getText().toString();
@@ -81,28 +90,20 @@ public class FragmentAddNewWordForm extends Fragment {
                 newWord.setCategoryType(WordCategory.ONCE_A_DAY);
 
                 //check box
-                if (cb_noun.isChecked()){
+                if (cb_noun.isChecked()) {
                     newWord.setPartOfSpeech("Danh từ");
                 }
-                if (cb_adj.isChecked()){
+                if (cb_adj.isChecked()) {
                     newWord.setPartOfSpeech("Tính từ");
                 }
-                if (cb_verb.isChecked()){
+                if (cb_verb.isChecked()) {
                     newWord.setPartOfSpeech("Động từ");
                 }
-
-                SharedPreferences settings = getActivity().getSharedPreferences("token", Context.MODE_PRIVATE);
-                token = settings.getString("token", "");
-                String refreshToken = settings.getString("refreshToken", "");
-                Log.d("token", token);
-                Log.d("refreshToken", refreshToken);
-                WordService wordService = RetrofitGenerator.createService(WordService.class, token);
                 Log.d("Success", new Gson().toJson(newWord));
-                Response<Word> wordCall = null;
                 try {
-                    wordCall = wordService.addNewWord(newWord).execute();
-                    Log.d("hhhhhhhhhh", wordCall.message());
-                    if(wordCall.isSuccessful()){
+                    Response<Word> wordCall = wordService.addNewWord(newWord).execute();
+                    Log.d("Add New Word: ", wordCall.message());
+                    if (wordCall.isSuccessful()) {
                         CharSequence charSequence = "Tạo thành công";
                         Toast toast = Toast.makeText(currentContext.getApplicationContext(), charSequence, Toast.LENGTH_LONG);
                         toast.show();
@@ -112,7 +113,7 @@ public class FragmentAddNewWordForm extends Fragment {
 
                         FragmentDetailWord fragmentDetailWord = new FragmentDetailWord();
                         fragmentDetailWord.setArguments(bundle);
-                        ((FragmentActivity)currentContext).getSupportFragmentManager()
+                        ((FragmentActivity) currentContext).getSupportFragmentManager()
                                 .beginTransaction()
                                 .replace(R.id.frameLayout, fragmentDetailWord)
                                 .commit();
@@ -122,7 +123,7 @@ public class FragmentAddNewWordForm extends Fragment {
                         etWordExample.getText().clear();
                         etExampleTrans.getText().clear();
 
-                    }else{
+                    } else {
                         Log.d("Error", wordCall.code() + "");
                         Log.d("Error", wordCall.errorBody() + "");
                         Log.d("Error", wordCall.message() + "");
@@ -137,6 +138,7 @@ public class FragmentAddNewWordForm extends Fragment {
             }
         });
     }
+
     private void initBackView() {
         btn_back_add_form = view.findViewById(R.id.btn_back_add_form);
         btn_back_add_form.setOnClickListener(new View.OnClickListener() {

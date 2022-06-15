@@ -27,10 +27,11 @@
                     android:layout_alignParentStart="true"
                     android:layout_centerInParent="true"
                     android:layout_marginStart="20dp"
-                    android:textStyle="bold"
                     android:text="Vui lòng\n đăng nhập"
                     android:textColor="@color/white"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="280dp"
@@ -45,20 +46,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="30dp">
+
+<!--                tên đăng nhập-->
                 <LinearLayout
                     android:id="@+id/login_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <EditText
-                        android:id="@+id/et_login_name"
+                    android:orientation="vertical"
+                    android:layout_marginTop="30dp">
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="30dp"
-                        android:background="@drawable/bg_edit_text_login"
+                        android:layout_height="wrap_content"
+                        app:hintEnabled="true"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
                         android:hint="Tên đăng nhập"
-                        android:paddingStart="20dp"
-                        android:textColorHint="@color/blue" />
+                        android:textColorHint="@color/blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_login_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_edit_text_login"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
                     <TextView
                         android:id="@+id/UserNameAlertLogin"
                         android:layout_width="match_parent"
@@ -74,32 +85,25 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_below="@id/login_username">
-                    <RelativeLayout
-                        android:id="@+id/enter_pass_login_form"
+
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/bg_edit_text_login">
+                        android:layout_height="wrap_content"
+                        app:hintEnabled="true"
+                        app:passwordToggleEnabled="true"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        android:hint="Mật khẩu"
+                        android:textColorHint="@color/blue">
 
-                        <EditText
+                            <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_login_pass"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:hint="Mật khẩu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:inputType="textPassword"
-                            android:paddingStart="20dp"
-                            android:textColorHint="@color/blue" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_centerInParent="true"
-                            android:layout_marginStart="200dp"
-                            android:layout_toEndOf="@id/et_login_pass"
-                            android:src="@drawable/hide_password"
-                            app:tint="@color/demo" />
-                    </RelativeLayout>
+                            android:background="@drawable/bg_edit_text_login"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
                     <TextView
                         android:id="@+id/PasswordAlertLogin"
                         android:layout_width="match_parent"

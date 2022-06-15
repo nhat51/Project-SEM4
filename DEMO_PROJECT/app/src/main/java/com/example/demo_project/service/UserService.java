@@ -25,4 +25,6 @@ public interface UserService {
 
     @GET("/api/v1/user/users/receive-device-token")
     Call<UserDto> sendDeviceToken(@Query("device-token") String deviceToken);
+    @GET("/api/v1/user/users/get-profile")
+    Call<UserDto> getUserAccountDetails(@Query("user-id") int userId);
 }

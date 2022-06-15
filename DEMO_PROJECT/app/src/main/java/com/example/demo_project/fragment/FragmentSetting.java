@@ -103,10 +103,10 @@ public class FragmentSetting extends Fragment {
         btn_back_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btn_back_setting.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
+                getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.frameLayout, MainActivity.fragmentHome, FragmentHome.class.getName())
-                        .commit());
+                        .commit();
             }
         });
     }
@@ -155,6 +155,13 @@ public class FragmentSetting extends Fragment {
         return true;
     }
     private void logout(){
-
+        log_out = view.findViewById(R.id.log_out);
+        log_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
