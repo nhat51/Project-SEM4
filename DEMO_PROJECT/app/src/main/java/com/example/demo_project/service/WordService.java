@@ -26,6 +26,9 @@ public interface WordService {
     @GET("api/v1/user/words/word-remember")
     Call<List<Word>> getRememberedWord();
 
+    @GET("api/v1/user/words/word-remind")
+    Call<List<Word>> getRemindWord();
+
 //    @GET("api/v1/user/words/word-search")
 //    Call<WordsByUserResponse> findWordByUser();
 

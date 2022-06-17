@@ -54,7 +54,7 @@
             android:gravity="center"
             android:text="Danh sách các từ đã nhớ"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             android:layout_marginTop="30dp"/>
         <androidx.recyclerview.widget.RecyclerView

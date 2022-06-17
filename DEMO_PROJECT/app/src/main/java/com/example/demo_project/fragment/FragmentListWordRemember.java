@@ -97,10 +97,10 @@ public class FragmentListWordRemember extends Fragment {
         btn_edit_remember_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btn_edit_remember_list.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
+                    getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.frameLayout, MainActivity.fragmentSetting, FragmentSetting.class.getName())
-                        .commit());
+                        .commit();
             }
         });
     }

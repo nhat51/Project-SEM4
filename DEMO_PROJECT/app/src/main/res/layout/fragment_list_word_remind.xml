@@ -17,8 +17,8 @@
 
             <ImageView
                 android:id="@+id/btn_back_remind_list"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="20dp"
@@ -27,8 +27,8 @@
 
             <ImageView
                 android:id="@+id/btn_edit_remind_list"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
@@ -43,7 +43,7 @@
             android:gravity="center"
             android:text="Danh sách các từ nhắc nhở"
             android:textColor="@color/demo3"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             android:layout_marginTop="30dp"/>
         <!--    <ImageView-->
