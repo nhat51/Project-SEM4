@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //validate username
         if (usernameInputLogin.isEmpty()) {
-            userNameAlertLogin.setText("Field can't be empty. Please enter your username");
+            userNameAlertLogin.setText("Trường không thể để trống. Vui lòng nhập tên người dùng");
             return false;
         }
         return true;
@@ -131,11 +131,11 @@ public class LoginActivity extends AppCompatActivity {
         String passwordInputLogin = et_login_pass.getText().toString().trim();
         //validate pass
         if (passwordInputLogin.isEmpty()) {
-            passwordAlertLogin.setText("Field can't be empty. PLease enter your password");
+            passwordAlertLogin.setText("Trường không thể để trống. Vui lòng nhập mật khẩu");
             return false;
         }
         if (passwordInputLogin.length() < 3) {
-            passwordAlertLogin.setText("Password must be at least 3 characters");
+            passwordAlertLogin.setText("Mật khẩu phải có ít nhất 3 kí tự");
             return false;
         }
         return true;

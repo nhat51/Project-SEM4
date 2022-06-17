@@ -75,10 +75,10 @@ public class FragmentListArticle extends Fragment {
         btn_setting_list_article.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btn_setting_list_article.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
+                        getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.frameLayout, MainActivity.fragmentSetting, FragmentSetting.class.getName())
-                        .commit());
+                        .commit();
             }
         });
     }
@@ -88,10 +88,10 @@ public class FragmentListArticle extends Fragment {
         btn_back_list_article.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btn_back_list_article.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
+                getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.frameLayout, MainActivity.fragmentHome, FragmentHome.class.getName())
-                        .commit());
+                        .commit();
             }
         });
     }

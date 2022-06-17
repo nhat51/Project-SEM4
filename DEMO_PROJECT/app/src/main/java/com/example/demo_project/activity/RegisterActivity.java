@@ -63,10 +63,10 @@ public class RegisterActivity extends AppCompatActivity {
                 String checkPassword = et_register_pass_confirm.getText().toString();
                 if (!password.equals(checkPassword)) {
                     // đưa ra lỗi.
-                    passwordConfirmAlert.setText("Password not be matched. Please try again");
+                    passwordConfirmAlert.setText("Mật khẩu không khớp. Vui lòng thử lại");
                     passwordConfirmAlert.setTextColor(Color.RED);
                 } else {
-                    passwordConfirmAlert.setText("Password Matched");
+                    passwordConfirmAlert.setText("Mật khẩu khớp");
                     passwordConfirmAlert.setTextColor(Color.GREEN);
                 }
             }
@@ -152,11 +152,11 @@ public class RegisterActivity extends AppCompatActivity {
     private boolean validatePhone() {
         String phoneInput = et_register_phone.getText().toString().trim();
         if (phoneInput.isEmpty()) {
-            phoneAlert.setText("Field can not be empty");
+            phoneAlert.setText("Không thể để trống trường này");
             return false;
         }
         if (!phoneInput.matches("(84|0[3|5|7|8|9])+([0-9]{8})\\b")) {
-            phoneAlert.setText("Please enter a valid phone number");
+            phoneAlert.setText("Vui lòng nhập số điện thoại hợp lệ");
             return false;
         } else {
             phoneAlert.setError(null);
@@ -168,11 +168,11 @@ public class RegisterActivity extends AppCompatActivity {
         String passwordInput = et_register_pass.getText().toString().trim();
         //validate pass
         if (passwordInput.isEmpty()) {
-            passwordAlert.setText("Field can not be empty");
+            passwordAlert.setText("Không thể để trống trường này");
             return false;
         }
         if (passwordInput.length() < 3) {
-            passwordAlert.setText("Password must be at least 3 characters");
+            passwordAlert.setText("Mật khẩu phải có ít nhất 3 kí tự");
             return false;
         }
         return true;
@@ -181,11 +181,11 @@ public class RegisterActivity extends AppCompatActivity {
     private boolean validateEmail() {
         String emailInput = et_register_email.getText().toString().trim();
         if (emailInput.isEmpty()) {
-            emailAlert.setText("Field can not be empty");
+            emailAlert.setText("Không thể để trống trường này");
             return false;
             //sai định dạng
         } else if (!emailInput.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
-            emailAlert.setText("Please enter a valid email address");
+            emailAlert.setText("Vui lòng nhập địa chỉ email hợp lệ");
             return false;
         } else {
             emailAlert.setError(null);
@@ -197,11 +197,11 @@ public class RegisterActivity extends AppCompatActivity {
         String usernameInput = et_register_name.getText().toString().trim();
 //        String noSpace = "(?=\\S+$)";
         if (usernameInput.isEmpty()) {
-            userNameAlert.setText("Field cannot be empty");
+            userNameAlert.setText("Không thể để trống trường này");
             return false;
         }
-        if (usernameInput.length() >= 15) {
-            userNameAlert.setText("Username has to less than 15 characters");
+        if (usernameInput.length() >= 30) {
+            userNameAlert.setText("Tên đăng nhập phải ít hơn 30 kí tự");
             return false;
         }
 //        else if (!usernameInput.matches(noSpace)){
@@ -217,7 +217,7 @@ public class RegisterActivity extends AppCompatActivity {
     private boolean validateFullName() {
         String fullnameInput = et_register_full_name.getText().toString().trim();
         if (fullnameInput.isEmpty()) {
-            fullNameAlert.setText("Field cannot be empty");
+            fullNameAlert.setText("Không thể để trống trường này");
             return false;
         } else {
             userNameAlert.setError(null);

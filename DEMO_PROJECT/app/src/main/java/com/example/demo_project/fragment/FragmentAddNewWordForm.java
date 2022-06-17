@@ -144,10 +144,10 @@ public class FragmentAddNewWordForm extends Fragment {
         btn_back_add_form.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btn_back_add_form.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
+                getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.frameLayout, MainActivity.fragmentHome, FragmentHome.class.getName())
-                        .commit());
+                        .commit();
             }
         });
     }
