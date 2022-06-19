@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.demo_project.MainActivity;
 import com.example.demo_project.R;
 import com.example.demo_project.adapter.ListWordAdapter;
+import com.example.demo_project.adapter.ListWordRemindAdapter;
 import com.example.demo_project.entity.Word;
 import com.example.demo_project.service.WordService;
 import com.example.demo_project.util.RetrofitGenerator;
@@ -40,12 +41,16 @@ public class FragmentListWordRemind extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         currentContext = container.getContext();
         view = inflater.inflate(R.layout.fragment_list_word_remind, container, false);
+        initData();
+        initView();
+        initBackView();
+        initSettingView();
         return view;
     }
     private void initView() {
         rvWord = view.findViewById(R.id.rvRemind_Word);
         rvWord.setLayoutManager(new LinearLayoutManager(currentContext));
-        rvWord.setAdapter(new ListWordAdapter(currentContext, listWordRemind));
+        rvWord.setAdapter(new ListWordRemindAdapter(currentContext, listWordRemind));
 
         fragmentDetailWord = new FragmentDetailWord();
     }
@@ -53,19 +58,16 @@ public class FragmentListWordRemind extends Fragment {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         listWordRemind = new ArrayList<>();
-        SharedPreferences settings = getActivity().getSharedPreferences("token", Context.MODE_PRIVATE);
+        SharedPreferences settings = getActivity().getSharedPreferences("ACCESS_TOKEN", Context.MODE_PRIVATE);
         token = settings.getString("token", "");
-        String refreshToken = settings.getString("refreshToken", "");
-        Log.d("token", token);
-        Log.d("refreshToken", refreshToken);
         if (wordService == null){
             wordService = RetrofitGenerator.createService(WordService.class,token);
         }
         try {
             Response<List<Word>> listResponse = wordService.getRemindWord().execute();
-//            Log.d("wordssssss: ", String.valueOf(listResponse.body().getContent().size()));
             if (listResponse.isSuccessful()){
                 Log.d("Check check check","+++++++++++++++++++++++++++++");
+                Log.d("List size",String.valueOf(listResponse.body().size()));
                 listWordRemind.addAll(listResponse.body());
             }
         }catch (IOException e){
