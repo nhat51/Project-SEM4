@@ -34,6 +34,7 @@ public class FragmentListArticle extends Fragment {
     private List<Article> articles;
     private RecyclerView rvArticle;
     private ArticleService articleService;
+    private String token = null;
     private ImageView btn_setting_list_article, btn_back_list_article;
     private View view;
     private Context currentContext;
@@ -58,7 +59,7 @@ public class FragmentListArticle extends Fragment {
 
         articles = new ArrayList<>();
         if (articleService == null){
-            articleService = RetrofitGenerator.createService(ArticleService.class);
+            articleService = RetrofitGenerator.createService(ArticleService.class, token);
         }
         try {
             Response<ArticleResponse> listArticleResponse = articleService.getAllArticle().execute();

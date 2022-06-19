@@ -29,6 +29,7 @@ public class FragmentDetailArticle extends Fragment {
     Article currentArticle;
     ArticleService articleService;
     private View view;
+    private String token = null;
     private Context currentContext;
     int articleId;
     @Override
@@ -57,7 +58,7 @@ public class FragmentDetailArticle extends Fragment {
             Log.d("articleId: ", String.valueOf(articleId));
         }
         if (articleService == null){
-            articleService = RetrofitGenerator.createService(ArticleService.class);
+            articleService = RetrofitGenerator.createService(ArticleService.class, token);
         }
         try {
             Response<Article> articleDetailResponse = articleService.getArticleDetail(articleId).execute();

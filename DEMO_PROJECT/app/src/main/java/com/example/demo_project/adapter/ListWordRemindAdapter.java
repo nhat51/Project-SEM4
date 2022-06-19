@@ -36,10 +36,10 @@ public class ListWordRemindAdapter extends RecyclerView.Adapter<ListWordRemindAd
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Word currentWord = words.get(position);
-        holder.tvWord.setText(currentWord.getName());
-        holder.tvMeaning.setText(currentWord.getContent());
-        holder.tvPartOfSpeech.setText(currentWord.getPartOfSpeech());
-        holder.wordWrapper.setOnClickListener(new View.OnClickListener() {
+        holder.tvWord1.setText(currentWord.getName());
+        holder.tvPartOfSpeech1.setText(currentWord.getPartOfSpeech());
+        holder.tvMeaning1.setText(currentWord.getContent());
+        holder.wordWrapper1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
@@ -57,20 +57,20 @@ public class ListWordRemindAdapter extends RecyclerView.Adapter<ListWordRemindAd
 
     @Override
     public int getItemCount() {
-        return 0;
+        return words.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        CardView wordWrapper;
-        TextView tvWord;
-        TextView tvMeaning;
-        TextView tvPartOfSpeech;
+        CardView wordWrapper1;
+        TextView tvWord1;
+        TextView tvMeaning1;
+        TextView tvPartOfSpeech1;
         public ViewHolder(View itemView){
             super(itemView);
-            wordWrapper = itemView.findViewById(R.id.word_remembered_wrapper);
-            tvWord = itemView.findViewById(R.id.tv_word_remembered);
-            tvMeaning = itemView.findViewById(R.id.tv_meaning_remembered);
-            tvPartOfSpeech = itemView.findViewById(R.id.tv_part_of_speech_remembered);
+            wordWrapper1 = itemView.findViewById(R.id.word_remind_wrapper);
+            tvWord1 = itemView.findViewById(R.id.tv_word_remind);
+            tvMeaning1 = itemView.findViewById(R.id.tv_meaning_remind);
+            tvPartOfSpeech1 = itemView.findViewById(R.id.tv_part_of_speech_remind);
         }
     }
 }
