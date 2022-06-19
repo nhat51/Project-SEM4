@@ -26,14 +26,14 @@
                     android:layout_alignParentStart="true"
                     android:layout_centerInParent="true"
                     android:layout_marginStart="20dp"
-                    android:fontFamily="@font/fugaz_one"
+                    android:textStyle="bold"
                     android:text="Quên mật khẩu"
                     android:textColor="@color/white"
                     android:textSize="25sp" />
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="280dp"
+                    android:layout_height="290dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginStart="30dp"
