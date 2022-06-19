@@ -52,7 +52,7 @@ public class FragmentListWord extends Fragment {
     private boolean isLastPage;
     private int totalPage = 5;
     private int currentPage = 1;
-    private int limit = 2;
+    private int limit = 3;
 
     private void setFirstData() {
         words = getWords();
