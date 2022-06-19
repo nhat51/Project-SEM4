@@ -60,8 +60,7 @@ public class SeedData implements CommandLineRunner {
             Set<User> userSet = new HashSet<>();
 
             User user1 = new User();
-            user1.setId(1);
-            user1.setUsername("dr.nhat");
+            user1.setUsername("admin01");
             user1.setPasswordHash(passwordEncoder.encode("1234"));
             user1.setFullName("Nguyen Quang Nhat");
             user1.setEmail("nhatngao@gmail.com");
@@ -71,8 +70,7 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user1);
 
             User user2 = new User();
-            user2.setId(2);
-            user2.setUsername("son3coc");
+            user2.setUsername("admin02");
             user2.setPasswordHash(passwordEncoder.encode("1234"));
             user2.setFullName("Dang Hoang Son");
             user2.setEmail("nhaude@gmail.com");
@@ -82,8 +80,7 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user2);
 
             User user3 = new User();
-            user3.setId(3);
-            user3.setUsername("Christian.Le");
+            user3.setUsername("user01");
             user3.setPasswordHash(passwordEncoder.encode("1234"));
             user3.setFullName("Christian Le");
             user3.setEmail("sorryallday@gmail.com");
@@ -93,8 +90,7 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user3);
 
             User user4 = new User();
-            user4.setId(4);
-            user4.setUsername("hong.ne");
+            user4.setUsername("user02");
             user4.setPasswordHash(passwordEncoder.encode("1234"));
             user4.setFullName("Nguyen Thi Hong");
             user4.setEmail("goilaiemhong@gmail.com");
@@ -104,8 +100,7 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user4);
 
             User user5 = new User();
-            user5.setId(5);
-            user5.setUsername("chinhnguyen321");
+            user5.setUsername("user03");
             user5.setPasswordHash(passwordEncoder.encode("1234"));
             user5.setFullName("Nguyen Duc Chinh");
             user5.setEmail("nguyenducchinhhhhhh@gmail.com");
@@ -115,7 +110,6 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user5);
 
             User user6 = new User();
-            user6.setId(6);
             user6.setUsername("nhituyetle129");
             user6.setPasswordHash(passwordEncoder.encode("1234"));
             user6.setFullName("Le Tuyet Nhi");
@@ -126,7 +120,6 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user6);
 
             User user7 = new User();
-            user7.setId(7);
             user7.setUsername("luonCaoBang");
             user7.setPasswordHash(passwordEncoder.encode("1234"));
             user7.setFullName("Phung Thanh Do");
@@ -137,7 +130,6 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user7);
 
             User user8 = new User();
-            user8.setId(8);
             user8.setUsername("torau9856");
             user8.setPasswordHash(passwordEncoder.encode("1234"));
             user8.setFullName("Truong Tue Chau");
@@ -148,7 +140,6 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user8);
 
             User user9 = new User();
-            user9.setId(9);
             user9.setUsername("anculaunam879");
             user9.setPasswordHash(passwordEncoder.encode("1234"));
             user9.setFullName("Phong Thanh Duong");
@@ -159,7 +150,6 @@ public class SeedData implements CommandLineRunner {
             userSet.add(user9);
 
             User user10 = new User();
-            user10.setId(10);
             user10.setUsername("cmcmcmcmcm710");
             user10.setPasswordHash(passwordEncoder.encode("1234"));
             user10.setFullName("Cristiano Messi");
@@ -213,7 +203,9 @@ public class SeedData implements CommandLineRunner {
             word1.setExample("Patients reported pain in the lower chest or upper abdomen.");
             word1.setTranslatedExample("Bệnh nhân cho biết đau ở ngực dưới hoặc bụng trên.");
             word1.setUser(listUser.get(0));
+            word1.setRemember(true);
             wordSet.add(word1);
+
 
             Word word2 = new Word();
             word2.setId(52);
@@ -224,6 +216,7 @@ public class SeedData implements CommandLineRunner {
             word2.setExample("Cicadas buzzed in the heat of the day.");
             word2.setTranslatedExample("Tiếng ve kêu râm ran trong ngày nắng nóng.");
             word2.setUser(listUser.get(0));
+            word2.setRemember(true);
             wordSet.add(word2);
 
             Word word3 = new Word();
@@ -279,6 +272,7 @@ public class SeedData implements CommandLineRunner {
             word7.setExample("3000 acres of parkland");
             word7.setTranslatedExample("3.000 mẫu đất công viên");
             word7.setUser(listUser.get(1));
+            word7.setRemember(true);
             wordSet.add(word7);
 
             Word word8 = new Word();
@@ -290,6 +284,7 @@ public class SeedData implements CommandLineRunner {
             word8.setExample("bales of hay/straw/cotton/wool");
             word8.setTranslatedExample("kiện cỏ khô / rơm / bông / len");
             word8.setUser(listUser.get(1));
+            word8.setRemember(true);
             wordSet.add(word8);
 
             Word word9 = new Word();

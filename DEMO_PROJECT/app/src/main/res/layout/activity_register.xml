@@ -28,9 +28,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerInParent="true"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="40dp"
                     android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/fugaz_one"
+                    android:textStyle="bold"
                     android:gravity="center"
                     android:text="ĐĂNG KÝ TÀI KHOẢN"
                     android:textColor="@color/demo"
@@ -49,64 +49,183 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp">
-
-                <EditText
-                    android:id="@+id/et_register_name"
+                <LinearLayout
+                    android:id="@+id/register_full_name"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/bg_edit_text_register"
-                    android:hint="Tên tài khoản"
-                    android:paddingStart="20dp"
-                    android:textColorHint="@color/blue" />
-
-                <EditText
-                    android:id="@+id/et_register_email"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/exist_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/red" />
+                    <EditText
+                        android:id="@+id/et_register_full_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_edit_text_register"
+                        android:hint="Tên người dùng"
+                        android:paddingStart="20dp"
+                        android:textColorHint="@color/blue" />
+                    <TextView
+                        android:id="@+id/FullNameAlert"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:textColor="#B71C1C"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/register_user_name"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_below="@id/et_register_name"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/bg_edit_text_register"
-                    android:hint="Email"
-                    android:paddingStart="20dp"
-                    android:textColorHint="@color/blue" />
-
-                <EditText
-                    android:id="@+id/et_register_phone"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@+id/register_full_name">
+                    <EditText
+                        android:id="@+id/et_register_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_edit_text_register"
+                        android:hint="Tên tài khoản"
+                        android:paddingStart="20dp"
+                        android:textColorHint="@color/blue"/>
+                    <TextView
+                        android:id="@+id/UserNameAlert"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginStart="20dp"
+                        android:textColor="#B71C1C"
+                        android:layout_marginTop="5dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/register_email"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_below="@id/et_register_email"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/bg_edit_text_register"
-                    android:hint="Số điện thoại"
-                    android:paddingStart="20dp"
-                    android:textColorHint="@color/blue" />
-
-                <EditText
-                    android:id="@+id/et_register_pass"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/register_user_name">
+                    <EditText
+                        android:id="@+id/et_register_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/et_register_name"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_edit_text_register"
+                        android:hint="Email"
+                        android:paddingStart="20dp"
+                        android:textColorHint="@color/blue" />
+                    <TextView
+                        android:id="@+id/EmailAlert"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginStart="20dp"
+                        android:textColor="#B71C1C"
+                        android:layout_marginTop="5dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/register_phone"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_below="@id/et_register_phone"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/bg_edit_text_register"
-                    android:hint="Mật khẩu"
-                    android:inputType="textPassword"
-                    android:paddingStart="20dp"
-                    android:textColorHint="@color/blue" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/register_email">
+                    <EditText
+                        android:id="@+id/et_register_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/et_register_email"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_edit_text_register"
+                        android:hint="Số điện thoại"
+                        android:paddingStart="20dp"
+                        android:textColorHint="@color/blue" />
+                    <TextView
+                        android:id="@+id/PhoneAlert"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginStart="20dp"
+                        android:textColor="#B71C1C"
+                        android:layout_marginTop="5dp"
+                        />
 
-                <EditText
-                    android:id="@+id/et_register_pass_confirm"
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/register_password"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_below="@id/et_register_pass"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/bg_edit_text_register"
-                    android:hint="Xác nhận mật khẩu"
-                    android:inputType="textPassword"
-                    android:paddingLeft="20dp"
-                    android:textColorHint="@color/blue" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/register_phone">
+<!--                    <EditText-->
+<!--                        android:id="@+id/et_register_pass"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="50dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:background="@drawable/bg_edit_text_register"-->
+<!--                        android:hint="Mật khẩu"-->
+<!--                        android:inputType="textPassword"-->
+<!--                        android:paddingStart="20dp"-->
+<!--                        android:textColorHint="@color/blue" />-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:passwordToggleEnabled="true"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        android:hint="Mật khẩu"
+                        android:textColorHint="@color/blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_register_pass"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:inputType="textPassword"
+                            android:textSize="18sp"
+                            android:background="@drawable/bg_edit_text_register"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/PasswordAlert"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginStart="20dp"
+                        android:textColor="#B71C1C"
+                        android:layout_marginTop="5dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/register_password">
+                    <EditText
+                        android:id="@+id/et_register_pass_confirm"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_edit_text_register"
+                        android:hint="Xác nhận mật khẩu"
+                        android:inputType="textPassword"
+                        android:paddingLeft="20dp"
+                        android:textColorHint="@color/blue" />
+                    <TextView
+                        android:id="@+id/PasswordConfirmAlert"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginStart="20dp"
+                        android:textColor="#B71C1C"
+                        android:layout_marginTop="5dp"
+                        />
+                </LinearLayout>
             </RelativeLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -120,7 +239,7 @@
                     android:text="ĐĂNG KÝ"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:layout_marginTop="20dp"/>
+                    android:layout_marginTop="20dp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -12,34 +12,34 @@
         android:orientation="vertical">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:background="@color/demo">
 
             <ImageView
                 android:id="@+id/btn_back_remember_list"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/ic_arrow_back"
                 app:tint="@color/white" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/btn_back_remember_list"
-                android:text="Danh sách các từ đã nhớ"
-                android:textColor="@color/white"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_toEndOf="@+id/btn_back_remember_list"-->
+<!--                android:text="Danh sách các từ đã nhớ"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="25sp"-->
+<!--                android:textStyle="bold" />-->
 
             <ImageView
                 android:id="@+id/btn_edit_remember_list"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
@@ -54,7 +54,7 @@
             android:gravity="center"
             android:text="Danh sách các từ đã nhớ"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             android:layout_marginTop="30dp"/>
         <androidx.recyclerview.widget.RecyclerView

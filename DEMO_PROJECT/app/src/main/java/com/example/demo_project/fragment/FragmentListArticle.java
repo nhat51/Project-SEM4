@@ -34,6 +34,7 @@ public class FragmentListArticle extends Fragment {
     private List<Article> articles;
     private RecyclerView rvArticle;
     private ArticleService articleService;
+    private String token = null;
     private ImageView btn_setting_list_article, btn_back_list_article;
     private View view;
     private Context currentContext;
@@ -58,7 +59,7 @@ public class FragmentListArticle extends Fragment {
 
         articles = new ArrayList<>();
         if (articleService == null){
-            articleService = RetrofitGenerator.createService(ArticleService.class);
+            articleService = RetrofitGenerator.createService(ArticleService.class, token);
         }
         try {
             Response<ArticleResponse> listArticleResponse = articleService.getAllArticle().execute();
@@ -75,10 +76,10 @@ public class FragmentListArticle extends Fragment {
         btn_setting_list_article.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btn_setting_list_article.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
+                        getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.frameLayout, MainActivity.fragmentSetting, FragmentSetting.class.getName())
-                        .commit());
+                        .commit();
             }
         });
     }
@@ -88,10 +89,10 @@ public class FragmentListArticle extends Fragment {
         btn_back_list_article.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btn_back_list_article.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
+                getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.frameLayout, MainActivity.fragmentHome, FragmentHome.class.getName())
-                        .commit());
+                        .commit();
             }
         });
     }

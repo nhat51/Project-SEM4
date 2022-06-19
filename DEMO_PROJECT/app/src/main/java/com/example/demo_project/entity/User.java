@@ -4,14 +4,31 @@ import java.util.Date;
 public class User {
     private int userTd;
     private String userName;
-    private String passwordHash;
-    private String full_name;
+    private String password;
+    private String fullName;
     private String email;
     private String phone;
     private int role;
     private int status;
     private Date created_at;
     private Date updated_at;
+
+
+    public User() {
+    }
+
+    public User(int userTd, String userName, String password, String fullName, String email, String phone, int role, int status, Date created_at, Date updated_at) {
+        this.userTd = userTd;
+        this.userName = userName;
+        this.password = password;
+        this.fullName = fullName;
+        this.email = email;
+        this.phone = phone;
+        this.role = role;
+        this.status = status;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
+    }
 
     public int getUserTd() {
         return userTd;
@@ -29,21 +46,7 @@ public class User {
         this.userName = userName;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
-    }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
-    }
-
-    public String getFull_name() {
-        return full_name;
-    }
-
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
-    }
 
     public String getEmail() {
         return email;
@@ -91,5 +94,21 @@ public class User {
 
     public void setUpdated_at(Date updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

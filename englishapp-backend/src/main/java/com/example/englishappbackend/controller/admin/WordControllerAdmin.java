@@ -1,6 +1,7 @@
 package com.example.englishappbackend.controller.admin;
 
 import com.example.englishappbackend.service.word.WordService;
+import com.example.englishappbackend.util.WordFilter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,12 @@ public class WordControllerAdmin {
             @RequestParam(name = "page",defaultValue = "1") int page,
             @RequestParam(name = "size", defaultValue = "5") int size,
             @RequestParam(name = "word",defaultValue = "")String name){
-        return new ResponseEntity<>(wordService.getAll(page, size,name), HttpStatus.OK);
+        WordFilter filter = WordFilter.WordFilterBuilder.aWordFilter()
+                .withName(name)
+                .withPage(page)
+                .withSize(size)
+                .build();
+        return new ResponseEntity<>(wordService.getAll(filter), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET,path = "word-detail")

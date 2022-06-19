@@ -8,14 +8,15 @@ import com.example.englishappbackend.fcm.NotifyBody;
 import com.example.englishappbackend.fcm.PnsRequest;
 import com.example.englishappbackend.repo.UserRepository;
 import com.example.englishappbackend.repo.WordRepository;
+import com.example.englishappbackend.util.HandleTime;
 import com.example.englishappbackend.util.WordSuccessTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
@@ -34,22 +35,22 @@ public class SpringConfig {
 
     private Map<User, List<Word>> listMap;
 
-//    @Scheduled(fixedDelay = 1000*60*60)
-//    public void scheduleFixedDelayTask() {
-//        List<Word> list = wordRepository.findAll();
-//        for (Word w : list) {
-//            User user = userRepository.getById(w.getUser().getId());
-//            Date date = new Date();   // given date
-//            Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
-//            calendar.setTime(date);
-////            if(calendar.get(Calendar.HOUR_OF_DAY) >= user.getStartRemindTime()
-////                    && calendar.get(Calendar.HOUR_OF_DAY) <= user.getEndRemindTime()
-////            ){
-//////                wordControl(w,user.getUserDeviceToken());
-////            }
-//        }
-//    }
+    @Scheduled(fixedDelay = 1000*30)
+    public void scheduleFixedDelayTask() {
+        HandleTime handleTime = new HandleTime();
+        Date date = new Date();
+        long currentTime = handleTime.calculateTimeToLong(date.getHours(), date.getMinutes());
+        List<User> userList = userRepository.findAll();
+        for (User u : userList) {
+            if (currentTime >= u.getStartRemindTime() && currentTime <= u.getEndRemindTime()){
+                for (Word w : u.getWords()) {
+                    System.out.println("Gửi notify");
+                    wordControl(w,u.getUserDeviceToken());
+                }
+            }
+        }
 
+    }
     /*
     *Gửi notify và chuyển word category cho từng từ
     * */
@@ -86,9 +87,9 @@ public class SpringConfig {
                  * Nếu người dùng chọn chưa thuộc thì gửi đặt lại success time và category type
                  * Rồi save từ
                  * */
-                word.setSuccessTime(WordSuccessTime.ZERO);
-                word.setCategoryType(WordCategory.ONCE_EVERY_SEVEN_DAY);
-
+                //word.setSuccessTime(WordSuccessTime.ZERO);
+                //word.setCategoryType(WordCategory.ONCE_EVERY_SEVEN_DAY);
+                word.setRemember(true);
                 wordRepository.save(word);
             }
         }
@@ -100,7 +101,7 @@ public class SpringConfig {
     private void pushNotify(Word word, String deviceToken) {
         if (word.getSuccessTime() < WordSuccessTime.THIRD_TIME){
             PnsRequest messageData = new PnsRequest();
-            messageData.setTitle("Từ mới cho hôm nay nè");
+            messageData.setTitle("Bạn có từ mới cần phải nhớ này ;)");
             messageData.setFcmToken(deviceToken);
             messageData.setContent(convertWordToMessage(word));
             fcmService.pushNotification(messageData);

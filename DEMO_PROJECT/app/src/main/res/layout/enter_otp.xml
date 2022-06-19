@@ -26,14 +26,14 @@
                     android:layout_alignParentStart="true"
                     android:layout_centerInParent="true"
                     android:layout_marginStart="20dp"
-                    android:fontFamily="@font/fugaz_one"
+                    android:textStyle="bold"
                     android:text="Quên mật khẩu"
                     android:textColor="@color/white"
                     android:textSize="25sp" />
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="280dp"
+                    android:layout_height="290dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginStart="30dp"
@@ -47,9 +47,10 @@
                 android:id="@+id/main_login">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Vui lòng nhập mã OTP"
+                    android:gravity="center"
                     android:textColor="@color/demo3"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -66,7 +67,7 @@
                     android:textColorHint="@color/demo3" />
             </RelativeLayout>
             <Button
-                android:id="@+id/btn_login"
+                android:id="@+id/btn_confirm_otp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_bg_register"

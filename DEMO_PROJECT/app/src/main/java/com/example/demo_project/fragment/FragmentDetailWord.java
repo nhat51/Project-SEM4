@@ -53,6 +53,15 @@ public class FragmentDetailWord extends Fragment {
         back_detail_word_page = view.findViewById(R.id.btn_back_detail_word_page);
         edit_detail_word_page = view.findViewById(R.id.btn_edit_detail_word_page);
         search_detail_word_page = view.findViewById(R.id.btn_search_detail_word_page);
+
+        edit_detail_word_page.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                edit_detail_word_page.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.frameLayout,));
+            }
+        });
     }
     private void initData() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -86,33 +95,11 @@ public class FragmentDetailWord extends Fragment {
         back_detail_word_page.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                back_detail_word_page.setOnClickListener(view1 -> getActivity().getSupportFragmentManager()
+                getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.frameLayout, MainActivity.fragmentListWord, FragmentListWord.class.getName())
-                        .commit());
+                        .commit();
             }
         });
     }
-//        words = (List<Word>) getIntent().getSerializableExtra("words");
-//        currentPosition = getIntent().getIntExtra("position", 0);
-//        currentWord = words.get(currentPosition);
-//        tvName_word_detail.setText(currentWord.getName());
-//        tvPos_word_detail.setText(currentWord.getName());
-//        tvWord_detail_meaning.setText(currentWord.getName());
-//        tvWord_detail_example.setText(currentWord.getName());
-//        tvWord_detail_example_trans.setText(currentWord.getName());
-//
-//        words = new ArrayList<>();
-//        if (wordService == null){
-//            wordService = RetrofitGenerator.createService(WordService.class);
-//        }
-//        try {
-//            Response<WordResponse> wordDetailResponse = wordService.getWordDetail().execute();
-//            Log.d("wordssssss: ", String.valueOf(wordDetailResponse.body().getContent().size()));
-//            if (wordDetailResponse.isSuccessful()){
-//                words.addAll(wordDetailResponse.body().getContent());
-//            }
-//        }catch (IOException e){
-//            e.printStackTrace();
-//        }
 }

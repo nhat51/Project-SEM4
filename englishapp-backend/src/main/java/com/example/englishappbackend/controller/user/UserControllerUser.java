@@ -36,13 +36,18 @@ public class UserControllerUser {
 
     @RequestMapping(method = RequestMethod.GET,path = "receive-device-token")
     public ResponseEntity<?> receiveToken(
-            @RequestHeader(name = "device-token") String token){
-        return new ResponseEntity<>(service.getToken(token),HttpStatus.BAD_REQUEST);
+            @RequestParam(name = "device-token") String token){
+        return new ResponseEntity<>(service.getToken(token),HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "setRemindTime")
     public ResponseEntity<?> setRemindTime(@RequestParam(name = "startTime") String start,
                                            @RequestParam(name = "endTime") String end){
         return new ResponseEntity<>(service.setRemindTime(start,end),HttpStatus.OK);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "get-profile")
+    public ResponseEntity<?> getProfile(){
+        return new ResponseEntity<>(service.getProfile(),HttpStatus.OK);
     }
 }
