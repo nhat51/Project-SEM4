@@ -29,7 +29,7 @@ public class ListWordRemindAdapter extends RecyclerView.Adapter<ListWordRemindAd
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(currentContext).inflate(R.layout.item_list_word, parent,false);
+        View view = LayoutInflater.from(currentContext).inflate(R.layout.item_list_word_remind, parent,false);
         return new ListWordRemindAdapter.ViewHolder(view);
     }
 

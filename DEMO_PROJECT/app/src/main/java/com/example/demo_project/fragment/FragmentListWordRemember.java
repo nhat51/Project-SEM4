@@ -60,11 +60,8 @@ public class FragmentListWordRemember extends Fragment {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         listWordRemembered = new ArrayList<>();
-        SharedPreferences settings = getActivity().getSharedPreferences("token", Context.MODE_PRIVATE);
+        SharedPreferences settings = getActivity().getSharedPreferences("ACCESS_TOKEN", Context.MODE_PRIVATE);
         token = settings.getString("token", "");
-        String refreshToken = settings.getString("refreshToken", "");
-        Log.d("token", token);
-        Log.d("refreshToken", refreshToken);
         if (wordService == null){
             wordService = RetrofitGenerator.createService(WordService.class,token);
         }
