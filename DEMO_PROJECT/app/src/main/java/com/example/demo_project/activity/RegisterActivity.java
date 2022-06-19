@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     EditText et_register_name, et_register_email, et_register_phone, et_register_pass, et_register_pass_confirm, et_register_full_name;
     Button btn_register;
-    TextView redirect_login, userNameAlert, fullNameAlert, emailAlert, phoneAlert, passwordAlert, passwordConfirmAlert;
+    TextView redirect_login, userNameAlert, fullNameAlert, emailAlert, phoneAlert, passwordAlert, passwordConfirmAlert,exist_username;
     private TextWatcher text = null;
 
     @Override
@@ -100,6 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
         redirect_login = findViewById(R.id.redirect_login);
 
 
+        exist_username = findViewById(R.id.exist_username);
         fullNameAlert = findViewById(R.id.FullNameAlert);
         userNameAlert = findViewById(R.id.UserNameAlert);
         emailAlert = findViewById(R.id.EmailAlert);
@@ -138,6 +139,8 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast toast = Toast.makeText(getApplicationContext(), charSequence, Toast.LENGTH_LONG);
                         toast.show();
                         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                    }else {
+                        exist_username.setText("Tên tài khoản đã tồn tại");
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
