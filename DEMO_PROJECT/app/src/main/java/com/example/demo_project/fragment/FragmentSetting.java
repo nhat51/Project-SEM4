@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
@@ -67,7 +68,7 @@ public class FragmentSetting extends Fragment {
 
                 Log.d("Notify Start Time", startTime);
                 Log.d("Notify End Time", endTime);
-                SharedPreferences settings = getActivity().getSharedPreferences("token", Context.MODE_PRIVATE);
+                SharedPreferences settings = getActivity().getSharedPreferences("ACCESS_TOKEN", Context.MODE_PRIVATE);
                 token = settings.getString("token", "");
                 if ( validateStartTime() && validateEndTime()){
                     if (userService == null){
@@ -77,6 +78,9 @@ public class FragmentSetting extends Fragment {
                         Response<UserDto> listResponse = userService.setRemindTime(startTime,endTime).execute();
                         if (listResponse.isSuccessful()){
                             Log.d("Set remind time", "Thành công");
+                            CharSequence charSequence = "Thành công";
+                            Toast toast = Toast.makeText(currentContext.getApplicationContext(), charSequence, Toast.LENGTH_LONG);
+                            toast.show();
                         }
                     }catch (IOException e){
                         e.printStackTrace();
